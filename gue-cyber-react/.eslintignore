@@ -1,0 +1,8 @@
+# Ignore build artifacts and dependencies
+build/
+node_modules/
+/dist/
+
+# Optional: ignore logs and env files
+npm-debug.log*
+.env

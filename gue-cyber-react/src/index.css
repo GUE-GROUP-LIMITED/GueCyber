@@ -1,0 +1,280 @@
+:root {
+  font-family: 'Inter', 'Poppins', 'Roboto', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Brand color variables for GUE Cyber */
+  --dark-teal: #021F3F; /* deep cyber blue */
+  --bg-grey: #E3FFCC;
+  --new-brown: #071029; /* darker tone for cyber theme */
+  --new-grey: #9AA6BF;
+  /* Accent and utility tokens (added for controlled accents and CTAs) */
+  --accent-1: #90caf9; /* light blue (used previously as an accent) */
+  --accent-2: #43a047; /* green accent (used previously) */
+  /* Link colors used by nav and inline anchors */
+  --link-color: #646cff;
+  --link-hover: #535bf2;
+  --btn-grad-start: #1976d2;
+  --btn-grad-end: #43a047;
+  --btn-grad: linear-gradient(90deg, var(--btn-grad-start) 60%, var(--btn-grad-end) 100%);
+  --btn-grad-hover: linear-gradient(90deg, #1565c0 60%, #388e3c 100%);
+  --chip-bg: rgba(255,255,255,0.12);
+  --chip-text: rgba(255,255,255,0.95);
+  --outline-weak: rgba(255,255,255,0.18);
+  --btn-outline-hover-bg: rgba(255,255,255,0.06);
+  --muted-text: var(--new-grey);
+  /* Section/card backgrounds tuned for cyber dark theme */
+  --page-bg: #061124;
+  --section-bg: #081629; /* slightly lighter tone for sections */
+  --card-bg: rgba(255,255,255,0.03); /* subtle card background in dark mode */
+  /* Hero background (use across pages for consistency) */
+  --hero-bg: linear-gradient(135deg, var(--dark-teal) 0%, #021f3f 60%);
+  /* Hero text color (can be adjusted for contrast) */
+  --hero-text: rgba(255,255,255,0.95);
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+
+.MuiTypography-h4 {
+  font-size: 1.25rem !important;
+}
+
+/* Prevent horizontal scroll from any element */
+main,
+section,
+div,
+article,
+aside,
+header,
+footer {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+* Fix for Material-UI Container overflow */
+.MuiContainer-root {
+  overflow-x: hidden !important;
+      font-size: var(--hero-h1-xs) !important;
+  max-width: 100% !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+/* Ensure hero H1 is uniform across pages (override inline sx where necessary) */
+/* Removed global !important override to allow per-component control via variables.
+   Pages should use `fontSize: { xs: 'var(--hero-h1-xs)', md: 'var(--hero-h1-md)' }` in their sx props. */
+
+@media (min-width: 600px) {
+  .MuiContainer-root {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
+
+/* Fix Grid overflow */
+.MuiGrid-container {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.MuiGrid-item {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+/* Fix Card spacing */
+.MuiCard-root {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Responsive text */
+@media (max-width: 600px) {
+  .MuiTypography-h1 {
+    font-size: 2rem !important;
+  }
+
+  .MuiTypography-h2 {
+    font-size: 1.75rem !important;
+  }
+
+  .MuiTypography-h3 {
+    font-size: 1.5rem !important;
+  }
+
+  .MuiTypography-h4 {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Prevent horizontal scroll from any element */
+main,
+section,
+div,
+article,
+aside,
+header,
+footer {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Additional mobile fixes */
+@media (max-width: 768px) {
+
+  /* Header navigation */
+  .nav-links {
+    display: none !important;
+  }
+
+  .sidenav-trigger {
+    display: block !important;
+  }
+
+  /* Ensure buttons don't cause overflow */
+  .MuiButton-root {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  /* Fix Typography elements */
+  .MuiTypography-root {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Prevent wide content */
+  img,
+  video,
+  iframe,
+  embed,
+  object {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Box components */
+  .MuiBox-root {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+}
+
+/* Ensure all content stays within viewport */
+.container,
+.MuiContainer-root,
+[class*="container"] {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+/* Force break long words */
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+@media (max-width: 768px) {
+
+  /* Header navigation */
+  .nav-links {
+    display: none !important;
+  }
+
+  .sidenav-trigger {
+    display: block !important;
+  }
+
+  /* Ensure buttons don't cause overflow */
+  .MuiButton-root {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  /* Fix Typography elements */
+  .MuiTypography-root {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Prevent wide content */
+  img,
+  video,
+  iframe,
+  embed,
+  object {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Ensure brand logo doesn't overflow and header children can stack */
+  .brand-logo img {
+    max-width: 100px !important;
+    height: auto !important;
+  }
+
+  header, .nav-wrapper, .container {
+    position: relative;
+  }
+}
