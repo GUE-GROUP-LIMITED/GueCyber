@@ -38,9 +38,12 @@ function App() {
       <CssBaseline />
       <div style={{ width: '100%', overflow: 'hidden' }}>
         <Router>
+          {/* Skip link: visible on keyboard focus to jump to main content */}
+          <a href="#main" className="skip-link">Skip to main content</a>
           <Header />
           <Suspense fallback={<Box sx={{ display: 'flex', justifyContent: 'center', mt: 6 }}><CircularProgress /></Box>}>
-            <Routes>
+            <main id="main" tabIndex={-1}>
+              <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
@@ -50,7 +53,8 @@ function App() {
               {/* Only main services remain. Removed unused service detail routes. */}
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
-            </Routes>
+              </Routes>
+            </main>
           </Suspense>
           <Footer />
         </Router>
