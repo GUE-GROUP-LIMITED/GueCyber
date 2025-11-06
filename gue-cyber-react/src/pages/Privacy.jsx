@@ -1,4 +1,9 @@
-import { Typography, Card, CardContent, Grid, Box, Divider, Chip } from "@mui/material";
+import { Typography, Card, CardContent, Grid, Box, Divider, Chip, Button } from "@mui/material";
+import heroTerms from "../assets/hero-terms.svg";
+import PrivacyTipIcon from '@mui/icons-material/PrivacyTip';
+import DataUsageIcon from '@mui/icons-material/DataUsage';
+import SettingsIcon from '@mui/icons-material/Settings';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
 export default function Privacy() {
   return (
@@ -10,7 +15,11 @@ export default function Privacy() {
         py: 8,
         textAlign: 'center',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        backgroundImage: `url(${heroTerms})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
       }}>
         {/* Abstract background shapes */}
         <div style={{
@@ -44,27 +53,43 @@ export default function Privacy() {
             Privacy Above Profits
           </Typography>
           <Typography variant="body1" sx={{
-            maxWidth: 750,
+            maxWidth: 820,
             mx: 'auto',
             mb: 4,
             color: 'var(--hero-text)',
-            fontSize: '1.18rem',
-            lineHeight: 1.7
+            fontSize: '1.06rem',
+            lineHeight: 1.6
           }}>
-            At <b>GUE Cyber Limited</b> we value your privacy and are committed to protecting your personal information. Our privacy policy outlines how we collect, use, and protect your data in compliance with applicable regulations.
+            GUE Cyber Limited is headquartered in Nigeria and transacts with individuals and organisations worldwide. We prioritise your privacy. We do not use cookies or other tracking technologies on this website. We only collect personal information you voluntarily submit via our contact form (for example: name, email, organisation and message) and use it to respond to your enquiry or provide requested services.
           </Typography>
-          <Chip
-            label="GDPR Compliant"
-            sx={{
-              bgcolor: 'var(--accent-2)',
-              color: 'var(--chip-text)',
-              fontWeight: 600,
-              fontSize: '0.9rem',
-              px: 2,
-              py: 1
-            }}
-            icon={<span className="material-icons" style={{ fontSize: '18px', color: 'var(--chip-text)' }}>verified_user</span>}
-          />
+          <Chip label="No cookies used" sx={{ bgcolor: 'rgba(255,255,255,0.04)', color: 'var(--chip-text)', fontWeight: 600, fontSize: '0.85rem', px: 2, py: 0.8 }} icon={<PrivacyTipIcon sx={{ color: 'var(--chip-text)' }} />} />
+
+          {/* At a glance + Table of contents */}
+          <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center' }}>
+            <Card sx={{ bgcolor: 'rgba(0,0,0,0.18)', color: 'var(--chip-text)', px: 2, py: 1, boxShadow: 2 }}>
+              <Box sx={{ display: 'flex', gap: 3, alignItems: 'center' }}>
+                <Box sx={{ textAlign: 'left' }}>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>At a glance</Typography>
+                  <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.78)' }}>
+                    • Headquartered in Nigeria
+                    • No cookies or tracking
+                    • We only collect contact-form submissions
+                    • Governing law: Nigeria (DPA). GDPR respected where applicable
+                  </Typography>
+                </Box>
+                <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>Contents</Typography>
+                  <Box component="nav" sx={{ display: 'flex', flexDirection: 'column', gap: 0.5, mt: 0.5 }}>
+                    <a href="#information" style={{ color: 'var(--link-color)', textDecoration: 'none' }}>Information we collect</a>
+                    <a href="#use" style={{ color: 'var(--link-color)', textDecoration: 'none' }}>How we use information</a>
+                    <a href="#rights" style={{ color: 'var(--link-color)', textDecoration: 'none' }}>Your rights</a>
+                    <a href="#governing" style={{ color: 'var(--link-color)', textDecoration: 'none' }}>Governing law</a>
+                    <a href="#contact" style={{ color: 'var(--link-color)', textDecoration: 'none' }}>Contact</a>
+                  </Box>
+                </Box>
+              </Box>
+            </Card>
+          </Box>
         </div>
       </Box>
 
@@ -74,12 +99,12 @@ export default function Privacy() {
           {/* Introduction Card */}
           <Grid item xs={12}>
             <Card sx={{ boxShadow: 3, background: 'var(--card-bg)' }}>
-              <CardContent sx={{ p: 4 }}>
-                <Typography variant="h5" fontWeight={700} gutterBottom color="primary" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <span className="material-icons">privacy_tip</span>
+              <CardContent sx={{ p: 4, textAlign: { xs: 'center', md: 'left' } }}>
+                <Typography variant="h5" fontWeight={700} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <PrivacyTipIcon />
                   Our Commitment to Privacy
                 </Typography>
-                <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'var(--muted-text)' }}>
+                <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(255,255,255,0.92)' }}>
                   Your privacy is important to us. This privacy policy outlines how GUE Cyber collects, uses, and protects your personal information in compliance with applicable regulations.
                 </Typography>
               </CardContent>
@@ -89,34 +114,22 @@ export default function Privacy() {
           {/* Information We Collect */}
           <Grid item xs={12} md={6}>
               <Card sx={{ height: '100%', boxShadow: 3, background: 'var(--card-bg)' }}>
-              <CardContent sx={{ p: 4 }}>
-                <Typography variant="h5" fontWeight={700} gutterBottom color="primary" sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                  <span className="material-icons">data_usage</span>
-                  Information We Collect
-                </Typography>
-                <Typography variant="body1" sx={{ mb: 3, color: 'var(--muted-text)' }}>
-                  We may collect and process the following types of personal data:
-                </Typography>
-                  <Box sx={{ '& > div': { mb: 2, p: 2, bgcolor: 'var(--card-bg)', borderRadius: 2, borderLeft: 4, borderLeftColor: 'var(--accent-1)' } }}>
-                  <div>
-                    <Typography variant="h6" fontWeight={600} color="primary" gutterBottom>Contact Details</Typography>
-                    <Typography variant="body2" color="var(--muted-text)">
-                      Your name, email address, phone number, and information you provide when contacting us.
-                    </Typography>
-                  </div>
-                  <div>
-                    <Typography variant="h6" fontWeight={600} color="primary" gutterBottom>Browsing Data</Typography>
-                    <Typography variant="body2" color="var(--muted-text)">
-                      IP address, browser type, pages visited, and visit timestamps.
-                    </Typography>
-                  </div>
-                  <div>
-                    <Typography variant="h6" fontWeight={600} color="primary" gutterBottom>Cookies</Typography>
-                    <Typography variant="body2" color="var(--muted-text)">
-                      Tracking technologies to enhance your website experience.
-                    </Typography>
-                  </div>
-                </Box>
+              <CardContent sx={{ p: 4, textAlign: { xs: 'center', md: 'left' } }}>
+                      <Typography variant="h5" fontWeight={700} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
+                        <DataUsageIcon />
+                        Information We Collect
+                      </Typography>
+                      <Typography variant="body1" sx={{ mb: 3, color: 'rgba(255,255,255,0.92)' }}>
+                        We do not use cookies or tracking technologies. We only collect personal information you voluntarily provide via our contact form.
+                      </Typography>
+                        <Box sx={{ '& > div': { mb: 2, p: 2, bgcolor: 'var(--card-bg)', borderRadius: 2, borderLeft: 4, borderLeftColor: 'var(--accent-1)' } }}>
+                        <div>
+                          <Typography variant="h6" fontWeight={600} sx={{ color: 'rgba(255,255,255,0.92)' }} gutterBottom>Contact form information</Typography>
+                          <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.75)' }}>
+                            Information you choose to provide when contacting us (for example: name, email address, organisation, and your message).
+                          </Typography>
+                        </div>
+                      </Box>
               </CardContent>
             </Card>
           </Grid>
@@ -124,33 +137,33 @@ export default function Privacy() {
           {/* How We Use Information */}
           <Grid item xs={12} md={6}>
             <Card sx={{ height: '100%', boxShadow: 3, background: 'var(--card-bg)' }}>
-              <CardContent sx={{ p: 4 }}>
-                <Typography variant="h5" fontWeight={700} gutterBottom color="primary" sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                  <span className="material-icons">settings</span>
+              <CardContent sx={{ p: 4, textAlign: { xs: 'center', md: 'left' } }}>
+                <Typography variant="h5" fontWeight={700} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
+                  <SettingsIcon />
                   How We Use Your Information
                 </Typography>
-                <Typography variant="body1" sx={{ mb: 3, color: 'var(--muted-text)' }}>
-                  We use your personal information for the following purposes:
+                <Typography variant="body1" sx={{ mb: 3, color: 'rgba(255,255,255,0.92)' }}>
+                  We use the information you provide only to respond to your enquiry and to deliver the services you request. We do not sell, trade, or share contact-form submissions for marketing or profiling.
                 </Typography>
                   <Box sx={{ '& > div': { mb: 2, p: 2, bgcolor: 'var(--card-bg)', borderRadius: 2, borderLeft: 4, borderLeftColor: 'var(--accent-2)' } }}>
                   <div>
-                    <Typography variant="h6" fontWeight={600} color="primary" gutterBottom>Service Improvement</Typography>
-                    <Typography variant="body2" color="var(--muted-text)">
-                      Analyzing data to enhance our website and services for better user experience.
+                    <Typography variant="h6" fontWeight={600} sx={{ color: 'rgba(255,255,255,0.92)' }} gutterBottom>Responding to enquiries</Typography>
+                    <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.75)' }}>
+                      We use your contact details to reply to messages, schedule calls, and provide requested support or proposals.
                     </Typography>
                   </div>
                   <div>
-                    <Typography variant="h6" fontWeight={600} color="primary" gutterBottom>Communication</Typography>
-                    <Typography variant="body2" color="var(--muted-text)">
-                      Sending updates, newsletters, and service-related information.
+                    <Typography variant="h6" fontWeight={600} sx={{ color: 'rgba(255,255,255,0.92)' }} gutterBottom>Service delivery & legal compliance</Typography>
+                    <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.75)' }}>
+                      We may process information where necessary to comply with Nigerian law, contractual obligations, or other legitimate purposes connected to providing services.
                     </Typography>
                   </div>
-                  <div>
-                    <Typography variant="h6" fontWeight={600} color="primary" gutterBottom>Legal Compliance</Typography>
-                    <Typography variant="body2" color="var(--muted-text)">
-                      Processing data to comply with applicable laws and regulations.
-                    </Typography>
-                  </div>
+                </Box>
+                <Box sx={{ mt: 2 }}>
+                  <Typography variant="h6" fontWeight={700} sx={{ color: 'rgba(255,255,255,0.92)', mb: 1 }}>Governing law</Typography>
+                  <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.75)' }}>
+                    This policy is governed by the laws of Nigeria (including the Nigeria Data Protection Act and related regulations). If you are located in the European Union/EEA, we will also respect your rights under the GDPR where applicable.
+                  </Typography>
                 </Box>
               </CardContent>
             </Card>
@@ -159,12 +172,12 @@ export default function Privacy() {
           {/* GDPR Rights */}
           <Grid item xs={12}>
             <Card sx={{ boxShadow: 3, background: 'var(--card-bg)' }}>
-              <CardContent sx={{ p: 4 }}>
-                <Typography variant="h5" fontWeight={700} gutterBottom color="primary" sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                  <span className="material-icons">account_balance</span>
+              <CardContent sx={{ p: 4, textAlign: { xs: 'center', md: 'left' } }}>
+                <Typography variant="h5" fontWeight={700} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
+                  <AccountBalanceIcon />
                   Your Rights Under GDPR
                 </Typography>
-                <Typography variant="body1" sx={{ mb: 4, color: 'var(--muted-text)', fontSize: '1.1rem' }}>
+                <Typography variant="body1" sx={{ mb: 4, color: 'rgba(255,255,255,0.92)', fontSize: '1.1rem' }}>
                   As a data subject, you have the following rights under GDPR:
                 </Typography>
                 <Grid container spacing={3}>
@@ -179,7 +192,7 @@ export default function Privacy() {
                     <Grid item xs={12} md={6} key={index}>
                       <Box sx={{
                         p: 3,
-                          bgcolor: 'var(--card-bg)',
+                        bgcolor: 'var(--card-bg)',
                         borderRadius: 3,
                         borderLeft: 4,
                         borderLeftColor: 'var(--accent-1)',
@@ -187,14 +200,12 @@ export default function Privacy() {
                         gap: 2,
                         alignItems: 'flex-start'
                       }}>
-                        <span className="material-icons" style={{ color: 'var(--accent-1)', fontSize: '24px', marginTop: '2px' }}>
-                          {right.icon}
-                        </span>
+                        <Box sx={{ color: 'var(--accent-1)', fontSize: 28, mt: 0.3 }}>{/* icon placeholder */}</Box>
                         <Box>
-                          <Typography variant="h6" fontWeight={600} color="primary" gutterBottom>
+                          <Typography variant="h6" fontWeight={600} sx={{ color: 'rgba(255,255,255,0.92)' }} gutterBottom>
                             {right.title}
                           </Typography>
-                          <Typography variant="body2" color="#666">
+                          <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.72)' }}>
                             {right.desc}
                           </Typography>
                         </Box>
@@ -202,6 +213,18 @@ export default function Privacy() {
                     </Grid>
                   ))}
                 </Grid>
+              </CardContent>
+            </Card>
+          </Grid>
+          {/* CTA */}
+          <Grid item xs={12}>
+            <Card sx={{ boxShadow: 3, background: 'var(--card-bg)' }}>
+              <CardContent sx={{ p: 4, textAlign: 'center' }}>
+                <Typography variant="h5" fontWeight={700} gutterBottom sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, mb: 2 }}>
+                  Need help with your data?
+                </Typography>
+                <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.92)', mb: 3 }}>Contact our data protection team for requests or concerns. You can also email us at <a href="mailto:info@guecyber.com" style={{ color: 'var(--link-color)' }}>info@guecyber.com</a>.</Typography>
+                <Button component="a" href="/contact" variant="contained" sx={{ background: 'var(--btn-grad)', color: 'var(--chip-text)', textTransform: 'none' }}>Contact Data Team</Button>
               </CardContent>
             </Card>
           </Grid>

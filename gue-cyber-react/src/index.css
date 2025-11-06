@@ -1,55 +1,65 @@
 :root {
-  font-family: 'Inter', 'Poppins', 'Roboto', Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Typography */
+  --font-stack: 'Inter', 'Poppins', 'Roboto', Arial, sans-serif;
+  --fs-base: 16px; /* sensible default for body copy */
+  --fs-md: 18px;   /* slightly larger for legal / card copy */
+  --fs-lg: 20px;
+  --fs-xl: 28px;
+  --line-tight: 1.15;
+  --line-relaxed: 1.6;
+  --content-max-ch: 75ch; /* limits line-length for readability */
 
   /* Brand color variables for GUE Cyber */
   --dark-teal: #021F3F; /* deep cyber blue */
-  --bg-grey: #E3FFCC;
-  --new-brown: #071029; /* darker tone for cyber theme */
-  --new-grey: #9AA6BF;
-  /* Accent and utility tokens (added for controlled accents and CTAs) */
-  --accent-1: #90caf9; /* light blue (used previously as an accent) */
-  --accent-2: #43a047; /* green accent (used previously) */
-  /* Link colors used by nav and inline anchors */
+  --accent-1: #90caf9;
+  --accent-2: #43a047;
+
+  /* Semantic color tokens (use these in components) */
+  --page-bg: #061124;
+  --section-bg: #081629;
+  --card-bg: rgba(255,255,255,0.03);
+  --text-primary: rgba(255,255,255,0.94);
+  --muted-text: #9AA6BF;
+
+  /* Links / buttons */
   --link-color: #646cff;
   --link-hover: #535bf2;
   --btn-grad-start: #1976d2;
   --btn-grad-end: #43a047;
   --btn-grad: linear-gradient(90deg, var(--btn-grad-start) 60%, var(--btn-grad-end) 100%);
-  --btn-grad-hover: linear-gradient(90deg, #1565c0 60%, #388e3c 100%);
-  --chip-bg: rgba(255,255,255,0.12);
-  --chip-text: rgba(255,255,255,0.95);
-  --outline-weak: rgba(255,255,255,0.18);
-  --btn-outline-hover-bg: rgba(255,255,255,0.06);
-  --muted-text: var(--new-grey);
-  /* Section/card backgrounds tuned for cyber dark theme */
-  --page-bg: #061124;
-  --section-bg: #081629; /* slightly lighter tone for sections */
-  --card-bg: rgba(255,255,255,0.03); /* subtle card background in dark mode */
-  /* Hero background (use across pages for consistency) */
-  --hero-bg: linear-gradient(135deg, var(--dark-teal) 0%, #021f3f 60%);
-  /* Hero text color (can be adjusted for contrast) */
-  --hero-text: rgba(255,255,255,0.95);
 
+  /* Layout */
+  --container-max: 1200px;
+
+  /* Accessibility / rendering */
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
+  font-family: var(--font-stack);
+  font-weight: 400;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* Enforce dark page background and readable default text color so hero and sections remain visible */
+a {
+  font-weight: 500;
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
 html, body, #root {
   background-color: var(--page-bg) !important;
-  color: var(--hero-text) !important;
+  color: var(--text-primary) !important;
 }
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--link-color);
   text-decoration: inherit;
 }
 
@@ -57,9 +67,7 @@ a:hover {
   color: #535bf2;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   overflow-x: hidden;
@@ -68,9 +76,7 @@ html {
 }
 
 
-.MuiTypography-h4 {
-  font-size: 1.25rem !important;
-}
+.MuiTypography-h4 { font-size: 1.25rem; }
 
 /* Prevent horizontal scroll from any element */
 main,
@@ -116,10 +122,25 @@ footer {
   padding-right: 12px !important;
 }
 
-/* Fix Card spacing */
+/* Card styles: readable background, padding and constrained lines for long copy */
 .MuiCard-root {
   word-wrap: break-word;
   overflow-wrap: break-word;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  padding: 24px;
+  border-radius: 8px;
+}
+
+/* Improve readability for paragraph and body copy within cards/sections */
+p,
+.MuiCard-root p,
+.MuiTypography-body1,
+.MuiTypography-body2 {
+  max-width: var(--content-max-ch);
+  font-size: var(--fs-md);
+  line-height: var(--line-relaxed);
+  color: var(--text-primary);
 }
 
 /* Responsive text */
@@ -220,7 +241,7 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 1em;
+  font-size: var(--fs-md);
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
@@ -232,9 +253,18 @@ button:hover {
   border-color: #646cff;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* Accessible focus styles for keyboard users (clear, visible, non-invasive) */
+:focus-visible {
+  outline: 3px solid rgba(100,108,255,0.6);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+.MuiButton-root:focus-visible,
+a:focus-visible,
+.nav-link:focus-visible {
+  outline: 3px solid rgba(100,108,255,0.6);
+  outline-offset: 2px;
 }
 
 
@@ -283,4 +313,9 @@ button:focus-visible {
   header, .nav-wrapper, .container {
     position: relative;
   }
+}
+
+/* Utility: center container max width */
+.container, .MuiContainer-root {
+  max-width: var(--container-max) !important;
 }
