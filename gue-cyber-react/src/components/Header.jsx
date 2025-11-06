@@ -36,7 +36,7 @@ export default function Header() {
                 top: 0,
                 zIndex: 1000,
                 backdropFilter: 'saturate(150%) blur(6px)',
-                minHeight: 72,
+                minHeight: { xs: 64, sm: 72 },
                 display: 'flex',
                 alignItems: 'center',
                 borderBottom: '1px solid rgba(255,255,255,0.04)'
@@ -44,7 +44,7 @@ export default function Header() {
                 <Box sx={{ width: '100%', maxWidth: 1200, mx: 'auto', px: 2, display: 'flex', alignItems: 'center' }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mr: 2, flex: '0 0 auto' }}>
                         <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-                            <Box component="img" src={logo} alt="GUE Cyber Logo" loading="lazy" sx={{ height: isMobile ? 36 : 48, borderRadius: 1 }} />
+                            <Box component="img" src={logo} alt="GUE Cyber Logo" loading="lazy" sx={{ height: { xs: 36, sm: 48 }, borderRadius: 1 }} />
                         </Link>
                         {!isMobile && (
                             <Typography variant="subtitle1" sx={{ fontWeight: 800, letterSpacing: 1 }}>GUE CYBER</Typography>
@@ -60,7 +60,10 @@ export default function Header() {
                                     fontWeight: 600,
                                     fontSize: 13,
                                     textTransform: 'uppercase',
-                                    padding: '8px 10px',
+                                    padding: isMobile ? '10px 12px' : '8px 10px',
+                                    minHeight: 44,
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
                                     borderRadius: 8,
                                     textDecoration: 'none',
                                     transition: 'all 160ms ease-in-out',

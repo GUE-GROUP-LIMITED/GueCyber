@@ -315,6 +315,35 @@ a:focus-visible,
   }
 }
 
+/* Mobile & touch improvements */
+@media (max-width: 600px) {
+  /* Ensure interactive elements have adequate tappable area */
+  .nav-link,
+  .MuiButton-root,
+  .MuiListItemButton-root,
+  .MuiIconButton-root {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+
+  /* Reduce header padding and tighten layout on very small screens */
+  header nav {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  /* Stack footer columns and increase spacing */
+  footer .MuiContainer-root .MuiStack-root {
+    gap: 18px;
+  }
+
+  /* Make long form content slightly larger for legibility on phones */
+  p, .MuiTypography-body1, .MuiTypography-body2 {
+    font-size: 16px;
+  }
+}
+
 /* Utility: center container max width */
 .container, .MuiContainer-root {
   max-width: var(--container-max) !important;

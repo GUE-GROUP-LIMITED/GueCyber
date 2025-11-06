@@ -36,17 +36,17 @@ export default function Footer() {
                     <Box sx={{ minWidth: 220 }}>
                         <Typography variant="subtitle2" sx={{ color: 'rgba(255,255,255,0.9)', fontWeight: 700, mb: 1 }}>Get in touch</Typography>
                         <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)', mb: 1 }}>Email us: <Box component="a" href="mailto:info@guecyber.com" sx={{ color: 'var(--btn-grad)', textDecoration: 'none', fontWeight: 700 }}>info@guecyber.com</Box></Typography>
-                        <Button component={Link} to="/contact" variant="contained" sx={{ background: 'var(--btn-grad)', color: 'var(--chip-text)', textTransform: 'none', mt: 1 }}>Request a Consultation</Button>
+                        <Button component={Link} to="/contact" variant="contained" sx={{ background: 'var(--btn-grad)', color: 'var(--chip-text)', textTransform: 'none', mt: 1, width: { xs: '100%', md: 'auto' } }}>Request a Consultation</Button>
 
                         <Box sx={{ mt: 2, display: 'flex', gap: 1, alignItems: 'center' }}>
-                            <IconButton component="a" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" sx={{ color: 'rgba(255,255,255,0.9)' }}>
-                                <LinkedInIcon />
+                            <IconButton component="a" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" sx={{ color: 'rgba(255,255,255,0.9)', p: { xs: 1.25, md: 1 } }}>
+                                <LinkedInIcon sx={{ fontSize: { xs: 22, md: 20 } }} />
                             </IconButton>
-                            <IconButton component="a" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" sx={{ color: 'rgba(255,255,255,0.9)' }}>
-                                <GitHubIcon />
+                            <IconButton component="a" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" sx={{ color: 'rgba(255,255,255,0.9)', p: { xs: 1.25, md: 1 } }}>
+                                <GitHubIcon sx={{ fontSize: { xs: 22, md: 20 } }} />
                             </IconButton>
-                            <IconButton component="a" href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter" sx={{ color: 'rgba(255,255,255,0.9)' }}>
-                                <TwitterIcon />
+                            <IconButton component="a" href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter" sx={{ color: 'rgba(255,255,255,0.9)', p: { xs: 1.25, md: 1 } }}>
+                                <TwitterIcon sx={{ fontSize: { xs: 22, md: 20 } }} />
                             </IconButton>
                         </Box>
                     </Box>
