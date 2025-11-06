@@ -373,6 +373,26 @@ a:focus-visible,
   }
 }
 
+/* Brand logo sizing to avoid overlap on small screens */
+.brand-logo img, .brand-logo > img {
+  display: block;
+  object-fit: contain;
+  max-width: 56px;
+  height: 28px;
+}
+
+@media (min-width: 600px) {
+  .brand-logo img, .brand-logo > img {
+    max-width: 120px;
+    height: 48px;
+  }
+}
+
+/* Ensure nav/menu sits above brand logo if any stacking issues occur */
+.nav-links, .MuiStack-root, .nav-wrapper {
+  z-index: 1100;
+}
+
 /* Utility: center container max width */
 .container, .MuiContainer-root {
   max-width: var(--container-max) !important;

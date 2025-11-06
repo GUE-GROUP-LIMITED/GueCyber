@@ -51,9 +51,9 @@ export default function Header() {
                 borderBottom: '1px solid rgba(255,255,255,0.04)'
             }}>
                 <Box sx={{ width: '100%', maxWidth: 1200, mx: 'auto', px: 2, display: 'flex', alignItems: 'center' }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mr: 2, flex: '0 0 auto' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mr: 2, flex: '0 0 auto' }} className="brand-logo">
                         <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-                            <Box component="img" src={logo} alt="GUE Cyber Logo" loading="lazy" sx={{ height: { xs: 36, sm: 48 }, borderRadius: 1 }} />
+                            <Box component="img" src={logo} alt="GUE Cyber Logo" loading="lazy" sx={{ height: { xs: 28, sm: 48 }, width: 'auto', maxWidth: { xs: 56, sm: 120 }, objectFit: 'contain', borderRadius: 1 }} />
                         </Link>
                         {!isMobile && (
                             <Typography variant="subtitle1" sx={{ fontWeight: 800, letterSpacing: 1 }}>GUE CYBER</Typography>
