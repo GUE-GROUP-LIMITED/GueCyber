@@ -58,10 +58,11 @@ export default function Footer() {
             <Box sx={{ py: 2 }}>
                 <Container maxWidth="lg" sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2 }}>
                     <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.64)' }}>&copy; {new Date().getFullYear()} GUE CYBER LIMITED — All rights reserved.</Typography>
-                    <Stack direction="row" spacing={2} alignItems="center">
-                        <Typography component={Link} to="/terms" sx={{ color: 'rgba(255,255,255,0.64)', textDecoration: 'none' }}>Terms</Typography>
-                        <Typography component={Link} to="/privacy" sx={{ color: 'rgba(255,255,255,0.64)', textDecoration: 'none' }}>Privacy</Typography>
-                    </Stack>
+                        <Stack direction="row" spacing={2} alignItems="center">
+                            <Typography component={Link} to="/terms" sx={{ color: 'rgba(255,255,255,0.64)', textDecoration: 'none' }}>Terms</Typography>
+                            <Typography component={Link} to="/cookie-policy" sx={{ color: 'rgba(255,255,255,0.64)', textDecoration: 'none' }}>Cookie Policy</Typography>
+                            <Typography component={Link} to="/privacy" sx={{ color: 'rgba(255,255,255,0.64)', textDecoration: 'none' }}>Privacy</Typography>
+                        </Stack>
                 </Container>
             </Box>
         </Box>

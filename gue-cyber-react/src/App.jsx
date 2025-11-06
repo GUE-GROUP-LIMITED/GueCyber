@@ -16,6 +16,7 @@ const Blog = lazy(() => import('./pages/Blog'));
 
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import CookiePolicy from "./pages/CookiePolicy";
 
 // Create a theme instance
 const theme = createTheme({
@@ -53,6 +54,7 @@ function App() {
               {/* Only main services remain. Removed unused service detail routes. */}
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
+              <Route path="/cookie-policy" element={<CookiePolicy />} />
               </Routes>
             </main>
           </Suspense>

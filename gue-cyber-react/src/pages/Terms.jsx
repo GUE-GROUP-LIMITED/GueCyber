@@ -1,4 +1,4 @@
-import { Typography, Card, CardContent, Grid, Box, Divider, Chip, Alert, Button } from "@mui/material";
+import { Typography, Box, Divider, Chip, Alert, Button, Container } from "@mui/material";
 import heroTerms from "../assets/hero-terms.svg";
 import GavelIcon from '@mui/icons-material/Gavel';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
@@ -70,7 +70,7 @@ export default function Terms() {
 
           {/* At a glance + TOC */}
           <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center' }}>
-            <Card sx={{ bgcolor: 'rgba(0,0,0,0.18)', color: 'var(--chip-text)', px: 2, py: 1, boxShadow: 2 }}>
+            <Box sx={{ bgcolor: 'rgba(0,0,0,0.08)', color: 'var(--chip-text)', px: 2, py: 1, boxShadow: 0, borderRadius: 1 }}>
               <Box sx={{ display: 'flex', gap: 3, alignItems: 'center' }}>
                 <Box sx={{ textAlign: 'left' }}>
                   <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>At a glance</Typography>
@@ -91,178 +91,70 @@ export default function Terms() {
                   </Box>
                 </Box>
               </Box>
-            </Card>
+            </Box>
           </Box>
         </div>
       </Box>
 
-      {/* Content Section */}
-  <Box sx={{ py: 6, background: 'var(--section-bg)' }}>
-        <Grid container spacing={4} sx={{ maxWidth: 1200, mx: 'auto', px: 3 }}>
-          {/* Introduction Card */}
-          <Grid item xs={12}>
-            <Card sx={{ boxShadow: 3, background: 'var(--card-bg)' }}>
-              <CardContent sx={{ p: 4, textAlign: { xs: 'center', md: 'left' } }}>
-                <Alert severity="info" sx={{ mb: 3, fontSize: '1rem' }}>
-                  <Typography variant="body1" fontWeight={500}>
-                      Welcome to GUE Cyber! By accessing or using our services, you agree to comply with and be bound by these terms.
-                    </Typography>
-                </Alert>
-                <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(255,255,255,0.92)' }}>
-                  These Terms of Service govern your use of our website and services. If you do not agree with any part of these terms, you must not use our services.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
+      {/* Content Section - continuous legal document */}
+      <Box sx={{ py: 6, background: 'var(--section-bg)' }}>
+        <Container maxWidth="md" sx={{ color: 'var(--text-primary)', lineHeight: 1.8 }}>
+          <Alert severity="info" sx={{ mb: 3, bgcolor: 'transparent', color: 'var(--accent-1)', '& .MuiAlert-icon': { color: 'var(--accent-1)' } }}>
+            <Typography variant="body1" fontWeight={500} sx={{ color: 'inherit' }}>Welcome to GUE Cyber! By accessing or using our services, you agree to comply with and be bound by these terms.</Typography>
+          </Alert>
 
-          {/* Acceptance & Changes */}
-          <Grid item xs={12} md={6}>
-            <Card sx={{ height: '100%', boxShadow: 3, background: 'var(--card-bg)' }}>
-              <CardContent sx={{ p: 4, textAlign: { xs: 'center', md: 'left' } }}>
-                <Typography variant="h5" fontWeight={700} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                  <HowToRegIcon />
-                  Acceptance of Terms
-                </Typography>
-                <Box sx={{ mb: 4, p: 3, bgcolor: 'var(--card-bg)', borderRadius: 2, borderLeft: 4, borderLeftColor: 'var(--accent-1)' }}>
-                  <Typography variant="body1" color="rgba(255,255,255,0.92)" sx={{ lineHeight: 1.7 }}>
-                    By using our website, you confirm that you are at least <b>18 years old</b> or have the consent of a parent or guardian. If you are using the services on behalf of an organization, you represent that you have the authority to bind that organization to these terms.
-                  </Typography>
-                </Box>
+          <section id="introduction" style={{ marginBottom: 20 }}>
+            <Typography variant="body1" sx={{ fontSize: '1.05rem', mb: 1 }}>These Terms of Service govern your use of our website and services. If you do not agree with any part of these terms, you must not use our services.</Typography>
+          </section>
 
-                <Divider sx={{ my: 3 }} />
+          <section id="acceptance" style={{ marginBottom: 20 }}>
+            <Typography variant="h5" fontWeight={700} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}><HowToRegIcon /> Acceptance of Terms</Typography>
+            <Typography variant="body1">By using our website, you confirm that you are at least <b>18 years old</b> or have the consent of a parent or guardian. If you are using the services on behalf of an organization, you represent that you have the authority to bind that organization to these terms.</Typography>
+          </section>
 
-                <Typography variant="h5" fontWeight={700} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                  <UpdateIcon />
-                  Changes to Terms
-                </Typography>
-                <Box sx={{ p: 3, bgcolor: 'var(--card-bg)', borderRadius: 2, borderLeft: 4, borderLeftColor: '#43a047' }}>
-                  <Typography variant="body1" color="#555" sx={{ lineHeight: 1.7 }}>
-                    We reserve the right to modify these Terms of Service at any time. We will notify you of any changes by posting the new terms on this page. Your continued use of the services after any changes constitutes your acceptance of the new terms.
-                  </Typography>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
+          <section id="changes" style={{ marginBottom: 20 }}>
+            <Typography variant="h5" fontWeight={700} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}><UpdateIcon /> Changes to Terms</Typography>
+            <Typography variant="body1">We reserve the right to modify these Terms of Service at any time. We will notify you of any changes by posting the new terms on this page. Your continued use of the services after any changes constitutes your acceptance of the new terms.</Typography>
+          </section>
 
-          {/* User Accounts & Obligations */}
-          <Grid item xs={12} md={6}>
-            <Card sx={{ height: '100%', boxShadow: 3, background: 'var(--card-bg)' }}>
-              <CardContent sx={{ p: 4, textAlign: { xs: 'center', md: 'left' } }}>
-                <Typography variant="h5" fontWeight={700} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                  <AccountCircleIcon />
-                  User Accounts
-                </Typography>
-                <Box sx={{ mb: 4, p: 3, bgcolor: 'var(--card-bg)', borderRadius: 2, borderLeft: 4, borderLeftColor: 'var(--accent-1)' }}>
-                  <Typography variant="body1" color="rgba(255,255,255,0.92)" sx={{ lineHeight: 1.7 }}>
-                    To access certain features, you may need to create an account. You are responsible for maintaining the confidentiality of your account information and for all activities under your account.
-                  </Typography>
-                </Box>
+          <Divider sx={{ my: 3 }} />
 
-                <Divider sx={{ my: 3 }} />
+          <section id="accounts" style={{ marginBottom: 20 }}>
+            <Typography variant="h5" fontWeight={700} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}><AccountCircleIcon /> User Accounts</Typography>
+            <Typography variant="body1">To access certain features, you may need to create an account. You are responsible for maintaining the confidentiality of your account information and for all activities under your account.</Typography>
+          </section>
 
-                <Typography variant="h5" fontWeight={700} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                  <RuleIcon />
-                  User Obligations
-                </Typography>
-                <Box sx={{ p: 3, bgcolor: 'var(--card-bg)', borderRadius: 2, borderLeft: 4, borderLeftColor: '#ff5722' }}>
-                  <Typography variant="body1" color="#555" sx={{ mb: 2, lineHeight: 1.7 }}>
-                    You agree to use our services only for lawful purposes. You agree <b>NOT</b> to:
-                  </Typography>
-                  <Box component="ul" sx={{ m: 0, pl: 2, '& li': { mb: 1, color: 'var(--muted-text)', fontSize: '0.95rem' } }}>
-                    <li>Violate any applicable laws or regulations</li>
-                    <li>Restrict others' use or enjoyment of the services</li>
-                    <li>Impersonate GUE Cyber or other users</li>
-                    <li>Upload defamatory or objectionable material</li>
-                  </Box>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
+          <section id="obligations" style={{ marginBottom: 20 }}>
+            <Typography variant="h5" fontWeight={700} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}><RuleIcon /> User Obligations</Typography>
+            <Typography variant="body1" sx={{ mb: 1 }}>You agree to use our services only for lawful purposes. You agree <b>NOT</b> to:</Typography>
+            <Box component="ul" sx={{ pl: 2 }}>{['Violate any applicable laws or regulations','Restrict others\' use or enjoyment of the services','Impersonate GUE Cyber or other users','Upload defamatory or objectionable material'].map((it, i) => (<li key={i} style={{ marginBottom: 6, color: 'var(--muted-text)' }}>{it}</li>))}</Box>
+          </section>
 
-          {/* Intellectual Property */}
-          <Grid item xs={12} md={6}>
-            <Card sx={{ height: '100%', boxShadow: 3, background: 'var(--card-bg)' }}>
-              <CardContent sx={{ p: 4, textAlign: { xs: 'center', md: 'left' } }}>
-                <Typography variant="h5" fontWeight={700} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                  <CopyrightIcon />
-                  Intellectual Property
-                </Typography>
-                <Box sx={{ p: 3, bgcolor: 'var(--card-bg)', borderRadius: 2, borderLeft: 4, borderLeftColor: '#9c27b0' }}>
-                  <Typography variant="body1" color="rgba(255,255,255,0.92)" sx={{ lineHeight: 1.7, mb: 2 }}>
-                    All content, features, and functionality on our services are the exclusive property of <b>GUE Cyber</b> or its licensors and are protected by:
-                  </Typography>
-                  <Grid container spacing={1}>
-                    {['Copyright', 'Trademark', 'Patent', 'Trade Secret'].map((item, index) => (
-                      <Grid item xs={6} key={index}>
-                        <Chip
-                          label={item}
-                          size="small"
-                          sx={{
-                            bgcolor: 'var(--chip-bg)',
-                            color: 'var(--accent-1)',
-                            fontWeight: 500
-                          }}
-                        />
-                      </Grid>
-                    ))}
-                  </Grid>
-                  <Typography variant="body2" color="rgba(255,255,255,0.75)" sx={{ mt: 2, fontStyle: 'italic' }}>
-                    You may not reproduce, distribute, modify, or create derivative works without our express written permission.
-                  </Typography>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
+          <section id="ip" style={{ marginBottom: 20 }}>
+            <Typography variant="h5" fontWeight={700} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}><CopyrightIcon /> Intellectual Property</Typography>
+            <Typography variant="body1" sx={{ mb: 1 }}>All content, features, and functionality on our services are the exclusive property of <b>GUE Cyber</b> or its licensors and are protected by intellectual property laws.</Typography>
+            <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 1 }}>{['Copyright','Trademark','Patent','Trade Secret'].map((item, idx) => (<Chip key={idx} label={item} size="small" sx={{ bgcolor: 'var(--chip-bg)', color: 'var(--accent-1)', fontWeight: 500, mr: 1 }} />))}</Box>
+            <Typography variant="body2" color="var(--muted-text)">You may not reproduce, distribute, modify, or create derivative works without our express written permission.</Typography>
+          </section>
 
-          {/* Limitation of Liability */}
-          <Grid item xs={12} md={6}>
-            <Card sx={{ height: '100%', boxShadow: 3, background: 'var(--card-bg)' }}>
-              <CardContent sx={{ p: 4, textAlign: { xs: 'center', md: 'left' } }}>
-                <Typography variant="h5" fontWeight={700} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                  <SecurityIcon />
-                  Limitation of Liability
-                </Typography>
-                <Alert severity="warning" sx={{ mb: 3 }}>
-                  <Typography variant="body2" fontWeight={500}>
-                    Important Legal Notice - Please Read Carefully
-                  </Typography>
-                </Alert>
-                <Box sx={{ p: 3, bgcolor: 'var(--card-bg)', borderRadius: 2, borderLeft: 4, borderLeftColor: '#ff9800' }}>
-                  <Typography variant="body1" color="rgba(255,255,255,0.92)" sx={{ lineHeight: 1.7, mb: 2 }}>
-                    To the fullest extent permitted by law, <b>GUE Cyber</b> shall not be liable for indirect, incidental, special, or consequential damages including:
-                  </Typography>
-                  <Box sx={{ '& > div': { mb: 1, p: 1.5, bgcolor: 'rgba(255,193,7,0.06)', borderRadius: 1, fontSize: '0.9rem', color: '#ef6c00' } }}>
-                    <div>• Loss of profits, data, or goodwill</div>
-                    <div>• Service interruption or inability to access</div>
-                    <div>• Third-party conduct on our services</div>
-                    <div>• Unauthorized access to your content</div>
-                  </Box>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
+          <section id="liability" style={{ marginBottom: 20 }}>
+            <Typography variant="h5" fontWeight={700} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}><SecurityIcon /> Limitation of Liability</Typography>
+            <Alert severity="warning" sx={{ mb: 2, bgcolor: 'transparent', color: 'rgb(255,82,82)', '& .MuiAlert-icon': { color: 'rgb(255,82,82)' } }}>
+              <Typography variant="body2" fontWeight={500} sx={{ color: 'inherit' }}>Important Legal Notice - Please Read Carefully</Typography>
+            </Alert>
+            <Typography variant="body1" sx={{ mb: 1 }}>To the fullest extent permitted by law, <b>GUE Cyber</b> shall not be liable for indirect, incidental, special, or consequential damages including:</Typography>
+            <Box sx={{ '& > div': { mb: 1, p: 1.25, bgcolor: 'rgba(255,193,7,0.06)', borderRadius: 1, fontSize: '0.95rem', color: '#ef6c00' } }}>{['Loss of profits, data, or goodwill','Service interruption or inability to access','Third-party conduct on our services','Unauthorized access to your content'].map((d, i) => (<div key={i}>• {d}</div>))}</Box>
+          </section>
 
-          {/* Contact Information */}
-          <Grid item xs={12}>
-            <Card sx={{ boxShadow: 3, background: 'var(--card-bg)' }}>
-              <CardContent sx={{ p: 4, textAlign: 'center' }}>
-                <Typography variant="h5" fontWeight={700} gutterBottom sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, mb: 3 }}>
-                  <ContactSupportIcon />
-                  Questions About These Terms?
-                </Typography>
-                <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.92)', fontSize: '1.1rem', mb: 2 }}>
-                  If you have any questions about these Terms of Service, please don't hesitate to contact us.
-                </Typography>
-                <Typography variant="body2" color="rgba(255,255,255,0.75)">
-                  We're here to help clarify any concerns you may have about our terms and policies.
-                </Typography>
-                <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center' }}>
-                  <Button component="a" href="/contact" variant="contained" sx={{ background: 'var(--btn-grad)', color: 'var(--chip-text)', textTransform: 'none' }}>Contact Us</Button>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+          <section id="contact" style={{ marginBottom: 12 }}>
+            <Typography variant="h5" fontWeight={700} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, mb: 1 }}><ContactSupportIcon /> Questions About These Terms?</Typography>
+            <Typography variant="body1" sx={{ mb: 1 }}>If you have any questions about these Terms of Service, please don't hesitate to contact us.</Typography>
+            <Typography variant="body2" color="var(--muted-text)">We're here to help clarify any concerns you may have about our terms and policies.</Typography>
+            <Box sx={{ mt: 2 }}>
+              <Button component="a" href="/contact" variant="contained" sx={{ background: 'var(--btn-grad)', color: 'var(--chip-text)', textTransform: 'none' }}>Contact Us</Button>
+            </Box>
+          </section>
+        </Container>
       </Box>
     </main>
   );
