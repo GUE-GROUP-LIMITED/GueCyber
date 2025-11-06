@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-  "build": "vite build",
-  "lint": "eslint .",
-  "preview": "vite preview --outDir build"
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview --outDir build"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -27,6 +27,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "sharp": "^0.34.4",
     "vite": "^7.1.1"
   }
 }

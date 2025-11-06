@@ -1,6 +1,6 @@
 import logo from "../assets/logo.png";
 import { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { IconButton, Drawer, List, ListItemButton, ListItemText, Box, Divider, Button, Stack, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -8,6 +8,7 @@ import CloseIcon from '@mui/icons-material/Close';
 export default function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const handleResize = () => {
@@ -17,6 +18,14 @@ export default function Header() {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    // Close mobile menu and move focus to main when route changes
+    useEffect(() => {
+        if (mobileOpen) setMobileOpen(false);
+        const main = document.getElementById('main');
+        if (main) main.focus();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [location.pathname]);
 
     const navLinks = [
         { to: "/", label: "Home" },
@@ -29,7 +38,7 @@ export default function Header() {
 
     return (
         <header>
-            <Box component="nav" sx={{
+            <Box component="nav" role="navigation" aria-label="Main navigation" sx={{
                 background: 'linear-gradient(120deg, rgba(2,31,63,0.95) 0%, rgba(7,16,41,0.95) 100%)',
                 color: 'var(--chip-text)',
                 position: 'sticky',
@@ -55,20 +64,25 @@ export default function Header() {
                         {/* Desktop nav */}
                         <Stack direction="row" spacing={2} sx={{ display: isMobile ? 'none' : 'flex', alignItems: 'center' }}>
                             {navLinks.map(link => (
-                                <NavLink key={link.to} to={link.to} className="nav-link" style={({ isActive }) => ({
-                                    color: 'var(--chip-text)',
-                                    fontWeight: 600,
-                                    fontSize: 13,
-                                    textTransform: 'uppercase',
-                                    padding: isMobile ? '10px 12px' : '8px 10px',
-                                    minHeight: 44,
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    borderRadius: 8,
-                                    textDecoration: 'none',
-                                    transition: 'all 160ms ease-in-out',
-                                    opacity: isActive ? 1 : 0.92
-                                })}>
+                                <NavLink
+                                    key={link.to}
+                                    to={link.to}
+                                    className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+                                    style={({ isActive }) => ({
+                                        color: 'var(--chip-text)',
+                                        fontWeight: 600,
+                                        fontSize: 13,
+                                        textTransform: 'uppercase',
+                                        padding: isMobile ? '10px 12px' : '8px 10px',
+                                        minHeight: 44,
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        borderRadius: 8,
+                                        textDecoration: 'none',
+                                        transition: 'all 160ms ease-in-out',
+                                        opacity: isActive ? 1 : 0.92
+                                    })}
+                                >
                                     {link.label}
                                 </NavLink>
                             ))}
@@ -86,7 +100,13 @@ export default function Header() {
                     </Stack>
                 </Box>
 
-                <Drawer anchor="right" open={mobileOpen} onClose={() => setMobileOpen(false)} ModalProps={{ keepMounted: true }} PaperProps={{ sx: { background: 'linear-gradient(180deg, rgba(2,31,63,0.98), rgba(7,16,41,0.98))', width: { xs: '80vw', sm: 360 }, p: 2 } }}>
+                <Drawer
+                    anchor="right"
+                    open={mobileOpen}
+                    onClose={() => setMobileOpen(false)}
+                    ModalProps={{ keepMounted: true }}
+                    PaperProps={{ sx: { background: 'linear-gradient(180deg, rgba(2,31,63,0.98), rgba(7,16,41,0.98))', width: { xs: '80vw', sm: 360 }, p: 2 }, role: 'navigation', 'aria-label': 'Mobile navigation' }}
+                >
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
                         <Box component={Link} to="/" sx={{ display: 'flex', alignItems: 'center', gap: 1, textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
                             <Box component="img" src={logo} alt="GUE Cyber" loading="lazy" sx={{ height: 36 }} />
