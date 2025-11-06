@@ -13,6 +13,7 @@ export default function Footer() {
                         <Box>
                             <Typography variant="h6" sx={{ fontWeight: 800, color: 'var(--bg-grey)', letterSpacing: 1 }}>GUE CYBER LIMITED</Typography>
                             <Typography variant="caption" sx={{ color: 'var(--hero-text)', display: 'block' }}>Cyber Security • Digital Transformation • Infrastructure</Typography>
+                            <Typography component="a" href="https://gueplc.com" target="_blank" rel="noopener noreferrer" variant="caption" sx={{ color: 'var(--hero-text)', display: 'block', textDecoration: 'underline', mt: 0.5 }}>A subsidiary of Gue Group</Typography>
                         </Box>
                     </Box>
 

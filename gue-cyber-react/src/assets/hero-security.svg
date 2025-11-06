@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0%" stop-color="#071029" />
+      <stop offset="100%" stop-color="#0b3b3b" />
+    </linearGradient>
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#58d3ff" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#58d3ff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="100%" height="100%" fill="url(#g1)" />
+
+  <!-- subtle grid lines -->
+  <g opacity="0.06" stroke="#ffffff" stroke-width="1">
+    <pattern id="p" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" />
+    </pattern>
+    <rect width="100%" height="100%" fill="url(#p)" />
+  </g>
+
+  <!-- network lines -->
+  <g stroke="#2fb8d0" stroke-opacity="0.25" stroke-width="2" fill="none">
+    <path d="M200 120 L420 200 L600 140 L820 220 L1100 160"/>
+    <path d="M300 360 L520 300 L760 360 L980 300 L1260 360"/>
+    <path d="M150 260 L380 320 L620 260 L920 340 L1400 280"/>
+  </g>
+
+  <!-- nodes -->
+  <g>
+    <!-- node function to keep code readable (manual positions below) -->
+    <circle cx="200" cy="120" r="8" fill="#58d3ff" />
+    <circle cx="420" cy="200" r="10" fill="#9ef0ff" />
+    <circle cx="600" cy="140" r="7" fill="#58d3ff" />
+    <circle cx="820" cy="220" r="9" fill="#9ef0ff" />
+    <circle cx="1100" cy="160" r="8" fill="#58d3ff" />
+
+    <circle cx="300" cy="360" r="9" fill="#9ef0ff" />
+    <circle cx="520" cy="300" r="7" fill="#58d3ff" />
+    <circle cx="760" cy="360" r="10" fill="#9ef0ff" />
+    <circle cx="980" cy="300" r="8" fill="#58d3ff" />
+    <circle cx="1260" cy="360" r="7" fill="#58d3ff" />
+
+    <circle cx="150" cy="260" r="7" fill="#58d3ff" />
+    <circle cx="380" cy="320" r="8" fill="#9ef0ff" />
+    <circle cx="620" cy="260" r="9" fill="#9ef0ff" />
+    <circle cx="920" cy="340" r="7" fill="#58d3ff" />
+    <circle cx="1400" cy="280" r="9" fill="#9ef0ff" />
+  </g>
+
+  <!-- glow around selected node (represent security hub) -->
+  <g>
+    <circle cx="760" cy="360" r="48" fill="url(#nodeGlow)" opacity="0.55" />
+    <circle cx="760" cy="360" r="22" fill="#ffffff" />
+    <!-- lock icon inside hub (simple) -->
+    <path d="M747 348 v-6 c0 -8 6 -14 14 -14 s14 6 14 14 v6 h4 a4 4 0 0 1 4 4 v12 a4 4 0 0 1 -4 4 h-36 a4 4 0 0 1 -4 -4 v-12 a4 4 0 0 1 4 -4 h4 z" fill="#0b3b3b" transform="translate(-4,-2)" />
+  </g>
+
+  <!-- subtle branding line -->
+  <text x="60" y="560" fill="#3ee0ff" font-family="Inter, sans-serif" font-size="18">GUE Cyber — Secure. Resilient. Responsible.</text>
+</svg>

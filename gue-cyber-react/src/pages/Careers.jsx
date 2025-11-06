@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography, Container, Grid, Card, CardContent, Button, Chip, Divider } from "@mui/material";
+import heroCareers from "../assets/hero-careers.svg";
 import { Link } from "react-router-dom";
 
 const openings = [
@@ -44,7 +45,7 @@ export default function Careers() {
     return (
         <main>
             {/* Hero */}
-            <Box sx={{ background: 'var(--hero-bg)', color: 'var(--hero-text)', py: { xs: 6, md: 12 }, textAlign: 'center', minHeight: { xs: 420, md: 520 } }}>
+            <Box sx={{ background: 'var(--hero-bg)', color: 'var(--hero-text)', py: { xs: 6, md: 12 }, textAlign: 'center', minHeight: { xs: 420, md: 520 }, backgroundImage: `url(${heroCareers})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
                 <Container maxWidth="md">
                     <Typography
                         variant="h1"

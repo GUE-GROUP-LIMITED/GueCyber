@@ -1,11 +1,12 @@
 import { Typography, Card, CardContent, Grid, Box, Container, Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import heroServices from "../assets/hero-services.svg";
 
 export default function Services() {
   return (
     <main>
       {/* Hero */}
-  <Box sx={{ background: 'var(--hero-bg)', color: 'var(--hero-text)', py: { xs: 6, md: 12 }, textAlign: 'center', minHeight: { xs: 420, md: 520 } }}>
+  <Box sx={{ background: 'var(--hero-bg)', color: 'var(--hero-text)', py: { xs: 6, md: 12 }, textAlign: 'center', minHeight: { xs: 420, md: 520 }, backgroundImage: `url(${heroServices})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
         <Container maxWidth="lg">
           <Typography
                         variant="h1"

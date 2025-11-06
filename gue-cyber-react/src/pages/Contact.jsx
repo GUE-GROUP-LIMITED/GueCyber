@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Typography, Container, TextField, Button, Grid, Card, CardContent, Alert, Chip } from '@mui/material';
 import FAQ from '../components/FAQ';
+import heroContact from '../assets/hero-contact.svg';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -22,7 +23,7 @@ export default function Contact() {
   return (
     <main>
       {/* Hero */}
-  <Box sx={{ background: 'var(--hero-bg)', color: 'var(--hero-text)', py: { xs: 6, md: 12 }, textAlign: 'center', minHeight: { xs: 420, md: 520 } }}>
+  <Box sx={{ background: 'var(--hero-bg)', color: 'var(--hero-text)', py: { xs: 6, md: 12 }, textAlign: 'center', minHeight: { xs: 420, md: 520 }, backgroundImage: `url(${heroContact})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
         <Container maxWidth="md">
           <Typography
                         variant="h1"

@@ -41,6 +41,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Enforce dark page background and readable default text color so hero and sections remain visible */
+html, body, #root {
+  background-color: var(--page-bg) !important;
+  color: var(--hero-text) !important;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -79,10 +85,10 @@ footer {
 }
 
 
-* Fix for Material-UI Container overflow */
+/* Fix for Material-UI Container overflow */
 .MuiContainer-root {
   overflow-x: hidden !important;
-      font-size: var(--hero-h1-xs) !important;
+  font-size: var(--hero-h1-xs) !important;
   max-width: 100% !important;
   padding-left: 16px !important;
   padding-right: 16px !important;

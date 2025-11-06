@@ -1,4 +1,5 @@
 import { Typography, Card, CardContent, Grid, Box, Divider, Chip, Alert } from "@mui/material";
+import heroTerms from "../assets/hero-terms.svg";
 
 export default function Terms() {
   return (
@@ -10,7 +11,11 @@ export default function Terms() {
         py: 8,
         textAlign: 'center',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        backgroundImage: `url(${heroTerms})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
       }}>
         {/* Abstract background shapes */}
         <div style={{

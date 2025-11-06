@@ -1,27 +1,42 @@
 import React from 'react';
 import { Box, Typography, Container, Grid, Card, CardContent, CardActions, Button, Chip } from '@mui/material';
+import heroBlog from '../assets/hero-blog.svg';
 
 const blogPosts = [
   {
-    title: 'How AI is Transforming Engineering Workflows',
-    summary: 'AI is enabling smarter predictive maintenance, automated inspection and faster design iteration. We explore practical use-cases for manufacturers and engineering teams.',
+    title: 'Threat Hunting in 2025: Practical Techniques',
+    summary: 'A hands-on guide to modern threat hunting workflows, using telemetry, hypotheses-driven hunts, and triage strategies to find active adversaries.',
     link: '#',
-    date: '2025-08-10',
-    tags: ['AI', 'Manufacturing']
+    date: '2025-10-12',
+    tags: ['Threat Hunting', 'SOC']
   },
   {
-    title: 'Practical Steps to Industrial Automation for MSMEs',
-    summary: 'A hands-on guide for small and medium manufacturers looking to introduce PLCs, sensors and SCADA on a budget and with measurable ROI.',
+    title: 'Zero Trust for SMEs: A Practical Guide',
+    summary: 'How small and medium organisations can adopt Zero Trust principles incrementally to reduce attack surface and improve identity hygiene.',
     link: '#',
-    date: '2025-03-22',
-    tags: ['Automation', 'MSME']
+    date: '2025-06-03',
+    tags: ['Zero Trust', 'SME']
+  },
+  {
+    title: 'Incident Response Playbook: From Detection to Recovery',
+    summary: 'A concise playbook covering detection, containment, forensics and recovery steps to help teams respond faster and learn from incidents.',
+    link: '#',
+    date: '2025-02-18',
+    tags: ['IR', 'Forensics']
+  },
+  {
+    title: 'Securing Cloud Migrations: Best Practices',
+    summary: 'Practical controls and architecture patterns to secure cloud migrations, including IAM, network controls, encryption and drift detection.',
+    link: '#',
+    date: '2025-04-22',
+    tags: ['Cloud Security', 'CSPM']
   }
 ];
 
 export default function Blog() {
   return (
     <main>
-      <Box sx={{ background: 'var(--hero-bg)', color: 'var(--hero-text)', py: { xs: 6, md: 12 }, textAlign: 'center', minHeight: { xs: 420, md: 520 } }}>
+  <Box sx={{ background: 'var(--hero-bg)', color: 'var(--hero-text)', py: { xs: 6, md: 12 }, textAlign: 'center', minHeight: { xs: 420, md: 520 }, backgroundImage: `url(${heroBlog})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
         <Container maxWidth="lg">
           <Typography
                         variant="h1"
@@ -39,10 +54,10 @@ export default function Blog() {
       </Box>
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
         <Typography variant="h4" fontWeight={700} mb={4} textAlign="center" sx={{ color: 'var(--hero-text)' }}>Trends, Insights & Case Studies</Typography>
-        <Grid container spacing={4}>
+        <Grid container spacing={4} justifyContent="center" alignItems="stretch">
           {blogPosts.map((post, idx) => (
-            <Grid item xs={12} md={6} key={idx}>
-              <Card elevation={2} sx={{ height: '100%', display: 'flex', flexDirection: 'column', background: 'var(--card-bg)' }}>
+            <Grid item xs={12} md={6} key={idx} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Card elevation={2} sx={{ width: '100%', maxWidth: 640, display: 'flex', flexDirection: 'column', background: 'var(--card-bg)' }}>
                 <CardContent sx={{ flex: '1 0 auto', textAlign: 'center', color: 'var(--hero-text)' }}>
                   <Typography variant="h5" fontWeight={700} gutterBottom sx={{ color: 'var(--link-color)' }}>{post.title}</Typography>
                   <Typography variant="caption" sx={{ display: 'block', mb: 1, color: 'var(--muted-text)' }}>{new Date(post.date).toLocaleDateString()}</Typography>

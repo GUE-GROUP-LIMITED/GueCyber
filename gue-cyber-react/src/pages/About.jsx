@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import { Typography, Card, CardContent, Grid, Box, Button, Container, Divider } from "@mui/material";
-import logo from "../assets/logo.png";
+import heroAbout from "../assets/hero-about.svg";
 
 export default function About() {
     return (
         <main>
             {/* Hero */}
-            <Box sx={{ background: 'var(--hero-bg)', color: 'var(--hero-text)', py: { xs: 6, md: 12 }, textAlign: 'center', minHeight: { xs: 420, md: 520 } }}>
+            <Box sx={{ background: 'var(--hero-bg)', color: 'var(--hero-text)', py: { xs: 6, md: 12 }, textAlign: 'center', minHeight: { xs: 420, md: 520 }, backgroundImage: `url(${heroAbout})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
                 <Container maxWidth="lg">
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 3, flexDirection: { xs: 'column', sm: 'row' } }}>
-                        <Box component="img" src={logo} alt="GUE Cyber logo" sx={{ width: { xs: 100, md: 120 }, height: 'auto', background: 'transparent', p: 1, borderRadius: 1 }} />
                         <Box>
                             <Typography
                                 variant="h1"
@@ -25,6 +24,9 @@ export default function About() {
 
                     <Typography variant="body1" sx={{ mt: 4, maxWidth: 900, mx: 'auto', color: 'var(--hero-text)', fontSize: '1.05rem' }}>
                         We combine cyber security expertise, systems engineering and practical digital transformation experience to help MSMEs and enterprises secure, modernize and scale their operations. Our teams design resilient infrastructure, protect critical data, and provide training to build internal security capacity.
+                    </Typography>
+                    <Typography variant="body2" sx={{ mt: 2, maxWidth: 900, mx: 'auto', color: 'var(--hero-text)' }}>
+                        GUE Cyber is a subsidiary of <a href="https://gueplc.com" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Gue Group</a>. Our group affiliation strengthens our capability to deliver enterprise-grade security and infrastructure services.
                     </Typography>
                 </Container>
             </Box>

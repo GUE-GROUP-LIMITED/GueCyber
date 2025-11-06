@@ -6,5 +6,18 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'build',
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('@mui')) return 'mui';
+            if (id.includes('react')) return 'react-vendor';
+            if (id.includes('lodash')) return 'lodash';
+            return 'vendor';
+          }
+        }
+      }
+    }
   },
 })
+
