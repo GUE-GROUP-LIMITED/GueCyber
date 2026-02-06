@@ -1,98 +1,73 @@
-import { Typography, Card, CardContent, Grid, Box, Container, Button } from "@mui/material";
+import { Typography, Container, Box, Grid, List, ListItem, ListItemIcon, ListItemText, Divider, Button } from "@mui/material";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import SecurityIcon from '@mui/icons-material/Security';
+import ComputerIcon from '@mui/icons-material/Computer';
+import SchoolIcon from '@mui/icons-material/School';
+import CodeIcon from '@mui/icons-material/Code';
 import { Link } from "react-router-dom";
-import heroServices from "../assets/hero-services.svg";
 
 export default function Services() {
+  const serviceCategories = [
+    { icon: <SecurityIcon />, title: "Assessments & PenTesting", deliverables: ["Vulnerability assessments", "Application penetration testing", "Network security audits", "OSINT & Social Engineering"] },
+    { icon: <ComputerIcon />, title: "Infrastructure Hardening", deliverables: ["Cloud security (AWS, GCP, Azure)", "Network architecture reviews", "Firewall & EDR monitoring", "Zero-Trust implementation"] },
+    { icon: <SchoolIcon />, title: "Training & Advisory", deliverables: ["Security awareness training", "Incident response table-tops", "Technical workshops", "vCISO advisory services"] },
+    { icon: <CodeIcon />, title: "Digital Transformation", deliverables: ["Secure cloud migration", "Infrastructure as Code audits", "API & microservices hardening", "CI/CD security integration"] }
+  ];
+
   return (
-    <main>
-      {/* Hero */}
-  <Box sx={{ background: 'var(--hero-bg)', color: 'var(--hero-text)', py: { xs: 6, md: 12 }, textAlign: 'center', minHeight: { xs: 420, md: 520 }, backgroundImage: `url(${heroServices})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
+    <main style={{ overflowX: 'hidden' }}>
+      <div className="mesh-bg">
+        <div className="mesh-blob mesh-blob-1"></div>
+        <div className="mesh-blob mesh-blob-2"></div>
+      </div>
+
+      <Box sx={{ pt: { xs: 16, sm: 20, md: 30 }, pb: { xs: 8, md: 15, lg: 25 } }}>
         <Container maxWidth="lg">
-          <Typography
-                        variant="h1"
-                        sx={{ fontSize: { xs: 'var(--hero-h1-xs)', md: 'var(--hero-h1-md)' }, fontWeight: 900, mb: 2 }}
-                    >
-                        OUR CORE SERVICES
-                    </Typography>
-         
-          <Typography variant="h5" sx={{ fontWeight: 500, mb: 2, opacity: 0.95 }}>Cyber Security • Digital Transformation • Infrastructure & Technology</Typography>
-          <Typography variant="body1" sx={{ maxWidth: 900, mx: 'auto' }}>GUE Cyber provides information security and digital transformation services focused on protecting data, systems and infrastructure for MSMEs and enterprises. We perform proactive assessments, harden infrastructure, enable secure migrations and prepare teams for incident response.</Typography>
+          <Box sx={{ textAlign: 'center', maxWidth: 900, mx: 'auto' }} className="reveal-up">
+            <Typography variant="overline" sx={{ fontWeight: 900, color: '#10B981', letterSpacing: '0.4em', mb: 2, display: 'block', fontSize: { xs: '0.7rem', md: '0.8rem' } }}>OUR SOLUTIONS</Typography>
+            <Typography variant="h1" sx={{ fontSize: { xs: '2.5rem', sm: '3.5rem', md: '5rem' }, fontWeight: 900, color: '#1a1a1a', mb: 3, lineHeight: 1.1 }}>
+              ELITE SECURITY FOR THE <Box component="span" sx={{ color: '#10B981' }}>DIGITAL BORDER</Box>
+            </Typography>
+            <Typography sx={{ color: '#666', fontSize: { xs: '1rem', md: '1.25rem' }, lineHeight: 1.8, px: 2 }}>
+              Comprehensive technical services designed to defend critical infrastructure and modernise enterprise environments.
+            </Typography>
+          </Box>
+
+          <Grid container spacing={{ xs: 4, md: 6 }} sx={{ mt: { xs: 6, md: 10 } }}>
+            {serviceCategories.map((s, idx) => (
+              <Grid item xs={12} md={6} key={idx} className={`reveal-up delay-${idx + 1}`}>
+                <Box className="glass-card" sx={{ p: { xs: 4, sm: 6, md: 8 }, height: '100%', borderRadius: { xs: '32px', md: '48px' } }}>
+                  <Box sx={{
+                    width: { xs: 60, md: 80 }, height: { xs: 60, md: 80 }, borderRadius: { xs: '18px', md: '24px' },
+                    background: 'rgba(16, 185, 129, 0.1)', display: 'flex',
+                    alignItems: 'center', justifyContent: 'center',
+                    color: '#10B981', mb: { xs: 3, md: 5 }, '& svg': { fontSize: { xs: 30, md: 40 } }
+                  }}>
+                    {s.icon}
+                  </Box>
+                  <Typography variant="h4" sx={{ fontWeight: 900, mb: 3, color: '#1a1a1a', fontSize: { xs: '1.5rem', md: '2.125rem' } }}>{s.title}</Typography>
+                  <Divider sx={{ mb: 3, borderColor: 'rgba(0,0,0,0.05)' }} />
+                  <List sx={{ mb: { xs: 4, md: 6 } }}>
+                    {s.deliverables.map((item, i) => (
+                      <ListItem key={i} sx={{ px: 0, py: 0.75 }}>
+                        <ListItemIcon sx={{ minWidth: 32, color: '#10B981' }}><CheckCircleIcon sx={{ fontSize: 18 }} /></ListItemIcon>
+                        <ListItemText primary={item} primaryTypographyProps={{ color: '#555', fontWeight: 600, fontSize: { xs: '0.9rem', md: '1rem' } }} />
+                      </ListItem>
+                    ))}
+                  </List>
+                  <Button component={Link} to="/contact" variant="outlined" fullWidth sx={{ py: 1.8, borderRadius: '100px', borderColor: 'rgba(0,0,0,0.1)', color: '#1a1a1a', fontWeight: 800, '&:hover': { background: '#1a1a1a', color: '#fff' }, fontSize: { xs: '0.85rem', md: '1rem' } }}>Request Details</Button>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
         </Container>
       </Box>
 
-      {/* Detailed Services */}
-  <Box sx={{ py: { xs: 6, md: 8 }, background: 'var(--section-bg)' }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={{ xs: 3, md: 4 }} justifyContent="center">
-            {/** Cyber / InfoSec service cards */}
-            <Grid item xs={12} md={6} id="assessments">
-              <Card sx={{ p: 3, height: '100%', display: 'flex', flexDirection: 'column', alignItems: { xs: 'stretch', md: 'center' }, textAlign: { xs: 'left', md: 'center' }, boxShadow: 3, borderRadius: 2, background: 'var(--card-bg)' }}>
-                <CardContent sx={{ p: 0 }}>
-                  <Typography variant="h5" fontWeight={700} sx={{ mb: 1, fontSize: { xs: '1.05rem', md: '1.25rem' }, color: 'var(--link-color)' }}>Security Assessments & Penetration Testing</Typography>
-                  <Typography variant="body1" sx={{ mb: 2, maxWidth: { md: 520 }, color: 'var(--hero-text)', fontSize: { xs: '0.95rem', md: '1rem' } }}>Comprehensive vulnerability assessments and controlled penetration tests against networks, applications and cloud infrastructure to identify and prioritise remediation.</Typography>
-                  <Typography variant="subtitle2" fontWeight={700} sx={{ mt: 2, mb: 1, color: 'var(--hero-text)', fontSize: { xs: '0.95rem', md: '1rem' } }}>Deliverables</Typography>
-                  <Box component="ul" sx={{ mt: 1, pl: 3, color: 'var(--hero-text)', fontSize: { xs: '0.9rem', md: '0.98rem' }, listStyleType: 'disc', '& li': { marginBottom: 0.6 } }}>
-                    <li>External & internal vulnerability scans</li>
-                    <li>Application penetration testing (web & API)</li>
-                    <li>Cloud configuration reviews</li>
-                    <li>Remediation roadmap and advisory</li>
-                  </Box>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} md={6} id="infrastructure">
-              <Card sx={{ p: 3, height: '100%', display: 'flex', flexDirection: 'column', alignItems: { xs: 'stretch', md: 'center' }, textAlign: { xs: 'left', md: 'center' }, boxShadow: 3, borderRadius: 2, background: 'var(--card-bg)' }}>
-                <CardContent sx={{ p: 0 }}>
-                  <Typography variant="h5" fontWeight={700} sx={{ mb: 1, fontSize: { xs: '1.05rem', md: '1.25rem' }, color: 'var(--link-color)' }}>Infrastructure Hardening & Monitoring</Typography>
-                  <Typography variant="body1" sx={{ mb: 2, maxWidth: { md: 520 }, color: 'var(--hero-text)', fontSize: { xs: '0.95rem', md: '1rem' } }}>Secure architecture design, network segmentation, patching strategies and deployment of monitoring/alerting (SIEM/EDR) to detect and slow attackers.</Typography>
-                  <Typography variant="subtitle2" fontWeight={700} sx={{ mt: 2, mb: 1, color: 'var(--hero-text)', fontSize: { xs: '0.95rem', md: '1rem' } }}>Deliverables</Typography>
-                  <Box component="ul" sx={{ mt: 1, pl: 3, color: 'var(--hero-text)', fontSize: { xs: '0.9rem', md: '0.98rem' }, listStyleType: 'disc', '& li': { marginBottom: 0.6 } }}>
-                    <li>Network segmentation & firewall rules</li>
-                    <li>Endpoint hardening & EDR configuration</li>
-                    <li>Logging, monitoring and alerting (SIEM)</li>
-                    <li>Backup strategy & secure recovery planning</li>
-                  </Box>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} md={6} id="migration">
-              <Card sx={{ p: 3, height: '100%', display: 'flex', flexDirection: 'column', alignItems: { xs: 'stretch', md: 'center' }, textAlign: { xs: 'left', md: 'center' }, boxShadow: 3, borderRadius: 2, background: 'var(--card-bg)' }}>
-                <CardContent sx={{ p: 0 }}>
-                  <Typography variant="h5" fontWeight={700} sx={{ mb: 1, fontSize: { xs: '1.05rem', md: '1.25rem' }, color: 'var(--link-color)' }}>Secure Migration & Cloud Security</Typography>
-                  <Typography variant="body1" sx={{ mb: 2, maxWidth: { md: 520 }, color: 'var(--hero-text)', fontSize: { xs: '0.95rem', md: '1rem' } }}>Assisting organisations to migrate systems to cloud or hybrid infrastructure with security-by-design, identity & access management and encrypted communications.</Typography>
-                  <Typography variant="subtitle2" fontWeight={700} sx={{ mt: 2, mb: 1, color: 'var(--hero-text)', fontSize: { xs: '0.95rem', md: '1rem' } }}>Deliverables</Typography>
-                  <Box component="ul" sx={{ mt: 1, pl: 3, color: 'var(--hero-text)', fontSize: { xs: '0.9rem', md: '0.98rem' }, listStyleType: 'disc', '& li': { marginBottom: 0.6 } }}>
-                    <li>Secure cloud architecture and IAM design</li>
-                    <li>Encrypted communications and key management</li>
-                    <li>Migration playbooks with rollback plans</li>
-                    <li>Compliance baseline mapping (where required)</li>
-                  </Box>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} md={6} id="training">
-              <Card sx={{ p: 3, height: '100%', display: 'flex', flexDirection: 'column', alignItems: { xs: 'stretch', md: 'center' }, textAlign: { xs: 'left', md: 'center' }, boxShadow: 3, borderRadius: 2, background: 'var(--card-bg)' }}>
-                <CardContent sx={{ p: 0 }}>
-                  <Typography variant="h5" fontWeight={700} sx={{ mb: 1, fontSize: { xs: '1.05rem', md: '1.25rem' }, color: 'var(--link-color)' }}>Incident Response & Training</Typography>
-                  <Typography variant="body1" sx={{ mb: 2, maxWidth: { md: 520 }, color: 'var(--hero-text)', fontSize: { xs: '0.95rem', md: '1rem' } }}>Preparedness and response services including tabletop exercises, runbooks, incident response retainer options and hands-on training to improve detection and recovery time.</Typography>
-                  <Typography variant="subtitle2" fontWeight={700} sx={{ mt: 2, mb: 1, color: 'var(--hero-text)', fontSize: { xs: '0.95rem', md: '1rem' } }}>Deliverables</Typography>
-                  <Box component="ul" sx={{ mt: 1, pl: 3, color: 'var(--hero-text)', fontSize: { xs: '0.9rem', md: '0.98rem' }, listStyleType: 'disc', '& li': { marginBottom: 0.6 } }}>
-                    <li>Incident response plans & playbooks</li>
-                    <li>Tabletop exercises & simulated incident drills</li>
-                    <li>Security awareness & role-based training</li>
-                    <li>Retainer & escalation support options</li>
-                  </Box>
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
-
-          <Box sx={{ textAlign: 'center', mt: 5 }}>
-            <Button component={Link} to="/contact" variant="contained" sx={{ textTransform: 'none', px: 4, py: 1.5, width: { xs: '100%', sm: 'auto' } }}>Talk to an Engineer</Button>
-          </Box>
+      <Box sx={{ py: { xs: 8, md: 15, lg: 25 }, background: '#1a1a1a', color: '#fff', textAlign: 'center' }}>
+        <Container maxWidth="md">
+          <Typography variant="h2" sx={{ fontWeight: 900, mb: 3, fontSize: { xs: '2rem', md: '4rem' }, lineHeight: 1.2 }}>CUSTOM SECURITY ARCHITECTURE</Typography>
+          <Typography sx={{ mb: { xs: 6, md: 10 }, opacity: 0.7, fontSize: { xs: '1rem', md: '1.2rem' }, px: 2 }}>We don't offer generic fixes. Our engineers design custom-built programs for your specific risk landscape.</Typography>
+          <Button component={Link} to="/contact" variant="contained" sx={{ px: { xs: 5, md: 8 }, py: 2.2, borderRadius: '100px', background: '#10B981', color: '#fff', fontWeight: 900, fontSize: { xs: '1rem', md: '1.1rem' }, '&:hover': { transform: 'scale(1.05)' } }}>Speak to an Engineer</Button>
         </Container>
       </Box>
     </main>

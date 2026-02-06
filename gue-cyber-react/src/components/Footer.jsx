@@ -1,70 +1,244 @@
-import { Link } from 'react-router-dom';
-import { Box, Container, Typography, Stack, IconButton, Button, Divider } from '@mui/material';
+import logo from "../assets/logo.png";
+import { Box, Container, Grid, Typography, Stack, IconButton, Divider, TextField, Button } from "@mui/material";
+import { Link } from "react-router-dom";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import logo from '../assets/logo.png';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function Footer() {
+    const year = new Date().getFullYear();
+
+    const sections = [
+        {
+            title: "Navigation",
+            links: [
+                { label: "Home", to: "/" },
+                { label: "About GUE Cyber", to: "/about" },
+                { label: "Our Capabilities", to: "/services" },
+                { label: "Career Openings", to: "/careers" },
+                { label: "Case Studies", to: "/blog" }
+            ]
+        },
+        {
+            title: "Specialization",
+            links: [
+                { label: "Cyber Defense", to: "/services" },
+                { label: "Vulnerability Management", to: "/services" },
+                { label: "Cloud Engineering", to: "/services" },
+                { label: "Digital Modernisation", to: "/services" },
+                { label: "Security Training", to: "/services" }
+            ]
+        },
+        {
+            title: "Legal & Support",
+            links: [
+                { label: "Contact Intelligence", to: "/contact" },
+                { label: "Privacy Excellence", to: "#" },
+                { label: "Terms of Engagement", to: "#" },
+                { label: "System Status", to: "#" },
+                { label: "Security Advisory", to: "#" }
+            ]
+        }
+    ];
+
     return (
-        <Box component="footer" sx={{ bgcolor: 'linear-gradient(180deg, rgba(2,31,63,0.95), rgba(7,16,41,0.95))', color: 'var(--chip-text)', borderTop: '1px solid rgba(255,255,255,0.04)', mt: 8 }}>
-            <Container maxWidth="lg" sx={{ py: 6 }}>
-                <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} justifyContent="space-between" alignItems="flex-start">
-                    {/* Brand column */}
-                    <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start', maxWidth: 360 }}>
-                        <Box component="img" src={logo} alt="GUE Cyber logo" loading="lazy" sx={{ width: 56, height: 'auto', borderRadius: 1, boxShadow: '0 2px 8px rgba(0,0,0,0.24)' }} />
-                        <Box>
-                            <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.8 }}>GUE CYBER LIMITED</Typography>
-                            <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)', mt: 0.5 }}>Managed security services, incident response, and penetration testing for enterprises.</Typography>
-                            <Typography component="a" href="https://gueplc.com" target="_blank" rel="noopener noreferrer" variant="caption" sx={{ color: 'rgba(255,255,255,0.72)', display: 'block', textDecoration: 'underline', mt: 1 }}>A subsidiary of Gue Group</Typography>
-                        </Box>
-                    </Box>
+        <Box component="footer" sx={{
+            background: '#FAFAFA',
+            color: '#1a1a1a',
+            pt: { xs: 10, md: 20 },
+            pb: 8,
+            position: 'relative',
+            overflow: 'hidden',
+            borderTop: '1px solid rgba(0,0,0,0.05)'
+        }}>
+            {/* Background Watermark - Light Variation */}
+            <Typography sx={{
+                position: 'absolute',
+                bottom: -40,
+                right: -20,
+                fontSize: { xs: '6rem', sm: '10rem', md: '25rem' },
+                fontWeight: 900,
+                color: 'rgba(0,0,0,0.02)',
+                lineHeight: 1,
+                pointerEvents: 'none',
+                zIndex: 0,
+                userSelect: 'none'
+            }}>
+                GUE
+            </Typography>
 
-                    {/* Links column */}
-                    <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-                        <Typography variant="subtitle2" sx={{ color: 'rgba(255,255,255,0.9)', fontWeight: 700, mb: 1 }}>Quick Links</Typography>
-                        <Stack spacing={1}>
-                            <Typography component={Link} to="/" sx={{ color: 'rgba(255,255,255,0.84)', textDecoration: 'none' }}>Home</Typography>
-                            <Typography component={Link} to="/services" sx={{ color: 'rgba(255,255,255,0.84)', textDecoration: 'none' }}>Services</Typography>
-                            <Typography component={Link} to="/about" sx={{ color: 'rgba(255,255,255,0.84)', textDecoration: 'none' }}>About</Typography>
-                            <Typography component={Link} to="/blog" sx={{ color: 'rgba(255,255,255,0.84)', textDecoration: 'none' }}>Blog</Typography>
-                            <Typography component={Link} to="/careers" sx={{ color: 'rgba(255,255,255,0.84)', textDecoration: 'none' }}>Careers</Typography>
+            <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 1 }}>
+
+                {/* Impact Area */}
+                <Grid container spacing={4} sx={{ mb: { xs: 8, md: 15 } }} alignItems="center">
+                    <Grid item xs={12} lg={7}>
+                        <Typography variant="h2" sx={{
+                            fontWeight: 900,
+                            fontSize: { xs: '2rem', sm: '2.5rem', md: '4rem' },
+                            lineHeight: 1.1,
+                            mb: 3,
+                            fontFamily: 'Outfit',
+                            color: '#1a1a1a'
+                        }}>
+                            ELEVATING <Box component="span" sx={{ color: '#10B981', fontStyle: 'italic' }}>SECURITY</Box> STANDARDS.
+                        </Typography>
+                        <Button
+                            component={Link} to="/contact"
+                            variant="text"
+                            endIcon={<ArrowForwardIcon />}
+                            sx={{
+                                color: '#10B981',
+                                fontWeight: 800,
+                                fontSize: { xs: '1rem', md: '1.1rem' },
+                                p: 0,
+                                textTransform: 'none',
+                                '&:hover': { background: 'transparent', transform: 'translateX(10px)' },
+                                transition: 'all 0.4s cubic-bezier(0.19, 1, 0.22, 1)'
+                            }}
+                        >
+                            Initiate consultation sequence
+                        </Button>
+                    </Grid>
+                    <Grid item xs={12} lg={5}>
+                        <Box sx={{
+                            p: { xs: 3, sm: 4, md: 5 },
+                            background: '#fff',
+                            borderRadius: '32px',
+                            border: '1px solid rgba(0,0,0,0.05)',
+                            boxShadow: '0 20px 40px rgba(0,0,0,0.03)'
+                        }}>
+                            <Typography sx={{ fontWeight: 800, mb: 1, fontSize: '1.1rem', color: '#1a1a1a' }}>NEWSLETTER</Typography>
+                            <Typography sx={{ color: '#666', mb: 3, fontSize: '0.9rem', lineHeight: 1.6 }}>
+                                Get tactical updates and security briefings directly to your inbox.
+                            </Typography>
+                            <Box sx={{ display: 'flex', gap: 1.5 }}>
+                                <TextField
+                                    fullWidth
+                                    size="small"
+                                    placeholder="Enter corporate email"
+                                    sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            borderRadius: '100px',
+                                            background: '#f9f9f9',
+                                            '& fieldset': { borderColor: 'rgba(0,0,0,0.1)' },
+                                            '&:hover fieldset': { borderColor: '#10B981' }
+                                        }
+                                    }}
+                                />
+                                <IconButton sx={{
+                                    background: '#1a1a1a',
+                                    color: '#fff',
+                                    minWidth: 40, width: 40, height: 40,
+                                    '&:hover': { background: '#10B981' }
+                                }}>
+                                    <ArrowForwardIcon sx={{ fontSize: 20 }} />
+                                </IconButton>
+                            </Box>
+                        </Box>
+                    </Grid>
+                </Grid>
+
+                <Grid container spacing={{ xs: 6, lg: 8 }}>
+                    {/* Brand Info */}
+                    <Grid item xs={12} lg={4}>
+                        <Box component={Link} to="/" sx={{ display: 'flex', alignItems: 'center', gap: 2, textDecoration: 'none', mb: 3 }}>
+                            <Box component="img" src={logo} alt="GUE Cyber" sx={{ height: { xs: 45, md: 55 } }} />
+                            <Typography sx={{
+                                fontFamily: 'Outfit', fontWeight: 900,
+                                letterSpacing: '-0.04em', color: '#1a1a1a', fontSize: { xs: '1.5rem', md: '1.8rem' }
+                            }}>
+                                GUE CYBER
+                            </Typography>
+                        </Box>
+                        <Typography sx={{ color: '#666', mb: 4, lineHeight: 1.8, fontSize: { xs: '0.9rem', md: '1rem' }, maxWidth: 380 }}>
+                            Leading elite cyber security defense and digital transformation. Built for resilience, trusted by enterprises.
+                        </Typography>
+                        <Stack direction="row" spacing={1.5}>
+                            {[<LinkedInIcon />, <TwitterIcon />, <FacebookIcon />].map((icon, i) => (
+                                <IconButton
+                                    key={i}
+                                    sx={{
+                                        color: '#1a1a1a',
+                                        background: '#fff',
+                                        border: '1px solid rgba(0,0,0,0.08)',
+                                        p: 1.5,
+                                        transition: 'all 0.4s cubic-bezier(0.19, 1, 0.22, 1)',
+                                        '&:hover': {
+                                            background: '#1a1a1a',
+                                            color: '#fff',
+                                            transform: 'translateY(-5px)'
+                                        }
+                                    }}
+                                >
+                                    {icon}
+                                </IconButton>
+                            ))}
                         </Stack>
-                    </Box>
+                    </Grid>
 
-                    {/* Contact & Social column */}
-                    <Box sx={{ minWidth: 220 }}>
-                        <Typography variant="subtitle2" sx={{ color: 'rgba(255,255,255,0.9)', fontWeight: 700, mb: 1 }}>Get in touch</Typography>
-                        <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)', mb: 1 }}>Email us: <Box component="a" href="mailto:info@guecyber.com" sx={{ color: 'var(--btn-grad)', textDecoration: 'none', fontWeight: 700 }}>info@guecyber.com</Box></Typography>
-                        <Button component={Link} to="/contact" variant="contained" sx={{ background: 'var(--btn-grad)', color: 'var(--chip-text)', textTransform: 'none', mt: 1, width: { xs: '100%', md: 'auto' } }}>Request a Consultation</Button>
+                    {/* Quick Links */}
+                    <Grid item xs={12} lg={8}>
+                        <Grid container spacing={4}>
+                            {sections.map((section, idx) => (
+                                <Grid item xs={6} md={4} key={idx}>
+                                    <Typography sx={{
+                                        fontWeight: 800,
+                                        mb: { xs: 3, md: 4 },
+                                        color: '#1a1a1a',
+                                        letterSpacing: '0.15em',
+                                        fontSize: '0.75rem',
+                                        textTransform: 'uppercase'
+                                    }}>
+                                        {section.title}
+                                    </Typography>
+                                    <Stack spacing={2}>
+                                        {section.links.map((link, lIdx) => (
+                                            <Box
+                                                key={lIdx}
+                                                component={link.to.startsWith('#') ? 'span' : Link}
+                                                to={link.to}
+                                                sx={{
+                                                    color: '#666',
+                                                    textDecoration: 'none',
+                                                    fontSize: '0.95rem',
+                                                    fontWeight: 600,
+                                                    transition: 'all 0.3s ease',
+                                                    '&:hover': { color: '#10B981', transform: 'translateX(8px)' }
+                                                }}
+                                            >
+                                                {link.label}
+                                            </Box>
+                                        ))}
+                                    </Stack>
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </Grid>
+                </Grid>
 
-                        <Box sx={{ mt: 2, display: 'flex', gap: 1, alignItems: 'center' }}>
-                            <IconButton component="a" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" sx={{ color: 'rgba(255,255,255,0.9)', p: { xs: 1.25, md: 1 } }}>
-                                <LinkedInIcon sx={{ fontSize: { xs: 22, md: 20 } }} />
-                            </IconButton>
-                            <IconButton component="a" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" sx={{ color: 'rgba(255,255,255,0.9)', p: { xs: 1.25, md: 1 } }}>
-                                <GitHubIcon sx={{ fontSize: { xs: 22, md: 20 } }} />
-                            </IconButton>
-                            <IconButton component="a" href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter" sx={{ color: 'rgba(255,255,255,0.9)', p: { xs: 1.25, md: 1 } }}>
-                                <TwitterIcon sx={{ fontSize: { xs: 22, md: 20 } }} />
-                            </IconButton>
-                        </Box>
-                    </Box>
-                </Stack>
+                <Divider sx={{ mt: { xs: 8, md: 10 }, mb: 6, borderColor: 'rgba(0,0,0,0.05)' }} />
+
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: { xs: 'column', md: 'row' },
+                    justifyContent: 'space-between',
+                    alignItems: { xs: 'flex-start', md: 'center' },
+                    gap: 3
+                }}>
+                    <Typography sx={{ color: '#888', fontSize: '0.85rem', fontWeight: 500 }}>
+                        © {year} GUE Cyber Limited. Registered Subsidiary of Gue Group.
+                    </Typography>
+                    <Stack direction="row" spacing={{ xs: 2.5, sm: 4 }}>
+                        <Typography sx={{ color: '#888', fontSize: '0.85rem', cursor: 'pointer', fontWeight: 600, '&:hover': { color: '#10B981' } }}>
+                            Privacy Shield
+                        </Typography>
+                        <Typography sx={{ color: '#888', fontSize: '0.85rem', cursor: 'pointer', fontWeight: 600, '&:hover': { color: '#10B981' } }}>
+                            Terms of Service
+                        </Typography>
+                    </Stack>
+                </Box>
             </Container>
-
-            <Divider sx={{ borderColor: 'rgba(255,255,255,0.04)' }} />
-
-            <Box sx={{ py: 2 }}>
-                <Container maxWidth="lg" sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2 }}>
-                    <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.64)' }}>&copy; {new Date().getFullYear()} GUE CYBER LIMITED — All rights reserved.</Typography>
-                        <Stack direction="row" spacing={2} alignItems="center">
-                            <Typography component={Link} to="/terms" sx={{ color: 'rgba(255,255,255,0.64)', textDecoration: 'none' }}>Terms</Typography>
-                            <Typography component={Link} to="/cookie-policy" sx={{ color: 'rgba(255,255,255,0.64)', textDecoration: 'none' }}>Cookie Policy</Typography>
-                            <Typography component={Link} to="/privacy" sx={{ color: 'rgba(255,255,255,0.64)', textDecoration: 'none' }}>Privacy</Typography>
-                        </Stack>
-                </Container>
-            </Box>
         </Box>
     );
 }
