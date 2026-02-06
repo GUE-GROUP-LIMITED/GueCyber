@@ -13,7 +13,7 @@ export default function Home() {
     ];
 
     return (
-        <main style={{ overflowX: 'hidden' }}>
+        <main>
             {/* Mesh Background */}
             <div className="mesh-bg">
                 <div className="mesh-blob mesh-blob-1"></div>
@@ -22,8 +22,8 @@ export default function Home() {
 
             {/* Hero Section */}
             <Box sx={{
-                pt: { xs: 16, sm: 20, md: 28 },
-                pb: { xs: 8, md: 15 },
+                pt: { xs: 'var(--hero-pt-mobile)', md: 'var(--hero-pt-desktop)' },
+                pb: { xs: 'var(--section-py-mobile)', md: 'var(--internal-gap-lg)' },
                 position: 'relative'
             }}>
                 <Container maxWidth="xl">
@@ -129,12 +129,63 @@ export default function Home() {
                 </Container>
             </Box>
 
+            {/* Bridge Section: Technical Excellence */}
+            <Box sx={{ py: { xs: 'var(--internal-gap-md)', md: 'var(--internal-gap-lg)' }, background: '#fff', borderY: '1px solid rgba(0,0,0,0.05)' }}>
+                <Container maxWidth="lg">
+                    <Grid container spacing={{ xs: 4, md: 8 }} alignItems="center">
+                        <Grid item xs={12} md={7}>
+                            <Typography variant="h3" sx={{ fontWeight: 900, mb: 3, fontSize: { xs: '1.75rem', md: '2.5rem' } }}>Uncompromising Technical <Box component="span" sx={{ color: '#10B981' }}>Excellence</Box></Typography>
+                            <Typography sx={{ color: '#666', fontSize: '1.1rem', lineHeight: 1.8, mb: 4 }}>
+                                We merge offensive research with defensive engineering to build systems that don't just work, but withstand the most sophisticated threats. Our approach is rooted in precision and deep forensic awareness.
+                            </Typography>
+                            <Stack direction="row" spacing={4}>
+                                <Box>
+                                    <Typography sx={{ fontWeight: 900, fontSize: '1.5rem', color: '#1a1a1a' }}>99%</Typography>
+                                    <Typography sx={{ fontSize: '0.8rem', color: '#888', fontWeight: 700 }}>Threat Mitigation</Typography>
+                                </Box>
+                                <Box>
+                                    <Typography sx={{ fontWeight: 900, fontSize: '1.5rem', color: '#1a1a1a' }}>24/7</Typography>
+                                    <Typography sx={{ fontSize: '0.8rem', color: '#888', fontWeight: 700 }}>Active Monitoring</Typography>
+                                </Box>
+                            </Stack>
+                        </Grid>
+                        <Grid item xs={12} md={5}>
+                            <Box sx={{
+                                p: { xs: 3, md: 4 },
+                                background: 'rgba(16, 185, 129, 0.03)',
+                                borderRadius: { xs: '32px', md: '48px' },
+                                border: '1px solid rgba(16, 185, 129, 0.08)',
+                                textAlign: 'center',
+                                maxWidth: { xs: '100%', md: '420px' },
+                                mx: 'auto'
+                            }}>
+                                <Box
+                                    component="img"
+                                    src="/img/gue (4).jpg"
+                                    sx={{
+                                        width: '100%',
+                                        aspectRatio: '1/1',
+                                        objectFit: 'cover',
+                                        borderRadius: '24px',
+                                        boxShadow: 'var(--shadow-md)',
+                                        mb: 3
+                                    }}
+                                />
+                                <Typography sx={{ fontWeight: 800, color: '#10B981', letterSpacing: '0.05em', fontSize: { xs: '0.85rem', md: '1rem' } }}>
+                                    Built for the MSME Frontier
+                                </Typography>
+                            </Box>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
+
             {/* Stats Experience */}
-            <Box sx={{ py: { xs: 10, md: 15, lg: 20 } }}>
+            <Box sx={{ py: { xs: 'var(--section-py-mobile)', md: 'var(--section-py-desktop)' } }}>
                 <Container maxWidth="lg">
                     <Grid container spacing={{ xs: 3, md: 4 }}>
                         {stats.map((stat, i) => (
-                            <Grid item xs={12} md={4} key={i}>
+                            <Grid item xs={12} md={stat.value === '24/7' ? 12 : 6} lg={4} key={i}>
                                 <Box className={`glass-card reveal-up delay-${i + 1}`} sx={{ p: { xs: 4, md: 6 }, height: '100%', borderRadius: { xs: '32px', md: '40px' }, textAlign: 'center' }}>
                                     <Box sx={{
                                         width: { xs: 60, md: 80 }, height: { xs: 60, md: 80 }, borderRadius: { xs: '18px', md: '24px' },
@@ -155,7 +206,7 @@ export default function Home() {
             </Box>
 
             {/* Showcase Section */}
-            <Box sx={{ py: { xs: 10, sm: 15, md: 25 }, background: '#fff', position: 'relative', overflow: 'hidden' }}>
+            <Box sx={{ py: { xs: 'var(--section-py-mobile)', md: 'var(--section-py-desktop)' }, background: '#fff', position: 'relative', overflow: 'hidden' }}>
                 <Container maxWidth="lg">
                     <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 12 } }} className="reveal-up">
                         <Typography variant="overline" sx={{ fontWeight: 800, color: '#10B981', letterSpacing: '0.3em', fontSize: { xs: '0.7rem', md: '0.8rem' } }}>OUR SERVICES</Typography>
@@ -195,7 +246,7 @@ export default function Home() {
             </Box>
 
             {/* Premium CTA */}
-            <Box sx={{ py: { xs: 10, sm: 15, md: 25 }, background: '#1a1a1a', color: '#fff', textAlign: 'center', position: 'relative' }}>
+            <Box sx={{ py: { xs: 'var(--section-py-mobile)', md: 'var(--section-py-desktop)' }, background: '#1a1a1a', color: '#fff', textAlign: 'center', position: 'relative' }}>
                 <Box sx={{
                     position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
                     fontSize: { xs: '8rem', sm: '15rem', md: '30rem' }, fontWeight: 900, color: 'rgba(255,255,255,0.03)', pointerEvents: 'none', zIndex: 0

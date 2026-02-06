@@ -7,14 +7,14 @@ export default function About() {
     ];
 
     return (
-        <main style={{ overflowX: 'hidden' }}>
+        <main>
             <div className="mesh-bg">
                 <div className="mesh-blob mesh-blob-1"></div>
                 <div className="mesh-blob mesh-blob-2"></div>
             </div>
 
             {/* Hero Section */}
-            <Box sx={{ pt: { xs: 16, sm: 20, md: 30 }, pb: { xs: 10, md: 25 } }}>
+            <Box sx={{ pt: { xs: 'var(--hero-pt-mobile)', md: 'var(--hero-pt-desktop)' }, pb: { xs: 'var(--section-py-mobile)', md: 'var(--internal-gap-lg)' } }}>
                 <Container maxWidth="xl">
                     <Grid container spacing={{ xs: 6, lg: 10 }} alignItems="center">
                         <Grid item xs={12} lg={6} className="reveal-up">
@@ -109,8 +109,62 @@ export default function About() {
                 </Container>
             </Box>
 
+            {/* Bridge Section: Strategic Vision */}
+            <Box sx={{ py: { xs: 'var(--internal-gap-md)', md: 'var(--internal-gap-lg)' }, background: 'rgba(16, 185, 129, 0.03)', borderY: '1px solid rgba(16, 185, 129, 0.1)' }}>
+                <Container maxWidth="lg">
+                    <Grid container spacing={8} alignItems="center">
+                        <Grid item xs={12} md={5}>
+                            <Box sx={{
+                                position: 'relative',
+                                maxWidth: { xs: '100%', md: '380px' },
+                                mx: 'auto'
+                            }}>
+                                <Box
+                                    component="img"
+                                    src="/img/gue (3).jpg"
+                                    sx={{
+                                        width: '100%',
+                                        aspectRatio: '1/1',
+                                        objectFit: 'cover',
+                                        borderRadius: { xs: '32px', md: '40px' },
+                                        boxShadow: 'var(--shadow-lg)',
+                                        display: 'block'
+                                    }}
+                                />
+                                <Box sx={{
+                                    position: 'absolute',
+                                    bottom: { xs: -10, md: -20 },
+                                    right: { xs: -10, md: -20 },
+                                    p: { xs: 2.5, md: 3.5 },
+                                    background: '#1a1a1a',
+                                    color: '#fff',
+                                    borderRadius: '24px',
+                                    boxShadow: 'var(--shadow-xl)',
+                                    display: { xs: 'block', sm: 'block' },
+                                    textAlign: 'center',
+                                    minWidth: { xs: '120px', md: '160px' }
+                                }}>
+                                    <Typography sx={{ fontWeight: 900, fontSize: { xs: '1.2rem', md: '1.5rem' }, mb: 0.5 }}>15+</Typography>
+                                    <Typography sx={{ fontSize: { xs: '0.65rem', md: '0.75rem' }, opacity: 0.7, fontWeight: 700, lineHeight: 1.2 }}>Years of Industry Legacy</Typography>
+                                </Box>
+                            </Box>
+                        </Grid>
+                        <Grid item xs={12} md={7}>
+                            <Typography variant="overline" sx={{ color: '#10B981', fontWeight: 800, letterSpacing: '0.2em' }}>THE VISION</Typography>
+                            <Typography variant="h3" sx={{ fontWeight: 900, my: 3, lineHeight: 1.1 }}>PRECISION ENGINEERING MEET <Box component="span" sx={{ color: '#10B981' }}>ELITE PROTECTION</Box></Typography>
+                            <Typography sx={{ color: '#555', fontSize: '1.1rem', lineHeight: 1.8, mb: 4 }}>
+                                In an era of rapid digital evolution, security can no longer be an afterthought. Our methodology is built on a foundation of 'Security by Design'—merging advanced technical infrastructure with offensive intelligence.
+                            </Typography>
+                            <Typography sx={{ color: '#555', fontSize: '1.1rem', lineHeight: 1.8 }}>
+                                We empower organisations to scale without fear by hardening their digital border and ensuring operational resilience at every layer of the stack.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
+
             {/* Capabilities */}
-            <Box sx={{ py: { xs: 10, md: 25 }, background: '#fff' }}>
+            <Box sx={{ py: { xs: 'var(--section-py-mobile)', md: 'var(--section-py-desktop)' }, background: '#fff' }}>
                 <Container maxWidth="lg">
                     <Box sx={{ textAlign: 'center', mb: { xs: 8, md: 12 } }}>
                         <Typography variant="h2" sx={{ fontWeight: 900, mb: 3, fontSize: { xs: '2rem', md: '4rem' } }}>WHAT WE DO</Typography>
@@ -136,7 +190,7 @@ export default function About() {
             </Box>
 
             {/* Strategy Section */}
-            <Box sx={{ py: { xs: 10, md: 25 }, background: '#FAFAFA' }}>
+            <Box sx={{ py: { xs: 'var(--section-py-mobile)', md: 'var(--section-py-desktop)' }, background: '#FAFAFA' }}>
                 <Container maxWidth="lg">
                     <Grid container spacing={{ xs: 6, md: 10 }} alignItems="center">
                         <Grid item xs={12} md={6}>
@@ -174,7 +228,7 @@ export default function About() {
             </Box>
 
             {/* Milestones Card Grid */}
-            <Box sx={{ py: { xs: 10, md: 25 }, background: '#fff' }}>
+            <Box sx={{ py: { xs: 'var(--section-py-mobile)', md: 'var(--section-py-desktop)' }, background: '#fff' }}>
                 <Container maxWidth="lg">
                     <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 12 } }}>
                         <Typography variant="h2" sx={{ fontWeight: 900, fontSize: { xs: '2rem', md: '4rem' } }}>LEGACY & FUTURE</Typography>

@@ -11,13 +11,13 @@ export default function Careers() {
     ];
 
     return (
-        <main style={{ overflowX: 'hidden' }}>
+        <main>
             <div className="mesh-bg">
                 <div className="mesh-blob mesh-blob-1"></div>
                 <div className="mesh-blob mesh-blob-2"></div>
             </div>
 
-            <Box sx={{ pt: { xs: 16, sm: 20, md: 30 }, pb: { xs: 8, md: 25 } }}>
+            <Box sx={{ pt: { xs: 'var(--hero-pt-mobile)', md: 'var(--hero-pt-desktop)' }, pb: { xs: 'var(--section-py-mobile)', md: 'var(--section-py-desktop)' } }}>
                 <Container maxWidth="lg">
                     <Box sx={{ textAlign: 'center', mb: { xs: 8, md: 15 } }} className="reveal-up">
                         <Typography variant="overline" sx={{ fontWeight: 900, color: '#10B981', letterSpacing: '0.4em', mb: 2, display: 'block', fontSize: { xs: '0.7rem', md: '0.8rem' } }}>RECRUITMENT</Typography>

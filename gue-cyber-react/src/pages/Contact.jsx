@@ -20,7 +20,7 @@ export default function Contact() {
         <div className="mesh-blob mesh-blob-2"></div>
       </div>
 
-      <Box sx={{ pt: { xs: 15, md: 25 }, pb: { xs: 8, md: 15 } }}>
+      <Box sx={{ pt: { xs: 'var(--hero-pt-mobile)', md: 'var(--hero-pt-desktop)' }, pb: { xs: 'var(--section-py-mobile)', md: 'var(--section-py-desktop)' } }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: { xs: 8, md: 12 } }} className="reveal-up">
             <Typography variant="overline" sx={{ fontWeight: 900, color: '#10B981', letterSpacing: '0.4em', mb: 2, display: 'block', fontSize: { xs: '0.7rem', md: '0.8rem' } }}>CONNECT</Typography>
@@ -72,7 +72,7 @@ export default function Contact() {
       </Box>
 
       {/* Elite FAQ */}
-      <Box sx={{ py: { xs: 10, md: 20 }, background: '#fafafa' }}>
+      <Box sx={{ py: { xs: 'var(--section-py-mobile)', md: 'var(--section-py-desktop)' }, background: '#fafafa' }}>
         <Container maxWidth="md">
           <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 10 } }}>
             <Typography variant="h2" sx={{ fontWeight: 900, mb: 2, fontSize: { xs: '2rem', md: '3.5rem' } }}>INTEL & GUIDANCE</Typography>

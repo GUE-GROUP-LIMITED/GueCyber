@@ -46,7 +46,7 @@ export default function Footer() {
         <Box component="footer" sx={{
             background: '#FAFAFA',
             color: '#1a1a1a',
-            pt: { xs: 10, md: 20 },
+            pt: { xs: 'var(--internal-gap-lg)', md: 'var(--section-py-desktop)' },
             pb: 8,
             position: 'relative',
             overflow: 'hidden',

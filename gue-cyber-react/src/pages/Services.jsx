@@ -15,13 +15,13 @@ export default function Services() {
   ];
 
   return (
-    <main style={{ overflowX: 'hidden' }}>
+    <main>
       <div className="mesh-bg">
         <div className="mesh-blob mesh-blob-1"></div>
         <div className="mesh-blob mesh-blob-2"></div>
       </div>
 
-      <Box sx={{ pt: { xs: 16, sm: 20, md: 30 }, pb: { xs: 8, md: 15, lg: 25 } }}>
+      <Box sx={{ pt: { xs: 'var(--hero-pt-mobile)', md: 'var(--hero-pt-desktop)' }, pb: { xs: 'var(--section-py-mobile)', md: 'var(--section-py-desktop)' } }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', maxWidth: 900, mx: 'auto' }} className="reveal-up">
             <Typography variant="overline" sx={{ fontWeight: 900, color: '#10B981', letterSpacing: '0.4em', mb: 2, display: 'block', fontSize: { xs: '0.7rem', md: '0.8rem' } }}>OUR SOLUTIONS</Typography>
@@ -63,7 +63,7 @@ export default function Services() {
         </Container>
       </Box>
 
-      <Box sx={{ py: { xs: 8, md: 15, lg: 25 }, background: '#1a1a1a', color: '#fff', textAlign: 'center' }}>
+      <Box sx={{ py: { xs: 'var(--section-py-mobile)', md: 'var(--section-py-desktop)' }, background: '#1a1a1a', color: '#fff', textAlign: 'center' }}>
         <Container maxWidth="md">
           <Typography variant="h2" sx={{ fontWeight: 900, mb: 3, fontSize: { xs: '2rem', md: '4rem' }, lineHeight: 1.2 }}>CUSTOM SECURITY ARCHITECTURE</Typography>
           <Typography sx={{ mb: { xs: 6, md: 10 }, opacity: 0.7, fontSize: { xs: '1rem', md: '1.2rem' }, px: 2 }}>We don't offer generic fixes. Our engineers design custom-built programs for your specific risk landscape.</Typography>
