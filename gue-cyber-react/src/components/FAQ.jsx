@@ -51,7 +51,7 @@ const FAQ = () => (
             '&:before': { display: 'none' },
             borderRadius: '16px !important',
             background: '#fff',
-            border: '1px solid #eee',
+            border: '1px solid var(--border)',
             overflow: 'hidden',
             '&.Mui-expanded': {
               margin: '0 0 16px 0'
@@ -62,7 +62,7 @@ const FAQ = () => (
             expandIcon={
               <ExpandMoreIcon
                 sx={{
-                  color: '#1a1a1a',
+                  color: 'var(--primary)',
                   fontSize: '1.5rem',
                   transition: 'transform 0.3s ease'
                 }}
@@ -72,7 +72,7 @@ const FAQ = () => (
               borderRadius: '16px',
               minHeight: 64,
               '&:hover': {
-                bgcolor: 'rgba(0, 0, 0, 0.02)'
+                bgcolor: 'rgba(15, 23, 42, 0.03)'
               },
               '& .MuiAccordionSummary-content': {
                 alignItems: 'center',
@@ -86,11 +86,11 @@ const FAQ = () => (
                 width: 40,
                 height: 40,
                 borderRadius: '10px',
-                background: 'rgba(16, 185, 129, 0.1)',
+                background: 'var(--accent-soft)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#10B981',
+                color: 'var(--accent)',
                 flexShrink: 0,
                 '& svg': { fontSize: 20 }
               }}
@@ -101,7 +101,7 @@ const FAQ = () => (
               variant="h6"
               fontWeight={600}
               sx={{
-                color: '#1a1a1a',
+                color: 'var(--primary)',
                 fontSize: { xs: '0.95rem', md: '1rem' }
               }}
             >
@@ -113,11 +113,11 @@ const FAQ = () => (
               <Typography
                 variant="body1"
                 sx={{
-                  color: '#555',
+                  color: 'var(--text-muted)',
                   fontSize: '0.95rem',
                   lineHeight: 1.7,
                   pl: 2,
-                  borderLeft: '3px solid #10B981'
+                  borderLeft: '3px solid var(--accent)'
                 }}
               >
                 {faq.answer}

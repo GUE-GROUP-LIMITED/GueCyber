@@ -1,86 +1,153 @@
-import { Typography, Container, Box, Grid, TextField, Button, Stack } from "@mui/material";
-import EmailIcon from '@mui/icons-material/Email';
-import PhoneIcon from '@mui/icons-material/Phone';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import FAQ from "../components/FAQ";
+import { useState } from "react";
+import "./Contact.css";
 
 export default function Contact() {
-  const contactInfo = [
-    { icon: <EmailIcon />, label: "Direct Email", value: "info@guecyber.com", href: "mailto:info@guecyber.com" },
-    { icon: <PhoneIcon />, label: "Security Hotline", value: "+234 (0) 803 234 5678", href: "tel:+2348032345678" },
-    { icon: <LocationOnIcon />, label: "Headquarters", value: "Makurdi, Benue State, NG", href: "#" },
-    { icon: <AccessTimeIcon />, label: "Mission Hours", value: "Mon - Fri, 9am - 5pm", href: "#" }
-  ];
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    company: "",
+    service: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [submitMessage, setSubmitMessage] = useState("");
+
+  const handleChange = (field) => (event) => {
+    const value = event.target.value;
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => ({ ...prev, [field]: "" }));
+  };
+
+  const validateForm = () => {
+    const nextErrors = {};
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!formData.fullName.trim()) nextErrors.fullName = "Full name is required.";
+    if (!formData.email.trim()) nextErrors.email = "Email is required.";
+    if (formData.email.trim() && !emailPattern.test(formData.email.trim())) {
+      nextErrors.email = "Enter a valid email address.";
+    }
+    if (!formData.service) nextErrors.service = "Select a service.";
+    if (!formData.message.trim()) nextErrors.message = "Please share your project context.";
+
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!validateForm()) {
+      setSubmitMessage("");
+      return;
+    }
+
+    setSubmitMessage("Thanks. Your request has been submitted. Our team will contact you shortly.");
+    setFormData({
+      fullName: "",
+      email: "",
+      company: "",
+      service: "",
+      message: "",
+    });
+  };
 
   return (
     <main>
-      <div className="mesh-bg">
-        <div className="mesh-blob mesh-blob-1"></div>
-        <div className="mesh-blob mesh-blob-2"></div>
-      </div>
+      <section className="contact-page">
+        <img className="contact-bg" src="/images/contact-waves-bg-lime-half.png" alt="" />
 
-      <Box sx={{ pt: { xs: 'var(--hero-pt-mobile)', md: 'var(--hero-pt-desktop)' }, pb: { xs: 'var(--section-py-mobile)', md: 'var(--section-py-desktop)' } }}>
-        <Container maxWidth="lg">
-          <Box sx={{ textAlign: 'center', mb: { xs: 8, md: 12 } }} className="reveal-up">
-            <Typography variant="overline" sx={{ fontWeight: 900, color: '#10B981', letterSpacing: '0.4em', mb: 2, display: 'block', fontSize: { xs: '0.7rem', md: '0.8rem' } }}>CONNECT</Typography>
-            <Typography variant="h1" sx={{ fontSize: { xs: '2.5rem', sm: '3.5rem', md: '5rem' }, fontWeight: 900, color: '#1a1a1a', mb: 3, lineHeight: 1.1 }}>GET IN <Box component="span" sx={{ color: '#10B981', fontStyle: 'italic' }}>TOUCH</Box></Typography>
-            <Typography sx={{ color: '#666', fontSize: { xs: '1rem', md: '1.2rem' }, maxWidth: 700, mx: 'auto', px: 2 }}>We are ready to respond to your inquiries and security consultation needs.</Typography>
-          </Box>
+        <div className="contact-wrap">
+          <div className="contact-center">
+            <div className="contact-header reveal-up">
+              <h1 className="contact-title">Contact us</h1>
+              <p className="contact-subtitle">We are here to help you make a first move to greener choice.</p>
+            </div>
 
-          <Grid container spacing={{ xs: 6, lg: 10 }}>
-            {/* High-End Form */}
-            <Grid item xs={12} lg={7}>
-              <Box className="glass-card reveal-up delay-1" sx={{ p: { xs: 4, sm: 6, md: 8 }, borderRadius: { xs: '32px', md: '48px' } }}>
-                <Typography variant="h4" sx={{ fontWeight: 900, mb: { xs: 4, md: 6 }, color: '#1a1a1a', fontSize: { xs: '1.5rem', md: '2.125rem' } }}>Strategic Inquiry</Typography>
-                <Grid container spacing={{ xs: 3, md: 4 }}>
-                  <Grid item xs={12} sm={6}>
-                    <TextField fullWidth label="Full Name" variant="standard" InputProps={{ disableUnderline: false, sx: { fontSize: { xs: '1rem', md: '1.1rem' }, py: 1 } }} />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField fullWidth label="Corporate Email" variant="standard" InputProps={{ disableUnderline: false, sx: { fontSize: { xs: '1rem', md: '1.1rem' }, py: 1 } }} />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField fullWidth label="Inquiry Subject" variant="standard" InputProps={{ disableUnderline: false, sx: { fontSize: { xs: '1rem', md: '1.1rem' }, py: 1 } }} />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField fullWidth multiline rows={4} label="Your Message" variant="standard" InputProps={{ disableUnderline: false, sx: { fontSize: { xs: '1rem', md: '1.1rem' }, py: 1 } }} />
-                  </Grid>
-                  <Grid item xs={12} sx={{ mt: { xs: 2, md: 4 } }}>
-                    <Button fullWidth variant="contained" sx={{ py: 2.2, borderRadius: '100px', background: '#1a1a1a', color: '#fff', fontWeight: 900, fontSize: { xs: '1rem', md: '1.1rem' }, '&:hover': { background: '#10B981' } }}>Submit Mission Brief</Button>
-                  </Grid>
-                </Grid>
-              </Box>
-            </Grid>
+            <div className="contact-card reveal-up delay-1">
+              <form onSubmit={handleSubmit} noValidate>
+                <div className="contact-group">
+                  <label className="contact-label" htmlFor="fullName">Full Name</label>
+                  <input
+                    className={`contact-input ${errors.fullName ? "error" : ""}`}
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange("fullName")}
+                  />
+                  {errors.fullName ? <p className="contact-error">{errors.fullName}</p> : null}
+                </div>
 
-            {/* High-End Info */}
-            <Grid item xs={12} lg={5}>
-              <Stack spacing={{ xs: 3, md: 4 }} className="reveal-scale delay-2">
-                {contactInfo.map((info, idx) => (
-                  <Box key={idx} className="glass-card" sx={{ p: { xs: 3, sm: 4, md: 5 }, borderRadius: { xs: '24px', md: '32px' }, display: 'flex', alignItems: 'center', gap: { xs: 2, md: 4 } }}>
-                    <Box sx={{ minWidth: { xs: 48, md: 64 }, height: { xs: 48, md: 64 }, borderRadius: '16px', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10B981', '& svg': { fontSize: { xs: 24, md: 32 } } }}>{info.icon}</Box>
-                    <Box>
-                      <Typography sx={{ color: '#888', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: { xs: '0.6rem', md: '0.7rem' }, mb: 0.5 }}>{info.label}</Typography>
-                      <Typography component="a" href={info.href} sx={{ color: '#1a1a1a', textDecoration: 'none', fontWeight: 800, fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' }, transition: 'all 0.3s ease', '&:hover': { color: '#10B981' }, wordBreak: 'break-all' }}>{info.value}</Typography>
-                    </Box>
-                  </Box>
-                ))}
-              </Stack>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
+                <div className="contact-group">
+                  <label className="contact-label" htmlFor="email">Email</label>
+                  <input
+                    className={`contact-input ${errors.email ? "error" : ""}`}
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange("email")}
+                  />
+                  {errors.email ? <p className="contact-error">{errors.email}</p> : null}
+                </div>
 
-      {/* Elite FAQ */}
-      <Box sx={{ py: { xs: 'var(--section-py-mobile)', md: 'var(--section-py-desktop)' }, background: '#fafafa' }}>
-        <Container maxWidth="md">
-          <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 10 } }}>
-            <Typography variant="h2" sx={{ fontWeight: 900, mb: 2, fontSize: { xs: '2rem', md: '3.5rem' } }}>INTEL & GUIDANCE</Typography>
-            <Typography sx={{ color: '#666', fontSize: { xs: '1rem', md: '1.2rem' }, px: 2 }}>Answers to our most frequently discussed implementation topics.</Typography>
-          </Box>
-          <FAQ />
-        </Container>
-      </Box>
+                <div className="contact-group">
+                  <label className="contact-label" htmlFor="company">
+                    <span>Company</span> <span className="contact-label-muted">(optional)</span>
+                  </label>
+                  <input
+                    className="contact-input"
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange("company")}
+                  />
+                </div>
+
+                <div className="contact-group">
+                  <label className="contact-label" htmlFor="service">Service</label>
+                  <select
+                    className={`contact-select ${errors.service ? "error" : ""}`}
+                    id="service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange("service")}
+                  >
+                    <option value="">Select service</option>
+                    <option value="assessment">Security Assessment</option>
+                    <option value="cloud">Cloud Hardening</option>
+                    <option value="incident">Incident Response</option>
+                    <option value="advisory">Advisory & Governance</option>
+                  </select>
+                  {errors.service ? <p className="contact-error">{errors.service}</p> : null}
+                </div>
+
+                <div className="contact-group">
+                  <label className="contact-label" htmlFor="message">Message</label>
+                  <input
+                    className={`contact-input ${errors.message ? "error" : ""}`}
+                    type="text"
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange("message")}
+                  />
+                  {errors.message ? <p className="contact-error">{errors.message}</p> : null}
+                </div>
+
+                {submitMessage ? <div className="contact-success">{submitMessage}</div> : null}
+
+                <button type="submit" className="contact-submit">
+                  <span>Submit</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
