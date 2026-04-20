@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "r
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Box, CircularProgress } from '@mui/material';
+import { Analytics } from '@vercel/analytics/react';
 
 import './i18n';
 
@@ -120,6 +121,7 @@ function App() {
           </Suspense>
           <Footer />
           <CookieConsentBanner />
+          <Analytics />
         </Router>
       </div>
     </ThemeProvider>
