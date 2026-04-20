@@ -1,0 +1,224 @@
+{
+  "common": {
+    "language": "Français",
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "contact": "Contact",
+    "careers": "Carrière",
+    "readMore": "En savoir plus",
+    "contactTeam": "Contactez l'équipe",
+    "contactUs": "Nous contacter",
+    "submit": "Soumettre",
+    "subscribe": "S'abonner",
+    "exploreCareers": "Parcourir les carrières",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "cookiePolicy": "Politique relative aux cookies",
+    "companyName": "Gue Cyber"
+  },
+  "header": {
+    "brand": "GUE CYBER",
+    "getStarted": "Commencer"
+  },
+  "home": {
+    "hero": {
+      "title": "Créez des entreprises résilientes par",
+      "subtitle": "Cybersécurité, Logiciels & IA"
+    },
+    "description": "Gue Cyber offre des services de cybersécurité, d'ingénierie logicielle, d'automatisation assistée par l'IA, de systèmes web et intranet, de solutions cloud et DevOps, de formation informatique d'entreprise, de support technique et d'approvisionnement technologique.",
+    "stat1": "Fondations de l'entreprise depuis",
+    "stat2": "Approche de livraison client",
+    "stat3": "Piliers de capacités clés",
+    "stat4": "Lignes de services cyber, logiciel et IA",
+    "capability1": {
+      "title": "Cybersécurité & Gouvernance",
+      "text": "Évaluation, renforcement, surveillance, préparation aux incidents et support de gouvernance pour des opérations résilientes."
+    },
+    "capability2": {
+      "title": "Ingénierie logicielle & cloud",
+      "text": "Développement personnalisé, API sécurisées, architecture cloud, DevOps et modernisation infrastructure pour des opérations évolutives."
+    },
+    "capability3": {
+      "title": "Activation de l'IA & Automatisation",
+      "text": "Flux de travail assistés par l'IA, automatisation et outils de connaissance qui améliorent la vitesse, la cohérence et la prise de décision."
+    },
+    "capability4": {
+      "title": "Support des operations technologiques",
+      "text": "Support informatique d'entreprise, conseil en approvisionnement et soutien operationnel pour garder les equipes securisees et productives."
+    },
+    "testimonial1": {
+      "text": "Gue Cyber nous a aidés à réduire les risques de plateforme tout en améliorant la vitesse de publication. Leurs conseils en cybersécurité et DevOps étaient pratiques et immédiatement utiles.",
+      "author": "Directeur ingénierie"
+    },
+    "testimonial2": {
+      "text": "De la planification architecturale au support d'implémentation, l'équipe a fourni une direction claire et des améliorations mesurables dans nos opérations numériques.",
+      "author": "CTO"
+    },
+    "faqIntro": "De la cybersécurité et l'ingénierie logicielle à l'automatisation assistée par l'IA, nous nous associons à des organisations pour résoudre de véritables défis commerciaux et technologiques.",
+    "faqTitle": "Questions fréquemment posées",
+    "faqDescription": "Vous trouverez ici des réponses claires aux questions courantes sur la cybersécurité, l'ingénierie logicielle, l'IA et notre approche de livraison.",
+    "cta": {
+      "title": "Prêt à renforcer la base de votre technologie d'entreprise?",
+      "description": "Parlez à notre équipe pour concevoir une feuille de route pratique couvrant la cybersécurité, l'ingénierie logicielle, l'IA, le cloud et les opérations informatiques."
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Créez des organisations résilientes par la cyber, les logiciels et l'IA."
+    },
+    "description": "Notre entreprise a évolué d'une entreprise TIC enregistrée vers une entreprise cybernétique plus large axée sur la livraison technologique sécurisée et pratique en cybersécurité, ingénierie logicielle et IA.",
+    "aboutTitle": "À propos de nous",
+    "aboutText": "Notre entreprise a évolué d'une entreprise TIC enregistrée vers une entreprise cybernétique plus large axée sur la livraison technologique sécurisée et pratique pour les organisations en cybersécurité, ingénierie logicielle et IA.",
+    "stat1": "Mondial",
+    "stat1Label": "Mentalité de livraison transfrontalière",
+    "stat2": "Sécurisé",
+    "stat2Label": "Ingénierie centrée sur la sécurité",
+    "stat3": "IA",
+    "stat3Label": "Automatisation et innovation",
+    "value1": {
+      "title": "Technologie axée sur l'entreprise",
+      "text": "Nous alignons les décisions de cybersécurité et d'ingénierie sur des résultats commerciaux mesurables."
+    },
+    "value2": {
+      "title": "Livraison de services intégrés",
+      "text": "Du développement logiciel au support technique, nous offrons des solutions complètes dans le cycle de vie informatique."
+    },
+    "value3": {
+      "title": "Développement des capacités prêtes pour l'IA",
+      "text": "Nous renforçons la force interne à long terme par la formation d'entreprise, les conseils et le support d'adoption responsable de l'IA."
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Solutions de cybersécurité, d'ingénierie logicielle et d'IA alignées aux opérations et aux objectifs de croissance."
+    },
+    "description": "Chaque engagement est adapté à votre contexte commercial avec des résultats clairs et une implémentation pratique.",
+    "service1": {
+      "title": "Cybersécurité & Gouvernance",
+      "items": [
+        "Tests de pénétration infrastructure et applications",
+        "Évaluation des vulnérabilités et planification de remédiation",
+        "Simulation OSINT et ingénierie sociale",
+        "Rapports exécutifs et techniques des risques"
+      ]
+    },
+    "service2": {
+      "title": "Ingénierie logicielle & cloud",
+      "items": [
+        "Développement d'applications et d'API personnalisés",
+        "Planification d'architecture et de migration cloud",
+        "Renforcement infrastructure et observabilité",
+        "CI/CD, DevOps et automatisation"
+      ]
+    },
+    "service3": {
+      "title": "Activation de l'IA & Automatisation",
+      "items": [
+        "Découverte des cas d'usage IA et planification de solutions",
+        "Intégration LLM et prompt engineering",
+        "Formation et programmes de capacité en IA d'entreprise",
+        "Cadres de gouvernance pour une IA responsable"
+      ]
+    },
+    "service4": {
+      "title": "Approvisionnement technologique",
+      "items": [
+        "Approvisionnement technologique et conseil fournisseurs",
+        "Préparation et évaluation RFP",
+        "Planification approvision pour l'échelle et la continuité",
+        "Optimisation des coûts et gestion des licences"
+      ]
+    },
+    "processTitle": "Notre approche de livraison IT",
+    "step1": "01",
+    "step1Title": "Découvrir",
+    "step1Text": "Comprenez vos systèmes, opérations, contraintes et opportunités sur l'ensemble du paysage IT.",
+    "step2": "02",
+    "step2Title": "Concevoir",
+    "step2Text": "Co-concevez une feuille de route pratique couvrant la cybersécurité, les logiciels, le cloud, l'IA et le support.",
+    "step3": "03",
+    "step3Title": "Livrer",
+    "step3Text": "Implémentez des solutions sûres et fiables pour les applications, l'infrastructure, les workflows et les opérations de service.",
+    "step4": "04",
+    "step4Title": "Déployer à l'échelle",
+    "step4Text": "Mesurez les résultats, améliorez en continu et étendez les pratiques éprouvées entre équipes et départements.",
+    "cta": {
+      "title": "Prêt à transformer vos opérations?",
+      "description": "Parlez à notre équipe pour concevoir une feuille de route axée sur les résultats couvrant la sécurité, l'ingénierie logicielle, l'IA, le cloud et les opérations informatiques."
+    }
+  },
+  "contact": {
+    "title": "Nous contacter",
+    "subtitle": "Nous sommes là pour vous aider.",
+    "fullName": "Nom complet",
+    "email": "E-mail",
+    "company": "Entreprise",
+    "company_optional": "(optionnel)",
+    "service": "Service",
+    "selectService": "Sélectionnez un service",
+    "assessment": "Évaluation de la sécurité",
+    "cloud": "Renforcement du cloud",
+    "incident": "Réponse aux incidents",
+    "advisory": "Conseil & Gouvernance",
+    "message": "Message",
+    "privacyConsent": "J'accepte le traitement de mes données pour cette demande et j'ai lu la",
+    "privacyLink": "Politique de confidentialité",
+    "privacyNote": "Nous utilisons vos données uniquement pour répondre à votre demande, gérer la relation et respecter les obligations légales.",
+    "consentRequired": "Veuillez accepter la politique de confidentialité avant de soumettre.",
+    "success": "Merci. Votre demande a été soumise. Notre équipe vous contactera bientôt."
+  },
+  "careers": {
+    "job1Title": "Ingénieur en sécurité",
+    "job2Title": "Ingénieur cloud et DevOps",
+    "job3Title": "Ingénieur logiciel full-stack",
+    "job4Title": "Spécialiste de formation d'entreprise",
+    "careersHero": "Carrière",
+    "careersSubtitle": "Rejoignez une équipe créant des résultats cyber et technologiques pratiques.",
+    "careersDescription": "Nous créons une culture d'appropriation, de précision et d'excellence en livraison en cybersécurité, cloud, logiciels et services informatiques.",
+    "benefit1": "Appropriation et impact",
+    "benefit1Desc": "Travaillez sur de vrais problèmes pour de vrais clients avec des résultats mesurables.",
+    "benefit2": "Forte collaboration",
+    "benefit2Desc": "Travaillez avec des équipes en cyber, logiciels, cloud, support et livraison conseil.",
+    "benefit3": "Missions significatives",
+    "benefit3Desc": "Créez une technologie qui aide les organisations à fonctionner de façon plus sécurisée et efficace.",
+    "benefit4": "Croissance et apprentissage",
+    "benefit4Desc": "Grandissez grâce à la formation, à la livraison cross-fonctionnelle et à la véritable propriété du projet."
+  },
+  "faq": {
+    "q1": "Quels services Gue Cyber offre-t-elle?",
+    "a1": "Gue Cyber offre des services de cybersécurité, de transformation numérique et d'infrastructure pour les PME et les entreprises. Nous proposons des évaluations de vulnérabilités, du renforcement infrastructure, des migrations sécurisées et des formations pour améliorer la résilience.",
+    "q2": "Proposez-vous une formation en matière de sécurité et des exercices de réponse aux incidents?",
+    "a2": "Oui — nous proposons une sensibilisation à la sécurité, des exercices de table pour la réponse aux incidents et une formation technique pratique comme le codage sécurisé et l'analyse de journaux pour renforcer les capacités de sécurité internes.",
+    "q3": "Pouvez-vous nous aider à adopter l'IA de façon responsable?",
+    "a3": "Oui — nous aidons les équipes à identifier les cas d'usage pratiques de l'IA, à définir des garde-fous de gouvernance et à introduire l'automatisation de façon responsable afin que l'IA soutienne les opérations sans augmenter les risques.",
+    "q4": "Soutenez-vous les équipes distribuées ou distantes?",
+    "a4": "Oui, nous opérons avec un modèle distribué pour soutenir les clients à l'échelle mondiale — combinant surveillance de sécurité à distance avec conseil sur site si nécessaire pour renforcer l'infrastructure critique."
+  },
+  "footer": {
+    "platform": "Plateforme",
+    "resources": "Ressources",
+    "company": "Entreprise",
+    "description": "Nous aidons les organisations à construire des opérations numériques résilientes par la cybersécurité, l'ingénierie logicielle, le cloud et DevOps, la consultation informatique et la capacité technologique.",
+    "newsletter": "Votre source pour les mises à jour cyber business",
+    "newsletterDesc": "Rejoignez notre bulletin mensuel avec des perspectives sur la cybersécurité, le cloud, la livraison logicielle et la résilience opérationnelle.",
+    "email": "vous@entreprise.fr",
+    "form": {
+      "consent": "J'accepte de recevoir des mises à jour et je confirme avoir lu la",
+      "emailRequired": "Veuillez saisir votre adresse e-mail.",
+      "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
+      "consentRequired": "Veuillez accepter la politique de confidentialité avant de vous abonner.",
+      "successMessage": "Merci pour votre abonnement. Vous recevrez notre prochain bulletin mensuel."
+    },
+    "copyright": "© {{year}} Gue Cyber Limited. Tous droits réservés.",
+    "solutions": "Solutions",
+    "howWeWork": "Comment nous travaillons",
+    "support": "Support"
+  },
+  "legal": {
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "cookiePolicy": "Politique relative aux cookies",
+    "legal": "Légal"
+  }
+}

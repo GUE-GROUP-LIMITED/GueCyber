@@ -1,54 +1,49 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const SITE_NAME = "GUE Cyber Limited";
-const DEFAULT_TITLE = "GUE Cyber Limited | Cyber Business and Technology Services";
+const SITE_NAME = "Gue Cyber";
+const DEFAULT_TITLE = "Gue Cyber | Cybersecurity, Software Engineering and AI";
 const DEFAULT_DESCRIPTION =
-  "GUE Cyber Limited delivers cybersecurity, software and web development, cloud and DevOps, IT consulting, enterprise training, and technology procurement services.";
+  "Gue Cyber delivers cybersecurity, software engineering, AI automation, cloud and DevOps, IT consulting, enterprise training, and technology procurement services.";
 const DEFAULT_IMAGE = "/img/gue (5).jpg";
 
 const routeMeta = {
   "/": {
-    title: "GUE Cyber Limited | Cyber Business and Technology Services",
+    title: "Gue Cyber | Cybersecurity, Software Engineering and AI",
     description:
-      "Cybersecurity, software and web development, intranet solutions, cloud and DevOps, IT consulting, training, and tech procurement for resilient organizations.",
+      "Cybersecurity, software engineering, AI automation, intranet solutions, cloud and DevOps, IT consulting, training, and tech procurement for resilient organizations.",
   },
   "/about": {
-    title: "About | GUE Cyber Limited",
+    title: "About | Gue Cyber",
     description:
-      "Learn about GUE Cyber Limited, our mission, values, and approach to building resilient digital operations.",
+      "Learn about Gue Cyber, our mission, values, and approach to building resilient digital operations across cybersecurity, software engineering, and AI.",
   },
   "/services": {
-    title: "Services | GUE Cyber Limited",
+    title: "Services | Gue Cyber",
     description:
-      "Explore GUE Cyber service offerings across cybersecurity, software/web/intranet development, cloud and DevOps, consulting, training, and tech procurement.",
+      "Explore Gue Cyber service offerings across cybersecurity, software engineering, AI automation, cloud and DevOps, consulting, training, and tech procurement.",
   },
   "/contact": {
-    title: "Contact | GUE Cyber Limited",
+    title: "Contact | Gue Cyber",
     description:
-      "Contact GUE Cyber Limited to discuss cybersecurity, software, cloud, DevOps, and IT transformation priorities.",
+      "Contact Gue Cyber to discuss cybersecurity, software engineering, AI, cloud, DevOps, and IT transformation priorities.",
   },
   "/careers": {
-    title: "Careers | GUE Cyber Limited",
+    title: "Careers | Gue Cyber",
     description:
-      "Explore career opportunities at GUE Cyber across cybersecurity, cloud and DevOps, software engineering, IT support, training, and procurement operations.",
-  },
-  "/blog": {
-    title: "Projects & Case Studies | GUE Cyber Limited",
-    description:
-      "Explore GUE Cyber project highlights and case studies across cybersecurity, software development, cloud, and IT consulting.",
+      "Explore career opportunities at Gue Cyber across cybersecurity, cloud and DevOps, software engineering, AI, IT support, training, and procurement operations.",
   },
   "/privacy": {
-    title: "Privacy Policy | GUE Cyber Limited",
-    description: "Read the GUE Cyber Limited privacy policy and data handling practices.",
+    title: "Privacy Policy | Gue Cyber",
+    description: "Read the Gue Cyber privacy policy and data handling practices.",
   },
   "/terms": {
-    title: "Terms | GUE Cyber Limited",
-    description: "Review terms and conditions for using GUE Cyber Limited website and services.",
+    title: "Terms | Gue Cyber",
+    description: "Review terms and conditions for using Gue Cyber website and services.",
   },
   "/cookie-policy": {
-    title: "Cookie Policy | GUE Cyber Limited",
-    description: "Understand how GUE Cyber Limited uses cookies and similar technologies.",
+    title: "Cookie Policy | Gue Cyber",
+    description: "Understand how Gue Cyber uses cookies and similar technologies.",
   },
 };
 
@@ -102,7 +97,7 @@ export default function SeoManager() {
     upsertMetaByProperty("og:description", description);
     upsertMetaByProperty("og:url", canonicalUrl);
     upsertMetaByProperty("og:image", imageUrl);
-    upsertMetaByProperty("og:locale", "en_NG");
+    upsertMetaByProperty("og:locale", "en");
 
     upsertMetaByName("twitter:card", "summary_large_image");
     upsertMetaByName("twitter:title", title);

@@ -1,6 +1,6 @@
-# GUE Cyber Website (React + Vite)
+# Gue Cyber Website (React + Vite)
 
-This repository contains a React + Vite website adapted for GUE Cyber Limited — a cyber security company focused on Digital Transformation, MSME Support, and Infrastructure & Technology. The site is based on a minimal React + Vite template and customised for the company's cyber services and messaging.
+This repository contains a React + Vite website adapted for Gue Cyber — a cyber security company focused on Digital Transformation, MSME Support, and Infrastructure & Technology. The site is based on a minimal React + Vite template and customised for the company's cyber services and messaging.
 
 Currently, two official plugins are available:
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Contact network and communication motif">
+<svg width="1200" height="600" viewBox="0 0 1200 600"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Contact network and communication motif">
   <defs>
     <linearGradient id="h1" x1="0%" x2="100%" y1="0%" y2="100%">
       <stop offset="0%" stop-color="#021f3f"/>
@@ -24,5 +25,5 @@
     <rect x="6" y="12" width="108" height="72" rx="8" fill="#0b2b5f" />
     <path d="M6 12 L60 48 L114 12" stroke="#43a047" stroke-width="3" fill="none" />
   </g>
-  <text x="60" y="560" font-family="Inter, Arial" font-size="18" fill="#3e6a9b" opacity="0.05">GUE Cyber • Contact</text>
+  <text x="60" y="560" font-family="Inter, Arial" font-size="18" fill="#3e6a9b" opacity="0.05">Gue Cyber • Contact</text>
 </svg>

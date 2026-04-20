@@ -124,6 +124,43 @@
   font-size: 0.95rem;
 }
 
+.contact-consent {
+  margin: 8px 0 20px;
+}
+
+.contact-consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 0 10px;
+  padding: 0 0 0 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.55;
+  color: #1d1f1e;
+}
+
+.contact-consent-row input {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  accent-color: #022c22;
+  flex-shrink: 0;
+}
+
+.contact-consent-row a {
+  color: #022c22;
+  font-weight: 700;
+}
+
+.contact-consent-note {
+  margin: 0;
+  padding-left: 32px;
+  color: #646a69;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
 .contact-submit {
   width: 100%;
   height: 54px;

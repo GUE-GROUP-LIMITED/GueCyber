@@ -1,63 +1,56 @@
 import { Box, Button, Chip, Container, Grid, Stack, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import Groups2OutlinedIcon from "@mui/icons-material/Groups2Outlined";
 import GppGoodOutlinedIcon from "@mui/icons-material/GppGoodOutlined";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 
 export default function Careers() {
+  const { t } = useTranslation();
   const openings = [
     {
-      title: "Cybersecurity Consultant",
+      titleKey: "job1Title",
       type: "Hybrid",
       level: "Mid-Senior",
       skills: ["Risk Assessment", "Penetration Testing", "Security Governance"],
     },
     {
-      title: "Cloud and DevOps Engineer",
+      titleKey: "job2Title",
       type: "Hybrid",
       level: "Mid",
       skills: ["AWS or Azure", "CI/CD", "Infrastructure Automation"],
     },
     {
-      title: "Full-Stack Software Engineer",
+      titleKey: "job3Title",
       type: "Remote",
       level: "Mid",
       skills: ["React", "Node.js", "API Integration"],
     },
     {
-      title: "IT Support and Systems Specialist",
+      titleKey: "job4Title",
       type: "On-site",
       level: "Junior-Mid",
       skills: ["Enterprise Support", "System Administration", "User Enablement"],
-    },
-    {
-      title: "Technical Trainer and Adoption Lead",
-      type: "Hybrid",
-      level: "Mid-Senior",
-      skills: ["Enterprise Training", "Curriculum Design", "Change Enablement"],
-    },
-    {
-      title: "Technology Procurement Coordinator",
-      type: "On-site",
-      level: "Junior-Mid",
-      skills: ["Vendor Management", "Product Evaluation", "Commercial Analysis"],
     },
   ];
 
   const values = [
     {
       icon: <Groups2OutlinedIcon />,
-      title: "Strong Collaboration",
-      desc: "Work with teams across cyber, software, cloud, support, and consulting delivery.",
+      titleKey: "benefit2",
+      descKey: "benefit2Desc",
+      index: 0,
     },
     {
       icon: <GppGoodOutlinedIcon />,
-      title: "Meaningful Missions",
-      desc: "Contribute to practical programs that improve client resilience and operational outcomes.",
+      titleKey: "benefit3",
+      descKey: "benefit3Desc",
+      index: 1,
     },
     {
       icon: <SchoolOutlinedIcon />,
-      title: "Continuous Growth",
-      desc: "Grow through training, cross-functional delivery, and real project ownership.",
+      titleKey: "benefit1",
+      descKey: "benefit1Desc",
+      index: 2,
     },
   ];
 
@@ -72,19 +65,19 @@ export default function Careers() {
         <Container maxWidth="lg">
           <Box className="reveal-up" sx={{ textAlign: "center", mb: { xs: 6, md: 9 }, maxWidth: 760, mx: "auto" }}>
             <Typography sx={{ color: "var(--accent)", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", fontSize: "0.75rem", mb: 2 }}>
-              Careers
+              {t('common.careers')}
             </Typography>
             <Typography variant="h1" sx={{ fontSize: { xs: "2.2rem", sm: "3rem", md: "4rem" }, lineHeight: 1.05, mb: 2.4 }}>
-              Join a team building practical cyber and technology outcomes.
+              {t('careers.careersSubtitle')}
             </Typography>
             <Typography sx={{ color: "var(--text-muted)", fontSize: { xs: "1rem", md: "1.1rem" } }}>
-              We are building a culture of ownership, precision, and delivery excellence across cybersecurity, cloud, software, and IT services.
+              {t('careers.careersDescription')}
             </Typography>
           </Box>
 
           <Grid container spacing={3} sx={{ mb: { xs: 6, md: 8 } }}>
-            {values.map((item, idx) => (
-              <Grid item xs={12} md={4} key={item.title} className={`reveal-up delay-${idx + 1}`}>
+            {values.map((item) => (
+              <Grid item xs={12} md={4} key={item.index} className={`reveal-up delay-${item.index + 1}`}>
                 <Box className="glass-card" sx={{ p: 3.2, borderRadius: 4, textAlign: "center", height: "100%" }}>
                   <Box
                     sx={{
@@ -103,32 +96,32 @@ export default function Careers() {
                     {item.icon}
                   </Box>
                   <Typography variant="h5" sx={{ mb: 1.1, fontWeight: 800, fontSize: "1.2rem" }}>
-                    {item.title}
+                    {t(`careers.${item.titleKey}`)}
                   </Typography>
-                  <Typography sx={{ color: "var(--text-muted)" }}>{item.desc}</Typography>
+                  <Typography sx={{ color: "var(--text-muted)" }}>{t(`careers.${item.descKey}`)}</Typography>
                 </Box>
               </Grid>
             ))}
           </Grid>
 
           <Typography variant="h3" sx={{ textAlign: "center", mb: { xs: 4, md: 6 }, fontSize: { xs: "1.9rem", md: "2.5rem" } }}>
-            Open roles
+            {t('careers.openPositions')}
           </Typography>
 
           <Grid container spacing={3}>
             {openings.map((job, idx) => (
-              <Grid item xs={12} md={6} key={job.title} className={`reveal-up delay-${(idx % 2) + 1}`}>
+              <Grid item xs={12} md={6} key={job.titleKey} className={`reveal-up delay-${(idx % 2) + 1}`}>
                 <Box className="glass-card" sx={{ p: { xs: 3.2, md: 4.2 }, borderRadius: 5, height: "100%" }}>
                   <Stack direction="row" justifyContent="space-between" alignItems="center" mb={2}>
                     <Box>
                       <Typography variant="h4" sx={{ fontSize: { xs: "1.3rem", md: "1.7rem" }, mb: 0.7 }}>
-                        {job.title}
+                        {t(`careers.${job.titleKey}`)}
                       </Typography>
                       <Typography sx={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.92rem" }}>
                         {job.level} • {job.type}
                       </Typography>
                     </Box>
-                    <Chip label="Open" sx={{ bgcolor: "var(--accent-soft)", color: "var(--accent)", fontWeight: 700 }} />
+                    <Chip label={t('careers.openLabel')} sx={{ bgcolor: "var(--accent-soft)", color: "var(--accent)", fontWeight: 700 }} />
                   </Stack>
 
                   <Stack direction="row" flexWrap="wrap" gap={1} mb={3}>
@@ -139,7 +132,7 @@ export default function Careers() {
                     ))}
                   </Stack>
 
-                  <Button fullWidth variant="contained">Apply</Button>
+                  <Button fullWidth variant="contained">{t('careers.applyNow')}</Button>
                 </Box>
               </Grid>
             ))}

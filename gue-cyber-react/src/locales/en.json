@@ -1,0 +1,224 @@
+{
+  "common": {
+    "language": "English",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "careers": "Careers",
+    "readMore": "Read more",
+    "contactTeam": "Contact Team",
+    "contactUs": "Contact us",
+    "submit": "Submit",
+    "subscribe": "Subscribe",
+    "exploreCareers": "Explore Careers",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookiePolicy": "Cookie Policy",
+    "companyName": "Gue Cyber"
+  },
+  "header": {
+    "brand": "GUE CYBER",
+    "getStarted": "Get Started"
+  },
+  "home": {
+    "hero": {
+      "title": "Building resilient businesses through",
+      "subtitle": "Cybersecurity, Software & AI"
+    },
+    "description": "Gue Cyber delivers cybersecurity, software engineering, AI-assisted automation, web and intranet systems, cloud and DevOps solutions, enterprise IT training, technical support, and tech procurement.",
+    "stat1": "Business Roots Since",
+    "stat2": "Client Delivery Approach",
+    "stat3": "Core Capability Pillars",
+    "stat4": "Cyber, Software and AI Service Lines",
+    "capability1": {
+      "title": "Cybersecurity & Governance",
+      "text": "Assessment, hardening, monitoring, incident readiness, and governance support for resilient operations."
+    },
+    "capability2": {
+      "title": "Software & Cloud Engineering",
+      "text": "Custom development, secure APIs, cloud architecture, DevOps, and infrastructure modernization for scalable operations."
+    },
+    "capability3": {
+      "title": "AI & Automation Enablement",
+      "text": "AI-assisted workflows, automation, and knowledge tools that improve speed, consistency, and decision-making."
+    },
+    "capability4": {
+      "title": "Technology Operations Support",
+      "text": "Enterprise IT support, procurement advisory, and operational enablement to keep teams secure and productive."
+    },
+    "testimonial1": {
+      "text": "Gue Cyber helped us reduce platform risk while improving release speed. Their security and DevOps guidance was practical and immediately useful.",
+      "author": "Engineering Director"
+    },
+    "testimonial2": {
+      "text": "From architecture planning to implementation support, the team delivered clear direction and measurable improvements across our digital operations.",
+      "author": "CTO"
+    },
+    "faqIntro": "From cybersecurity and software engineering to AI-powered automation, we partner with organizations to solve real business and technology challenges.",
+    "faqTitle": "Frequently Asked Questions",
+    "faqDescription": "Here you will find clear answers to common questions about cybersecurity, software engineering, AI, and our delivery approach.",
+    "cta": {
+      "title": "Ready to strengthen your business technology foundation?",
+      "description": "Speak with our team to design a practical roadmap across cybersecurity, software engineering, AI, cloud, and IT operations."
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Building resilient organizations through cyber, software, and AI."
+    },
+    "description": "Our company evolved from a registered ICT business into a broader cyber business focused on secure, practical technology delivery across cybersecurity, software engineering, and AI.",
+    "aboutTitle": "About us",
+    "aboutText": "Our company evolved from a registered ICT business into a broader cyber business focused on secure, practical technology delivery for organizations across cybersecurity, software engineering, and AI.",
+    "stat1": "Global",
+    "stat1Label": "Cross-border delivery mindset",
+    "stat2": "Secure",
+    "stat2Label": "Security-first engineering",
+    "stat3": "AI",
+    "stat3Label": "Automation and innovation",
+    "value1": {
+      "title": "Business-First Technology",
+      "text": "We align cybersecurity and engineering decisions to measurable business outcomes."
+    },
+    "value2": {
+      "title": "Integrated Service Delivery",
+      "text": "From software development to technical support, we deliver complete solutions across the IT lifecycle."
+    },
+    "value3": {
+      "title": "AI-Ready Capability Development",
+      "text": "We build long-term internal strength through enterprise training, advisory, and responsible AI adoption support."
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Cybersecurity, software engineering, and AI solutions aligned to operations and growth goals."
+    },
+    "description": "Every engagement is tailored to your business context with clear outcomes and practical implementation.",
+    "service1": {
+      "title": "Cybersecurity & Governance",
+      "items": [
+        "Infrastructure and application penetration testing",
+        "Vulnerability assessment and remediation planning",
+        "OSINT and social engineering simulation",
+        "Executive and technical risk reporting"
+      ]
+    },
+    "service2": {
+      "title": "Software & Cloud Engineering",
+      "items": [
+        "Custom applications and API development",
+        "Cloud architecture and migration planning",
+        "Infrastructure hardening and observability",
+        "CI/CD, DevOps, and automation"
+      ]
+    },
+    "service3": {
+      "title": "AI & Automation Enablement",
+      "items": [
+        "AI use-case discovery and solution planning",
+        "LLM integration and prompt engineering",
+        "Enterprise AI training and capability programs",
+        "Responsible AI governance frameworks"
+      ]
+    },
+    "service4": {
+      "title": "Technology Procurement",
+      "items": [
+        "Technology sourcing and vendor advisory",
+        "RFP preparation and evaluation",
+        "Procurement planning for scale and continuity",
+        "Cost optimization and license management"
+      ]
+    },
+    "processTitle": "Our IT delivery approach",
+    "step1": "01",
+    "step1Title": "Discover",
+    "step1Text": "Understand your systems, operations, constraints, and opportunities across the IT landscape.",
+    "step2": "02",
+    "step2Title": "Design",
+    "step2Text": "Co-design a practical roadmap across cybersecurity, software, cloud, AI, and support priorities.",
+    "step3": "03",
+    "step3Title": "Deliver",
+    "step3Text": "Implement secure, reliable solutions across applications, infrastructure, workflows, and service operations.",
+    "step4": "04",
+    "step4Title": "Scale",
+    "step4Text": "Measure outcomes, improve continuously, and scale proven practices across teams and departments.",
+    "cta": {
+      "title": "Ready to transform your operations?",
+      "description": "Speak with our team to shape an outcome-driven roadmap across security, software engineering, AI, cloud, and IT operations."
+    }
+  },
+  "contact": {
+    "title": "Contact us",
+    "subtitle": "We are here to help you make a first move to greener choice.",
+    "fullName": "Full Name",
+    "email": "Email",
+    "company": "Company",
+    "company_optional": "(optional)",
+    "service": "Service",
+    "selectService": "Select service",
+    "assessment": "Security Assessment",
+    "cloud": "Cloud Hardening",
+    "incident": "Incident Response",
+    "advisory": "Advisory & Governance",
+    "message": "Message",
+    "privacyConsent": "I agree to the processing of my details for this enquiry and confirm I have read the",
+    "privacyLink": "Privacy Policy",
+    "privacyNote": "We use your details only to respond to your request, manage the relationship, and meet legal obligations.",
+    "consentRequired": "Please agree to the Privacy Policy before submitting.",
+    "success": "Thanks. Your request has been submitted. Our team will contact you shortly."
+  },
+  "careers": {
+    "job1Title": "Security Engineer",
+    "job2Title": "Cloud and DevOps Engineer",
+    "job3Title": "Full-Stack Software Engineer",
+    "job4Title": "Enterprise Training Specialist",
+    "careersHero": "Careers",
+    "careersSubtitle": "Join a team building practical cyber and technology outcomes.",
+    "careersDescription": "We are building a culture of ownership, precision, and delivery excellence across cybersecurity, cloud, software, and IT services.",
+    "benefit1": "Ownership & Impact",
+    "benefit1Desc": "Work on real problems for real clients with measurable outcomes.",
+    "benefit2": "Strong Collaboration",
+    "benefit2Desc": "Work with teams across cyber, software, cloud, support, and consulting delivery.",
+    "benefit3": "Meaningful Missions",
+    "benefit3Desc": "Build technology that helps organizations operate more securely and efficiently.",
+    "benefit4": "Growth & Learning",
+    "benefit4Desc": "Grow through training, cross-functional delivery, and real project ownership."
+  },
+  "faq": {
+    "q1": "What services does Gue Cyber provide?",
+    "a1": "Gue Cyber provides cyber security, digital transformation and infrastructure services for MSMEs and enterprises. We offer vulnerability assessments, infrastructure hardening, secure migrations and training to improve resilience.",
+    "q2": "Do you provide security training and incident response exercises?",
+    "a2": "Yes — we provide security awareness, tabletop incident response exercises and hands-on technical training like secure coding and log analysis to build internal security capabilities.",
+    "q3": "Can you help us adopt AI responsibly?",
+    "a3": "Yes — we help teams identify practical AI use cases, define governance guardrails, and introduce automation responsibly so AI supports operations without increasing risk.",
+    "q4": "Do you support distributed or remote teams?",
+    "a4": "Yes, we operate a distributed model to support clients globally — combining remote security monitoring with on-site consulting when required to harden critical infrastructure."
+  },
+  "footer": {
+    "platform": "Platform",
+    "resources": "Resources",
+    "company": "Company",
+    "description": "We help organizations build resilient digital operations through cybersecurity, software engineering, cloud and DevOps, IT consulting, and technology enablement.",
+    "newsletter": "Your source for cyber business updates",
+    "newsletterDesc": "Join our monthly brief with concise insights on cybersecurity, cloud, software delivery, and operational resilience.",
+    "email": "you@company.com",
+    "form": {
+      "consent": "I agree to receive updates and confirm I have read the",
+      "emailRequired": "Please enter your email address.",
+      "emailInvalid": "Please enter a valid email address.",
+      "consentRequired": "Please accept the privacy policy before subscribing.",
+      "successMessage": "Thanks for subscribing. You will receive our next monthly brief."
+    },
+    "copyright": "© {{year}} Gue Cyber Limited. All rights reserved.",
+    "solutions": "Solutions",
+    "howWeWork": "How We Work",
+    "support": "Support"
+  },
+  "legal": {
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookiePolicy": "Cookie Policy",
+    "legal": "Legal"
+  }
+}

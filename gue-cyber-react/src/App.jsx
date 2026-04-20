@@ -1,18 +1,20 @@
 import React, { Suspense, lazy, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Box, CircularProgress } from '@mui/material';
 
+import './i18n';
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import CookieConsentBanner from "./components/CookieConsentBanner";
 import SeoManager from "./components/SeoManager";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 const Careers = lazy(() => import('./pages/Careers'));
-const Blog = lazy(() => import('./pages/Blog'));
 // Removed unused service page imports
 
 import Privacy from "./pages/Privacy";
@@ -108,7 +110,7 @@ function App() {
               <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/careers" element={<Careers />} />
-              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog" element={<Navigate to="/services" replace />} />
               {/* Only main services remain. Removed unused service detail routes. */}
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
@@ -117,6 +119,7 @@ function App() {
             </main>
           </Suspense>
           <Footer />
+          <CookieConsentBanner />
         </Router>
       </div>
     </ThemeProvider>

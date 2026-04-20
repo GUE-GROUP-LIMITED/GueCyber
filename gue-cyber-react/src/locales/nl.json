@@ -1,0 +1,224 @@
+{
+  "common": {
+    "language": "Nederlands",
+    "home": "Home",
+    "about": "Over ons",
+    "services": "Diensten",
+    "contact": "Contact",
+    "careers": "Carrière",
+    "readMore": "Lees meer",
+    "contactTeam": "Neem contact op",
+    "contactUs": "Contacteer ons",
+    "submit": "Versturen",
+    "subscribe": "Abonneren",
+    "exploreCareers": "Bekijk Carrières",
+    "privacy": "Privacy",
+    "terms": "Voorwaarden",
+    "cookiePolicy": "Cookiebeleid",
+    "companyName": "Gue Cyber"
+  },
+  "header": {
+    "brand": "GUE CYBER",
+    "getStarted": "Aan de slag"
+  },
+  "home": {
+    "hero": {
+      "title": "Bouw weerbare bedrijven door",
+      "subtitle": "Cyberbeveiliging, Software & AI"
+    },
+    "description": "Gue Cyber levert cyberbeveiliging, software engineering, AI-gestuurde automatisering, web- en intranetsystemen, cloud- en DevOps-oplossingen, bedrijfs-IT-training, technische ondersteuning en technologieprocurement.",
+    "stat1": "Bedrijfsbasis sinds",
+    "stat2": "Klantgerichte leveringsaanpak",
+    "stat3": "Kernpijlers van capaciteiten",
+    "stat4": "Cyber-, software- en AI-servicelijnen",
+    "capability1": {
+      "title": "Cyberbeveiliging & Governance",
+      "text": "Beoordeling, versterking, monitoring, incidentparaatheid en governance-ondersteuning voor weerbare operaties."
+    },
+    "capability2": {
+      "title": "Software & Cloud Engineering",
+      "text": "Aangepaste ontwikkeling, veilige API's, cloud-architectuur, DevOps en infrastructuurmodernisering voor schaalbare operaties."
+    },
+    "capability3": {
+      "title": "AI & Automatiseringsondersteuning",
+      "text": "AI-gestuurde workflows, automatisering en kennistools die snelheid, consistentie en besluitvorming verbeteren."
+    },
+    "capability4": {
+      "title": "Ondersteuning van technologie-operaties",
+      "text": "Bedrijfs-IT-ondersteuning, procurement-advies en operationele ondersteuning om teams veilig en productief te houden."
+    },
+    "testimonial1": {
+      "text": "Gue Cyber hielp ons platformrisico's te verminderen en de releaseснelheid te verbeteren. Hun cyberbeveiliging- en DevOps-begeleiding was praktisch en onmiddellijk bruikbaar.",
+      "author": "Engineering Director"
+    },
+    "testimonial2": {
+      "text": "Van architectuurplanning tot implementatieondersteuning: het team leverde duidelijke richting en meetbare verbeteringen in onze digitale operaties.",
+      "author": "CTO"
+    },
+    "faqIntro": "Van cyberbeveiliging en software engineering tot AI-gestuurde automatisering: we werken samen met organisaties om echte zakelijke en technologische uitdagingen op te lossen.",
+    "faqTitle": "Veelgestelde vragen",
+    "faqDescription": "Hier vind je duidelijke antwoorden op veelgestelde vragen over cyberbeveiliging, software engineering, AI en onze werkwijze.",
+    "cta": {
+      "title": "Klaar om uw bedrijfstechnologiefundament te versterken?",
+      "description": "Spreek met ons team om een praktische routekaart te ontwerpen voor cyberbeveiliging, software engineering, AI, cloud en IT-operaties."
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Bouw weerbare organisaties door cyber, software en AI."
+    },
+    "description": "Ons bedrijf is geëvolueerd van een geregistreerd ICT-bedrijf naar een breder cyberbedrijf gericht op veilige, praktische technologieleverantie in cyberbeveiliging, software engineering en AI.",
+    "aboutTitle": "Over ons",
+    "aboutText": "Ons bedrijf is geëvolueerd van een geregistreerd ICT-bedrijf naar een breder cyberbedrijf gericht op veilige, praktische technologieleverantie voor organisaties in cyberbeveiliging, software engineering en AI.",
+    "stat1": "Globaal",
+    "stat1Label": "Grensoverschrijdende leveringsmentaliteit",
+    "stat2": "Veilig",
+    "stat2Label": "Beveiligingsgericht engineering",
+    "stat3": "AI",
+    "stat3Label": "Automatisering en innovatie",
+    "value1": {
+      "title": "Zakelijk Gerichte Technologie",
+      "text": "We richten cybersecurity- en engineeringbeslissingen op meetbare zakelijke resultaten."
+    },
+    "value2": {
+      "title": "Geïntegreerde Dienstverlening",
+      "text": "Van software-ontwikkeling tot technische ondersteuning: we bieden volledige oplossingen in de IT-levenscyclus."
+    },
+    "value3": {
+      "title": "AI-Gereedheid Capability Development",
+      "text": "We bouwen op lange termijn interne sterkte op via bedrijfstraining, advies en verantwoorde AI-adoptieondersteuning."
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Cyberbeveiliging-, software engineering- en AI-oplossingen afgestemd op operaties en groeidoelen."
+    },
+    "description": "Elke afspraak is afgestemd op uw bedrijfscontext met duidelijke resultaten en praktische implementatie.",
+    "service1": {
+      "title": "Cyberbeveiliging & Governance",
+      "items": [
+        "Penetratietesten voor infrastructuur en applicaties",
+        "Kwetsbaarheidsbeoordelingen en herstelplanning",
+        "OSINT- en social engineering-simulaties",
+        "Rapportage voor leidinggevenden en technisch personeel"
+      ]
+    },
+    "service2": {
+      "title": "Software & Cloud Engineering",
+      "items": [
+        "Aangepaste applicatie- en API-ontwikkeling",
+        "Cloud-architectuur en migratieplanning",
+        "Infrastructuurversterking en observeerbaarheid",
+        "CI/CD, DevOps en automatisering"
+      ]
+    },
+    "service3": {
+      "title": "AI & Automatiseringsondersteuning",
+      "items": [
+        "AI use-case ontdekking en oplossingsplanning",
+        "LLM-integratie en prompt engineering",
+        "Bedrijfs-AI-training en capaciteitsprogramma's",
+        "Governance-frameworks voor verantwoorde AI"
+      ]
+    },
+    "service4": {
+      "title": "Technologieprocurement",
+      "items": [
+        "Technologiebronnen en leveranciersadvisering",
+        "RFP-voorbereiding en evaluatie",
+        "Procurementplanning voor schaal en continuïteit",
+        "Kostenoptimalisering en licentiemanagement"
+      ]
+    },
+    "processTitle": "Onze IT-leveringsaanpak",
+    "step1": "01",
+    "step1Title": "Ontdekken",
+    "step1Text": "Begrijp uw systemen, operaties, beperkingen en kansen binnen het volledige IT-landschap.",
+    "step2": "02",
+    "step2Title": "Ontwerpen",
+    "step2Text": "Ontwerp samen een praktische routekaart voor cybersecurity, software, cloud, AI en supportprioriteiten.",
+    "step3": "03",
+    "step3Title": "Leveren",
+    "step3Text": "Implementeer veilige, betrouwbare oplossingen voor applicaties, infrastructuur, workflows en service-operaties.",
+    "step4": "04",
+    "step4Title": "Opschalen",
+    "step4Text": "Meet resultaten, verbeter continu en schaal bewezen werkwijzen over teams en afdelingen heen.",
+    "cta": {
+      "title": "Klaar om uw operaties te transformeren?",
+      "description": "Spreek met ons team om een resultaatgerichte routekaart te bepalen voor beveiliging, software engineering, AI, cloud en IT-operaties."
+    }
+  },
+  "contact": {
+    "title": "Contact opnemen",
+    "subtitle": "We helpen u graag bij uw eerste stap.",
+    "fullName": "Volledige naam",
+    "email": "E-mailadres",
+    "company": "Bedrijf",
+    "company_optional": "(optioneel)",
+    "service": "Dienst",
+    "selectService": "Selecteer dienst",
+    "assessment": "Beveiligingsbeoordeling",
+    "cloud": "Cloud Hardening",
+    "incident": "Incident Response",
+    "advisory": "Advies & Governance",
+    "message": "Bericht",
+    "privacyConsent": "Ik ga ermee akkoord dat mijn gegevens voor dit verzoek worden verwerkt en ik heb het",
+    "privacyLink": "Privacybeleid",
+    "privacyNote": "We gebruiken uw gegevens alleen om op uw verzoek te reageren, de relatie te beheren en wettelijke verplichtingen na te komen.",
+    "consentRequired": "Accepteer alstublieft het privacybeleid voordat u verzendt.",
+    "success": "Dank je. Je aanvraag is verzonden. Ons team neemt binnenkort contact met je op."
+  },
+  "careers": {
+    "job1Title": "Beveiligingsingenieur",
+    "job2Title": "Cloud- en DevOps-ingenieur",
+    "job3Title": "Full-Stack Software Engineer",
+    "job4Title": "Specialist Bedrijfsopleidingen",
+    "careersHero": "Carrière",
+    "careersSubtitle": "Sluit je aan bij een team dat praktische cyber- en technologie-uitkomsten bouwt.",
+    "careersDescription": "We bouwen een cultuur van eigenaarschap, precisie en uitmuntende bezorging in cyberbeveiliging, cloud, software en IT-services.",
+    "benefit1": "Eigenaarschap & Impact",
+    "benefit1Desc": "Werk aan echte problemen voor echte klanten met meetbare resultaten.",
+    "benefit2": "Sterke Samenwerking",
+    "benefit2Desc": "Werk samen met teams in cyber, software, cloud, ondersteuning en adviesbezorging.",
+    "benefit3": "Zinvolle Missies",
+    "benefit3Desc": "Bouw technologie die organisaties helpt veiliger en efficiënter te werken.",
+    "benefit4": "Groei & Leren",
+    "benefit4Desc": "Groeien door training, cross-functionele bezorging en echt projecteigenaarschap."
+  },
+  "faq": {
+    "q1": "Welke diensten levert Gue Cyber?",
+    "a1": "Gue Cyber levert cyberbeveiliging, digitale transformatie en infrastructuurservices voor MKB's en bedrijven. We bieden kwetsbaarheidsbeoordelingen, infrastructuurversterking, veilige migraties en trainingen om weerstandskracht te verbeteren.",
+    "q2": "Biedt u beveiligingstraining en incidentrespons-oefeningen?",
+    "a2": "Ja — we bieden beveiligingsbewustzijn, tafeltopoefeningen voor incidentresponse en praktische technische trainingen zoals veilige codering en loganalyse om interne beveiligingscapaciteiten op te bouwen.",
+    "q3": "Kunt u ons helpen AI verantwoord in te voeren?",
+    "a3": "Ja — we helpen teams praktische AI use-cases te identificeren, governance-richtlijnen te bepalen en automatisering verantwoord in te voeren zodat AI operaties ondersteunt zonder risico's te vergroten.",
+    "q4": "Ondersteunen jullie gedistribueerde of externe teams?",
+    "a4": "Ja, we werken met een gedistribueerd model om klanten wereldwijd te ondersteunen — we combineren externe beveiligingsmonitoring met on-site consulting wanneer nodig om kritieke infrastructuur te versterken."
+  },
+  "footer": {
+    "platform": "Platform",
+    "resources": "Resources",
+    "company": "Bedrijf",
+    "description": "We helpen organisaties weerbare digitale operaties op te bouwen door cyberbeveiliging, software engineering, cloud en DevOps, IT-consulting en technologiebevoegdheid.",
+    "newsletter": "Uw bron voor cyber business updates",
+    "newsletterDesc": "Meld je aan voor onze maandelijkse samenvatting met inzichten in cyberbeveiliging, cloud, softwareleverantie en operationele weerstandskracht.",
+    "email": "u@bedrijf.nl",
+    "form": {
+      "consent": "Ik ga akkoord met het ontvangen van updates en bevestig dat ik het",
+      "emailRequired": "Vul je e-mailadres in.",
+      "emailInvalid": "Vul een geldig e-mailadres in.",
+      "consentRequired": "Accepteer het privacybeleid voordat je je abonneert.",
+      "successMessage": "Bedankt voor je aanmelding. Je ontvangt onze volgende maandelijkse update."
+    },
+    "copyright": "© {{year}} Gue Cyber Limited. Alle rechten voorbehouden.",
+    "solutions": "Oplossingen",
+    "howWeWork": "Hoe we werken",
+    "support": "Ondersteuning"
+  },
+  "legal": {
+    "privacy": "Privacy",
+    "terms": "Voorwaarden",
+    "cookiePolicy": "Cookiebeleid",
+    "legal": "Juridisch"
+  }
+}

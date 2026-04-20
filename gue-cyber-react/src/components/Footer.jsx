@@ -1,5 +1,7 @@
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import logo from "../assets/logo.webp";
-import { Box, Container, Grid, Typography, Stack, IconButton, Divider, TextField, Button } from "@mui/material";
+import { Box, Container, Grid, Typography, Stack, IconButton, Divider, Button, TextField, Checkbox, FormControlLabel, FormHelperText } from "@mui/material";
 import { Link } from "react-router-dom";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -7,32 +9,65 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function Footer() {
+    const { t } = useTranslation();
     const year = new Date().getFullYear();
+    const [newsletterEmail, setNewsletterEmail] = useState("");
+    const [newsletterConsent, setNewsletterConsent] = useState(false);
+    const [newsletterError, setNewsletterError] = useState("");
+    const [newsletterMessage, setNewsletterMessage] = useState("");
+
+    const handleNewsletterSubmit = (event) => {
+        event.preventDefault();
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!newsletterEmail.trim()) {
+            setNewsletterError(t('footer.form.emailRequired'));
+            setNewsletterMessage("");
+            return;
+        }
+
+        if (!emailPattern.test(newsletterEmail.trim())) {
+            setNewsletterError(t('footer.form.emailInvalid'));
+            setNewsletterMessage("");
+            return;
+        }
+
+        if (!newsletterConsent) {
+            setNewsletterError(t('footer.form.consentRequired'));
+            setNewsletterMessage("");
+            return;
+        }
+
+        setNewsletterError("");
+        setNewsletterMessage(t('footer.form.successMessage'));
+        setNewsletterEmail("");
+        setNewsletterConsent(false);
+    };
 
     const sections = [
         {
-            title: "Platform",
+            titleKey: "footer.platform",
             links: [
-                { label: "Solutions", to: "/services" },
-                { label: "How We Work", to: "/about" },
-                { label: "Projects & Case Studies", to: "/blog" },
-                { label: "Contact", to: "/contact" }
+                { labelKey: "common.services", to: "/services" },
+                { labelKey: "footer.howWeWork", to: "/about" },
+                { labelKey: "common.contact", to: "/contact" }
             ]
         },
         {
-            title: "Resources",
+            titleKey: "footer.resources",
             links: [
-                { label: "Insights", to: "/blog" },
-                { label: "Support", to: "/contact" }
+                { labelKey: "common.careers", to: "/careers" },
+                { labelKey: "footer.support", to: "/contact" }
             ]
         },
         {
-            title: "Company",
+            titleKey: "footer.company",
             links: [
-                { label: "About", to: "/about" },
-                { label: "Privacy", to: "/privacy" },
-                { label: "Terms", to: "/terms" },
-                { label: "Cookie Policy", to: "/cookie-policy" }
+                { labelKey: "common.about", to: "/about" },
+                { labelKey: "common.privacy", to: "/privacy" },
+                { labelKey: "common.terms", to: "/terms" },
+                { labelKey: "common.cookiePolicy", to: "/cookie-policy" }
             ]
         }
     ];
@@ -44,36 +79,48 @@ export default function Footer() {
                 position: 'relative',
                 overflow: 'hidden',
                 background: '#fff7ed',
+                backgroundImage: 'url(/images/footer-waves-left-bottom.png)',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'left bottom',
+                backgroundSize: { xs: '360px auto', md: '560px auto' },
                 color: 'var(--primary)',
-                pt: { xs: 10, md: 14 },
+                pt: { xs: 6, md: 8 },
                 pb: 6,
                 borderTop: '1px solid rgba(15,23,42,0.08)'
             }}
         >
-            <Box
-                component="img"
-                src="/images/footer-waves-left-bottom.png"
-                alt=""
-                sx={{
-                    position: 'absolute',
-                    left: 0,
-                    bottom: 0,
-                    width: { xs: 220, md: 360 },
-                    opacity: 0.3,
-                    pointerEvents: 'none'
-                }}
-            />
-
             <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-                <Grid container spacing={{ xs: 6, lg: 8 }} sx={{ mb: { xs: 8, md: 10 } }}>
-                    <Grid item xs={12} lg={8}>
-                        <Box component={Link} to="/" sx={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none', mb: 2.5 }}>
-                            <Box component="img" src={logo} alt="GUE Cyber" loading="lazy" decoding="async" sx={{ height: { xs: 45, md: 55 } }} />
+                <Box
+                    sx={{
+                        mb: { xs: 8, md: 10 },
+                        display: 'grid',
+                        gridTemplateColumns: { xs: '1fr', md: 'minmax(0, 1fr) 380px' },
+                        columnGap: { xs: 0, md: 6, lg: 8 },
+                        rowGap: { xs: 5, md: 0 },
+                        alignItems: 'start'
+                    }}
+                >
+                    <Box>
+                        <Box component={Link} to="/" sx={{ display: 'inline-flex', alignItems: 'center', gap: { xs: 1.2, md: 2 }, textDecoration: 'none', mb: 2.5 }}>
+                            <Box
+                                sx={{
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    borderRadius: '12px',
+                                    px: { xs: 0.7, md: 0.9 },
+                                    py: { xs: 0.35, md: 0.45 },
+                                    background: '#022c22',
+                                    boxShadow: '0 8px 16px rgba(2,44,34,0.18)',
+                                    transition: 'all 0.25s ease',
+                                }}
+                            >
+                                <Box component="img" src={logo} alt="Gue Cyber" loading="lazy" decoding="async" sx={{ height: { xs: 36, md: 46, lg: 50 }, width: 'auto', display: 'block' }} />
+                            </Box>
                         </Box>
 
-                        <Typography sx={{ color: '#475569', maxWidth: 560, lineHeight: 1.75, mb: 4.5, fontSize: { xs: '0.95rem', md: '1rem' } }}>
-                            We help organizations build resilient digital operations through cybersecurity, software engineering, cloud and DevOps,
-                            IT consulting, and technology enablement.
+                        <Typography sx={{ color: '#334155', fontSize: { xs: '0.95rem', md: '1rem' } }}>
+                            {t('footer.description')}
                         </Typography>
 
                         <Grid container spacing={4}>
@@ -89,7 +136,7 @@ export default function Footer() {
                                             textTransform: 'uppercase'
                                         }}
                                     >
-                                        {section.title}
+                                        {t(section.titleKey)}
                                     </Typography>
                                     <Stack spacing={1.5}>
                                         {section.links.map((link, lIdx) => (
@@ -106,64 +153,102 @@ export default function Footer() {
                                                     '&:hover': { color: 'var(--accent)' }
                                                 }}
                                             >
-                                                {link.label}
+                                                {t(link.labelKey)}
                                             </Box>
                                         ))}
                                     </Stack>
                                 </Grid>
                             ))}
                         </Grid>
-                    </Grid>
+                    </Box>
 
-                    <Grid item xs={12} lg={4}>
-                        <Box
-                            sx={{
-                                background: '#022c22',
-                                borderRadius: 2,
-                                p: 4,
-                                maxWidth: 380,
-                                ml: { lg: 'auto' }
-                            }}
-                        >
-                            <Typography sx={{ color: '#f8fafc', fontSize: { xs: '1.2rem', md: '1.3rem' }, fontWeight: 600, mb: 1.3, lineHeight: 1.35 }}>
-                                Your source for cyber business updates
-                            </Typography>
-                            <Typography sx={{ color: 'rgba(226,232,240,0.82)', fontSize: '0.9rem', mb: 4.2, lineHeight: 1.65 }}>
-                                Join our monthly brief with concise insights on cybersecurity, cloud, software delivery, and operational resilience.
-                            </Typography>
+                    <Box
+                        sx={{
+                            justifySelf: { xs: 'stretch', md: 'end' },
+                            width: '100%',
+                            maxWidth: 380,
+                            background: '#022c22',
+                            borderRadius: 2,
+                            p: 4
+                        }}
+                    >
+                        <Typography sx={{ color: '#f8fafc', fontSize: { xs: '1.2rem', md: '1.3rem' }, fontWeight: 600, mb: 1.3, lineHeight: 1.35 }}>
+                            {t('footer.newsletter')}
+                        </Typography>
+                        <Typography sx={{ color: 'rgba(226,232,240,0.82)', fontSize: '0.9rem', mb: 4.2, lineHeight: 1.65 }}>
+                            {t('footer.newsletterDesc')}
+                        </Typography>
 
-                            <Stack component="form" spacing={1.4}>
-                                <TextField
-                                    inputProps={{ 'aria-label': 'Newsletter email address' }}
-                                    fullWidth
-                                    size="small"
-                                    placeholder="you@company.com"
-                                    sx={{
-                                        '& .MuiOutlinedInput-root': {
-                                            height: 48,
-                                            borderRadius: '999px',
-                                            background: '#ffffff'
-                                        }
-                                    }}
-                                />
-                                <Button
-                                    variant="contained"
-                                    aria-label="Subscribe newsletter"
-                                    sx={{
-                                        bgcolor: '#a3e635',
-                                        color: '#052e2b',
-                                        fontWeight: 800,
-                                        minHeight: 48,
-                                        py: 0,
-                                        '&:hover': { bgcolor: '#bef264' }
-                                    }}
-                                >
-                                    Subscribe
-                                </Button>
-                            </Stack>
-                        </Box>
-                    </Grid>
-                </Grid>
+                        <Stack component="form" spacing={1.4} onSubmit={handleNewsletterSubmit} noValidate>
+                            <TextField
+                                value={newsletterEmail}
+                                onChange={(event) => {
+                                    setNewsletterEmail(event.target.value);
+                                    setNewsletterError("");
+                                    setNewsletterMessage("");
+                                }}
+                                inputProps={{ 'aria-label': 'Newsletter email address' }}
+                                fullWidth
+                                size="small"
+                                placeholder={t('footer.email')}
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        height: 48,
+                                        borderRadius: '999px',
+                                        background: '#ffffff'
+                                    }
+                                }}
+                            />
+                            <FormControlLabel
+                                sx={{ alignItems: 'flex-start', mt: -0.4, color: 'rgba(226,232,240,0.86)' }}
+                                control={
+                                    <Checkbox
+                                        checked={newsletterConsent}
+                                        onChange={(event) => {
+                                            setNewsletterConsent(event.target.checked);
+                                            setNewsletterError("");
+                                            setNewsletterMessage("");
+                                        }}
+                                        sx={{ color: '#94a3b8', pt: 0.15, mr: 1, '&.Mui-checked': { color: '#a3e635' } }}
+                                    />
+                                }
+                                label={
+                                    <Typography sx={{ fontSize: '0.82rem', lineHeight: 1.55, color: 'rgba(226,232,240,0.86)' }}>
+                                        {t('footer.form.consent')}{' '}
+                                        <Box component={Link} to="/privacy" sx={{ color: '#d9f99d', fontWeight: 700, textDecoration: 'none' }}>
+                                            {t('common.privacy')}
+                                        </Box>.
+                                    </Typography>
+                                }
+                            />
+                            {newsletterError ? (
+                                <FormHelperText sx={{ mt: -0.5, color: '#fca5a5', fontWeight: 600 }}>
+                                    {newsletterError}
+                                </FormHelperText>
+                            ) : null}
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                aria-label="Subscribe newsletter"
+                                sx={{
+                                    bgcolor: '#a3e635',
+                                    color: '#052e2b',
+                                    fontWeight: 800,
+                                    minHeight: 48,
+                                    py: 0,
+                                    '&:hover': { bgcolor: '#bef264' }
+                                }}
+                            >
+                                {t('common.subscribe')}
+                            </Button>
+                            {newsletterMessage ? (
+                                <Typography sx={{ color: '#bbf7d0', fontSize: '0.86rem', lineHeight: 1.55 }}>
+                                    {newsletterMessage}
+                                </Typography>
+                            ) : null}
+                        </Stack>
+                    </Box>
+                </Box>
 
                 <Divider sx={{ mb: 5, borderColor: 'rgba(15,23,42,0.1)' }} />
 
@@ -206,7 +291,7 @@ export default function Footer() {
                     </Stack>
 
                     <Typography sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
-                        © {year} GUE Cyber Limited. All rights reserved.
+                        {t('footer.copyright', { year })}
                     </Typography>
 
                     <Stack direction="row" spacing={2} alignItems="center" flexWrap="wrap">

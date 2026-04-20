@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Accordion, AccordionSummary, AccordionDetails, Typography, Box } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SecurityIcon from '@mui/icons-material/Security';
@@ -7,40 +8,22 @@ import SchoolIcon from '@mui/icons-material/School';
 import PublicIcon from '@mui/icons-material/Public';
 import StarIcon from '@mui/icons-material/Star';
 
-const faqs = [
-  {
-    question: "What services does GUE Cyber offer?",
-    answer: "GUE Cyber provides cyber security, digital transformation and infrastructure services for MSMEs and enterprises. We offer vulnerability assessments, infrastructure hardening, secure migrations and training to improve resilience.",
-    icon: <SecurityIcon />
-  },
-  {
-    question: "How can I request a consultation or project quote?",
-    answer: "To request a consultation or a personalized project quote, simply fill out our contact form or email us at info@guecyber.com. Our team will get back to you to discuss your requirements and next steps.",
-    icon: <RequestQuoteIcon />
-  },
-  {
-    question: "Do you provide security training and incident response exercises?",
-    answer: "Yes — we provide security awareness, tabletop incident response exercises and hands-on technical training like secure coding and log analysis to build internal security capabilities.",
-    icon: <SchoolIcon />
-  },
-  {
-    question: "Is GUE Cyber a remote-first company?",
-    answer: "Yes, we operate a distributed model to support clients globally — combining remote security monitoring with on-site consulting when required to harden critical infrastructure.",
-    icon: <PublicIcon />
-  },
-  {
-    question: "How does GUE Cyber ensure data security?",
-    answer: "We follow best practices including zero-trust principles, least-privilege access, regular patching, monitoring and incident response planning. Our programs are designed to reduce attack surface and improve detection and recovery.",
-    icon: <SecurityIcon />
-  },
-  {
-    question: "What makes GUE Cyber different from other firms?",
-    answer: "Our focus on practical security for MSMEs, combined with infrastructure engineering and training, helps organisations adopt pragmatic, maintainable security practices that fit their context.",
-    icon: <StarIcon />
-  }
+const faqData = [
+  { questionKey: "q1", answerKey: "a1", icon: <SecurityIcon /> },
+  { questionKey: "q2", answerKey: "a2", icon: <RequestQuoteIcon /> },
+  { questionKey: "q3", answerKey: "a3", icon: <SchoolIcon /> },
+  { questionKey: "q4", answerKey: "a4", icon: <StarIcon /> },
 ];
 
-const FAQ = () => (
+const FAQ = () => {
+  const { t } = useTranslation();
+  const faqs = faqData.map((item) => ({
+    question: t(`faq.${item.questionKey}`),
+    answer: t(`faq.${item.answerKey}`),
+    icon: item.icon,
+  }));
+
+  return (
   <Box>
     <Box sx={{ '& .MuiAccordion-root': { mb: 2 } }}>
       {faqs.map((faq, idx) => (
@@ -128,6 +111,7 @@ const FAQ = () => (
       ))}
     </Box>
   </Box>
-);
+  );
+  }
 
 export default FAQ;

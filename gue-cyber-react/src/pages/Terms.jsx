@@ -1,8 +1,10 @@
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "react-router-dom";
 
 export default function Terms() {
+  const { t } = useTranslation();
   const termsBlocks = [
     {
       title: "Acceptance and scope",
@@ -14,11 +16,11 @@ export default function Terms() {
     },
     {
       title: "Intellectual property",
-      text: "All platform content, brand materials, and service assets are owned by GUE Cyber Limited or our licensors, unless otherwise stated in writing.",
+      text: "All platform content, brand materials, and service assets are owned by Gue Cyber or our licensors, unless otherwise stated in writing.",
     },
     {
       title: "Liability and disclaimers",
-      text: "To the extent permitted by law, GUE Cyber is not liable for indirect or consequential losses including data loss, business interruption, or third-party actions.",
+      text: "To the extent permitted by law, Gue Cyber is not liable for indirect or consequential losses including data loss, business interruption, or third-party actions.",
     },
     {
       title: "Changes to terms",
@@ -26,7 +28,11 @@ export default function Terms() {
     },
     {
       title: "Governing law",
-      text: "These terms are governed by applicable laws of Nigeria, subject to mandatory protections available in other jurisdictions where required.",
+      text: "These terms are governed by applicable international law and regulations of the jurisdictions where services are provided, subject to mandatory protections available in all applicable jurisdictions.",
+    },
+    {
+      title: "Form submissions and privacy",
+      text: "When you submit contact or newsletter details, you confirm that the information is accurate and acknowledge our Privacy Policy. We process those details only for the purposes described there.",
     },
   ];
 
@@ -48,14 +54,13 @@ export default function Terms() {
         />
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1, textAlign: "center" }}>
           <Typography sx={{ color: "var(--accent)", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", fontSize: "0.78rem", mb: 2 }}>
-            Legal
+            {t('legal.legal')}
           </Typography>
           <Typography variant="h1" sx={{ fontSize: { xs: "2.5rem", sm: "3.8rem", md: "4.8rem" }, lineHeight: 1.03, mb: 2.2 }}>
-            Terms of Service
+            {t('legal.terms')}
           </Typography>
           <Typography sx={{ color: "#475569", maxWidth: 760, mx: "auto", fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 1.65 }}>
-            These terms define how our services may be used and describe important rights and responsibilities for clients,
-            users, and partners engaging with GUE Cyber Limited.
+            {t('legal.termsDescription')}
           </Typography>
         </Container>
       </Box>

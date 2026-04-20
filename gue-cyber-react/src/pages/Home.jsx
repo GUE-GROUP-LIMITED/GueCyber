@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Box, Button, Chip, Container, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -76,6 +77,7 @@ function SolutionIcon({ type }) {
 }
 
 export default function Home() {
+  const { t } = useTranslation();
   const sectionY = { xs: 9, md: 13 };
   const limePanelRadius = { xs: 4, md: 5 };
   const limePanelPadding = { xs: 2.5, md: 6 };
@@ -83,55 +85,36 @@ export default function Home() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   const capabilityCards = [
-    {
-      icon: "cyber",
-      title: "Cybersecurity Services",
-      text: "Assessment, hardening, monitoring, incident readiness, and governance support for resilient operations.",
-    },
-    {
-      icon: "cloud",
-      title: "Cloud and DevOps Solutions",
-      text: "Cloud architecture, deployment automation, and secure DevOps workflows for scalable delivery.",
-    },
-    {
-      icon: "software",
-      title: "Software and Web Development",
-      text: "Business software, web platforms, and intranet systems tailored to operational and growth needs.",
-    },
-    {
-      icon: "enablement",
-      title: "IT Consulting and Enablement",
-      text: "Technical support, enterprise IT training, and tech procurement to strengthen day-to-day capability.",
-    },
+    { icon: "cyber", titleKey: "capability1.title", textKey: "capability1.text" },
+    { icon: "cloud", titleKey: "capability2.title", textKey: "capability2.text" },
+    { icon: "software", titleKey: "capability3.title", textKey: "capability3.text" },
+    { icon: "enablement", titleKey: "capability4.title", textKey: "capability4.text" },
   ];
 
   const trustStats = [
-    { value: "2010", label: "Business Roots in" },
-    { value: "2025", label: "LLC Registered" },
-    { value: "RC 8341363", label: "Corporate Registration" },
-    { value: "8+", label: "Core IT and Cyber Service Lines" },
+    { value: "2010", labelKey: "stat1" },
+    { value: "Global", labelKey: "stat2" },
+    { value: "3", labelKey: "stat3" },
+    { value: "8+", labelKey: "stat4" },
   ];
 
   const testimonials = [
     {
-      name: "Infrastructure Program Lead",
-      role: "Enterprise Client",
-      quote:
-        "GUE Cyber helped us reduce platform risk while improving release speed. Their security and DevOps guidance was practical and immediately useful.",
+      quoteKey: "testimonial1.text",
+      nameKey: "testimonial1.author",
+      roleKey: "testimonial1.author",
       image: "/img/gue (4).jpg",
     },
     {
-      name: "Operations Director",
-      role: "Business Services Group",
-      quote:
-        "From architecture planning to implementation support, the team delivered clear direction and measurable improvements across our digital operations.",
-      image: "/img/gue (2).jpg",
+      quoteKey: "testimonial2.text",
+      nameKey: "testimonial2.author",
+      roleKey: "testimonial2.author",
+      image: "/img/gue (6).jpg",
     },
     {
-      name: "Technology Manager",
-      role: "Regional Organization",
-      quote:
-        "Their blend of cybersecurity, software, and cloud expertise gave us one reliable partner for modernization and resilience.",
+      quoteKey: "testimonial1.text",
+      nameKey: "testimonial1.author",
+      roleKey: "testimonial1.author",
       image: "/img/gue (5).jpg",
     },
   ];
@@ -193,7 +176,7 @@ export default function Home() {
 
         <Container maxWidth="md" sx={{ position: "relative", zIndex: 2, textAlign: "center" }}>
           <Chip
-            label="Cyber Business and Technology"
+            label={t('home.hero.subtitle')}
             sx={{ mb: 3, bgcolor: "rgba(163,230,53,0.2)", color: "#d9f99d", fontWeight: 700 }}
           />
           <Typography
@@ -207,10 +190,10 @@ export default function Home() {
             }}
           >
             <Box component="span" sx={{ display: "inline" }}>
-              Building resilient businesses through
+              {t('home.hero.title')}
             </Box>{" "}
             <Box component="span" sx={{ display: { xs: "inline", md: "block" } }}>
-              cyber and technology services
+              {t('home.hero.subtitle')}
             </Box>
           </Typography>
           <Typography
@@ -222,8 +205,7 @@ export default function Home() {
               mb: 4.8,
             }}
           >
-            GUE Cyber Limited delivers cybersecurity, software development, web and intranet systems, cloud and DevOps solutions,
-            enterprise IT training, technical support, and tech procurement.
+            {t('home.description')}
           </Typography>
           <Button
             component={Link}
@@ -241,7 +223,7 @@ export default function Home() {
               "&:hover": { bgcolor: "#bef264" },
             }}
           >
-            See our solutions
+            {t('common.contactUs')}
           </Button>
         </Container>
       </Box>
@@ -255,7 +237,7 @@ export default function Home() {
                   <Typography sx={{ fontSize: { xs: "2.2rem", md: "3rem" }, fontWeight: 800, color: "var(--primary)", mb: 1.2 }}>
                     {item.value}
                   </Typography>
-                  <Typography sx={{ color: "#4b5563", fontSize: { xs: "0.98rem", md: "1.05rem" } }}>{item.label}</Typography>
+                  <Typography sx={{ color: "#4b5563", fontSize: { xs: "0.98rem", md: "1.05rem" } }}>{t(`home.${item.labelKey}`)}</Typography>
                 </Box>
               </Grid>
             ))}
@@ -276,7 +258,7 @@ export default function Home() {
           >
             <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 3 }}>
               <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: "#022c22" }} />
-              <Typography sx={{ fontSize: "0.9rem", fontWeight: 700, color: "#052e2b" }}>Solutions</Typography>
+              <Typography sx={{ fontSize: "0.9rem", fontWeight: 700, color: "#052e2b" }}>{t('common.services')}</Typography>
             </Box>
             <Box sx={{ borderTop: "1px solid rgba(4,47,46,0.32)", pt: { xs: 4.5, md: 7.5 } }}>
               <Typography
@@ -289,7 +271,7 @@ export default function Home() {
                   mb: { xs: 7, md: 11 },
                 }}
               >
-                Key to resilient digital growth
+                {t('home.cta.title')}
               </Typography>
 
               <Grid container spacing={{ xs: 4.5, md: 8 }}>
@@ -297,10 +279,10 @@ export default function Home() {
                   <Grid item xs={12} sm={6} key={item.title}>
                     <Box>
                       <SolutionIcon type={item.icon} />
-                      <Typography variant="h5" sx={{ mt: 3, mb: 1.2, fontWeight: 800, color: "#052e2b", fontSize: { xs: "1.75rem", md: "2rem" } }}>
-                        {item.title}
-                      </Typography>
-                      <Typography sx={{ color: "#10403d", mb: 2.6 }}>{item.text}</Typography>
+                  <Typography variant="h5" sx={{ mt: 3, mb: 1.2, fontWeight: 800, color: "#052e2b", fontSize: { xs: "1.75rem", md: "2rem" } }}>
+                    {t(`home.${item.titleKey}`)}
+                  </Typography>
+                  <Typography sx={{ color: "#10403d", mb: 2.6 }}>{t(`home.${item.textKey}`)}</Typography>
                       <Button
                         component={Link}
                         to="/services"
@@ -314,7 +296,7 @@ export default function Home() {
                           "&:hover": { background: "transparent", color: "#0f172a" },
                         }}
                       >
-                        Read more
+                        {t('common.readMore')}
                       </Button>
                     </Box>
                   </Grid>
@@ -330,14 +312,14 @@ export default function Home() {
           <Box sx={{ maxWidth: 980, mx: "auto", textAlign: "center", mb: { xs: 6, md: 9 } }}>
             <Typography variant="h2" sx={{ fontSize: { xs: "2.25rem", md: "3.8rem" }, mb: 2.2, lineHeight: 1.06 }}>
               <Box component="span" sx={{ display: "inline" }}>
-                Our commitment is to build secure
+                {t('home.cta.description')}
               </Box>{" "}
               <Box component="span" sx={{ display: { xs: "inline", md: "block" } }}>
-                and efficient digital businesses.
+                {t('common.services')}
               </Box>
             </Typography>
             <Typography sx={{ color: "var(--text-muted)", maxWidth: 820, mx: "auto", mb: 4 }}>
-              From cybersecurity to software and infrastructure services, we partner with organizations to solve real business and technology challenges.
+              {t('home.faqIntro')}
             </Typography>
             <Button
               component={Link}
@@ -354,7 +336,7 @@ export default function Home() {
                 "&:hover": { bgcolor: "#064e3b" },
               }}
             >
-              Get in touch
+              {t('common.contactUs')}
             </Button>
           </Box>
 
@@ -369,12 +351,12 @@ export default function Home() {
               "&::-webkit-scrollbar-thumb": { backgroundColor: "rgba(15,23,42,0.18)", borderRadius: 999 },
             }}
           >
-            {["/img/gue (4).jpg", "/img/gue (2).jpg", "/img/gue (5).jpg", "/img/gue (4).jpg"].map((img, index) => (
+            {["/img/gue (4).jpg", "/img/gue (6).jpg", "/img/gue (5).jpg", "/img/gue (4).jpg"].map((img, index) => (
               <Box
                 key={`${img}-${index}`}
                 component="img"
                 src={img}
-                alt={`GUE commitment visual ${index + 1}`}
+                alt={t(`common.companyName`)}
                 sx={{
                   minWidth: { xs: 240, sm: 320, md: 360 },
                   width: { xs: 240, sm: 320, md: 360 },
@@ -393,10 +375,10 @@ export default function Home() {
         <Container maxWidth="lg">
           <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
             <Typography variant="h2" sx={{ fontSize: { xs: "2rem", md: "3.2rem" }, mb: 1.5 }}>
-              Frequently Asked Questions
+              {t('home.faqTitle')}
             </Typography>
             <Typography sx={{ color: "var(--text-muted)", maxWidth: 700, mx: "auto" }}>
-              Here you will find clear answers to common questions about our services and delivery approach.
+              {t('home.faqDescription')}
             </Typography>
           </Box>
           <FAQ />
@@ -419,10 +401,10 @@ export default function Home() {
             <Grid item xs={12} md={6}>
               <Box sx={{ maxWidth: 560 }}>
                 <Typography sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, lineHeight: 1.35, mb: 3.5, color: "#0f172a", fontWeight: 500 }}>
-                  "{testimonials[activeTestimonial].quote}"
+                  "{t(`home.${testimonials[activeTestimonial].quoteKey}`)}"
                 </Typography>
-                <Typography sx={{ fontWeight: 800, color: "#052e2b" }}>{testimonials[activeTestimonial].name}</Typography>
-                <Typography sx={{ color: "#6b7280", mb: 4 }}>{testimonials[activeTestimonial].role}</Typography>
+                <Typography sx={{ fontWeight: 800, color: "#052e2b" }}>{t(`home.${testimonials[activeTestimonial].nameKey}`)}</Typography>
+                <Typography sx={{ color: "#6b7280", mb: 4 }}>{t(`home.${testimonials[activeTestimonial].roleKey}`)}</Typography>
                 <Box sx={{ display: "flex", gap: 1.2 }}>
                   <Button
                     onClick={previousTestimonial}
@@ -491,10 +473,10 @@ export default function Home() {
             <Grid container spacing={3} alignItems="center" sx={{ position: "relative", zIndex: 1 }}>
               <Grid item xs={12} md={8}>
                 <Typography variant="h2" sx={{ color: "#fff", fontSize: { xs: "2rem", md: "2.9rem" }, mb: 1.5, lineHeight: 1.08 }}>
-                  Ready to strengthen your business technology foundation?
+                  {t('home.cta.title')}
                 </Typography>
                 <Typography sx={{ color: "rgba(226,232,240,0.84)", maxWidth: 760 }}>
-                  Speak with our team to design a practical roadmap across cyber, software, cloud, and IT operations.
+                  {t('home.cta.description')}
                 </Typography>
               </Grid>
               <Grid item xs={12} md={4} sx={{ textAlign: { xs: "left", md: "right" } }}>

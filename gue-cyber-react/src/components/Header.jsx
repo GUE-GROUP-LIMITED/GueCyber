@@ -1,16 +1,17 @@
 import logo from "../assets/logo.webp";
 import { useState, useEffect } from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { IconButton, Drawer, List, ListItemButton, ListItemText, Box, Button, Stack } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const location = useLocation();
-    const isHome = location.pathname === "/";
-    const faunaHeroMode = isHome && !scrolled;
+    const { t } = useTranslation();
+    const faunaHeroMode = !scrolled;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,11 +22,10 @@ export default function Header() {
     }, []);
 
     const navLinks = [
-        { to: "/", label: "Home" },
-        { to: "/about", label: "About" },
-        { to: "/services", label: "Services" },
-        { to: "/blog", label: "Projects & Cases" },
-        { to: "/contact", label: "Contact" },
+        { to: "/", label: t('common.home') },
+        { to: "/about", label: t('common.about') },
+        { to: "/services", label: t('common.services') },
+        { to: "/contact", label: t('common.contact') },
     ];
 
     const navLinkStyle = ({ isActive }) => ({
@@ -43,7 +43,7 @@ export default function Header() {
     return (
         <header>
             <Box component="nav" sx={{
-                background: faunaHeroMode ? 'transparent' : '#ffffff',
+                background: faunaHeroMode ? '#022c22' : '#ffffff',
                 backdropFilter: faunaHeroMode ? 'blur(16px)' : 'none',
                 WebkitBackdropFilter: faunaHeroMode ? 'blur(16px)' : 'none',
                 position: 'fixed',
@@ -58,17 +58,57 @@ export default function Header() {
                 borderBottom: faunaHeroMode ? '1px solid transparent' : '1px solid var(--border)',
                 boxShadow: faunaHeroMode ? 'none' : 'none',
             }}>
-                <Box sx={{ width: '100%', maxWidth: 1240, mx: 'auto', px: { xs: 3, md: 5, lg: 6 }, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <Box
+                    component="img"
+                    src="/images/header-bg-waves.png"
+                    alt=""
+                    aria-hidden="true"
+                    loading="eager"
+                    decoding="async"
+                    sx={{
+                        position: 'absolute',
+                        inset: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                        opacity: faunaHeroMode ? 0.5 : 0.42,
+                        pointerEvents: 'none',
+                        zIndex: 0,
+                    }}
+                />
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: faunaHeroMode
+                            ? 'linear-gradient(180deg, rgba(2,44,34,0.46) 0%, rgba(2,44,34,0.68) 100%)'
+                            : 'linear-gradient(180deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.48) 100%)',
+                        zIndex: 0,
+                    }}
+                />
+                <Box sx={{ width: '100%', maxWidth: 1240, mx: 'auto', px: { xs: 3, md: 5, lg: 6 }, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative', zIndex: 1 }}>
 
                     {/* Brand */}
                     <Box component={Link} to="/" sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1.2, md: 2 }, textDecoration: 'none' }}>
-                        <Box component="img" src={logo} alt="GUE Cyber" loading="eager" decoding="async" fetchPriority="high" sx={{ height: { xs: 36, md: 46, lg: 50 }, width: 'auto' }} />
+                        <Box
+                            sx={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                borderRadius: '12px',
+                                px: { xs: 0.7, md: 0.9 },
+                                py: { xs: 0.35, md: 0.45 },
+                                background: faunaHeroMode ? 'transparent' : '#022c22',
+                                boxShadow: faunaHeroMode ? 'none' : '0 8px 16px rgba(2,44,34,0.18)',
+                                transition: 'all 0.25s ease',
+                            }}
+                        >
+                            <Box component="img" src={logo} alt="Gue Cyber" loading="eager" decoding="async" fetchPriority="high" sx={{ height: { xs: 36, md: 46, lg: 50 }, width: 'auto', display: 'block' }} />
+                        </Box>
                         <Box sx={{ display: 'flex', flexDirection: 'column', lineHeight: 1.05 }}>
                             <Box component="span" sx={{ color: faunaHeroMode ? '#f8fafc' : 'var(--primary)', fontWeight: 800, fontSize: { xs: '0.78rem', md: '0.95rem' }, letterSpacing: '0.04em' }}>
-                                GUE CYBER
-                            </Box>
-                            <Box component="span" sx={{ display: { xs: 'none', sm: 'block' }, color: faunaHeroMode ? 'rgba(226,232,240,0.82)' : '#64748b', fontWeight: 600, fontSize: { xs: '0.64rem', md: '0.72rem' }, letterSpacing: '0.1em' }}>
-                                LIMITED
+                                {t('header.brand')}
                             </Box>
                         </Box>
                     </Box>
@@ -96,8 +136,9 @@ export default function Header() {
                         ))}
                     </Stack>
 
-                    {/* Desktop CTA */}
-                    <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                    {/* Desktop CTA & Language Switcher */}
+                    <Stack direction="row" spacing={1} sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
+                        <LanguageSwitcher scrolled={scrolled} faunaHeroMode={faunaHeroMode} />
                         <Button
                             component={Link} to="/contact"
                             variant="contained"
@@ -114,9 +155,9 @@ export default function Header() {
                                 '&:hover': { background: 'var(--accent)', boxShadow: 'var(--shadow-md)' }
                             }}
                         >
-                            Get in touch
+                               {t('common.contactUs')}
                         </Button>
-                    </Box>
+                    </Stack>
 
                     {/* Mobile Menu Button */}
                     <IconButton
@@ -142,13 +183,23 @@ export default function Header() {
                 >
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                            <Box component="img" src={logo} alt="GUE Cyber logo" loading="lazy" decoding="async" sx={{ height: 40 }} />
+                            <Box
+                                sx={{
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    borderRadius: '10px',
+                                    px: 0.65,
+                                    py: 0.35,
+                                    background: '#022c22',
+                                    boxShadow: '0 8px 16px rgba(2,44,34,0.16)',
+                                }}
+                            >
+                                <Box component="img" src={logo} alt="Gue Cyber logo" loading="lazy" decoding="async" sx={{ height: 40, display: 'block' }} />
+                            </Box>
                             <Box sx={{ display: 'flex', flexDirection: 'column', lineHeight: 1.05 }}>
                                 <Box component="span" sx={{ color: 'var(--primary)', fontWeight: 800, fontSize: '0.88rem', letterSpacing: '0.04em' }}>
                                     GUE CYBER
-                                </Box>
-                                <Box component="span" sx={{ color: '#64748b', fontWeight: 600, fontSize: '0.68rem', letterSpacing: '0.1em' }}>
-                                    LIMITED
                                 </Box>
                             </Box>
                         </Box>
