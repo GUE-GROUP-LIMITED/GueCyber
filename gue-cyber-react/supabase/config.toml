@@ -1,0 +1,8 @@
+# Supabase Project Configuration
+project_id = "punsyovoraatcsigqpuj"
+
+[functions.send-application-ack]
+verify_jwt = false
+
+[functions.send-newsletter-ack]
+verify_jwt = false
