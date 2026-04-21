@@ -207,6 +207,9 @@ export default function Header() {
                             <CloseIcon />
                         </IconButton>
                     </Box>
+                        <Box sx={{ display: { xs: 'block', md: 'none' }, mb: 3 }}>
+                            <LanguageSwitcher scrolled={scrolled} faunaHeroMode={false} compact />
+                        </Box>
                     <List sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                         {navLinks.map((link) => (
                             <ListItemButton

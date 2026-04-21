@@ -7,6 +7,22 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { supabase } from "../lib/supabase";
+
+async function sendNewsletterAcknowledgment(email) {
+    const functionName = import.meta.env.VITE_SUPABASE_NEWSLETTER_ACK_FUNCTION_NAME || "send-newsletter-ack";
+
+    const { error } = await supabase.functions.invoke(functionName, {
+        body: {
+            email,
+            subscribedAt: new Date().toISOString(),
+        },
+    });
+
+    if (error) {
+        throw error;
+    }
+}
 
 export default function Footer() {
     const { t } = useTranslation();
@@ -15,8 +31,9 @@ export default function Footer() {
     const [newsletterConsent, setNewsletterConsent] = useState(false);
     const [newsletterError, setNewsletterError] = useState("");
     const [newsletterMessage, setNewsletterMessage] = useState("");
+    const [newsletterLoading, setNewsletterLoading] = useState(false);
 
-    const handleNewsletterSubmit = (event) => {
+    const handleNewsletterSubmit = async (event) => {
         event.preventDefault();
 
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -39,10 +56,46 @@ export default function Footer() {
             return;
         }
 
+        setNewsletterLoading(true);
         setNewsletterError("");
-        setNewsletterMessage(t('footer.form.successMessage'));
-        setNewsletterEmail("");
-        setNewsletterConsent(false);
+        setNewsletterMessage("");
+
+        try {
+            const { error } = await supabase
+                .from('subscribers')
+                .insert([
+                    {
+                        email: newsletterEmail.trim(),
+                        consented: true,
+                        subscribed: true,
+                        created_at: new Date().toISOString(),
+                    }
+                ]);
+
+            if (error) {
+                if (error.code === '23505') {
+                    setNewsletterError(t('footer.form.alreadySubscribed'));
+                } else {
+                    setNewsletterError(t('footer.form.submitFailed'));
+                }
+                return;
+            }
+
+            setNewsletterError("");
+            setNewsletterMessage(t('footer.form.successMessage'));
+            setNewsletterEmail("");
+            setNewsletterConsent(false);
+
+            try {
+                await sendNewsletterAcknowledgment(newsletterEmail.trim().toLowerCase());
+            } catch (ackError) {
+                console.warn("Newsletter subscription saved but acknowledgment email failed.", ackError);
+            }
+        } catch (err) {
+            setNewsletterError(t('footer.form.unexpectedError'));
+        } finally {
+            setNewsletterLoading(false);
+        }
     };
 
     const sections = [
@@ -230,16 +283,19 @@ export default function Footer() {
                                 type="submit"
                                 variant="contained"
                                 aria-label="Subscribe newsletter"
+                                disabled={newsletterLoading}
                                 sx={{
                                     bgcolor: '#a3e635',
                                     color: '#052e2b',
                                     fontWeight: 800,
                                     minHeight: 48,
                                     py: 0,
-                                    '&:hover': { bgcolor: '#bef264' }
+                                    opacity: newsletterLoading ? 0.7 : 1,
+                                    cursor: newsletterLoading ? 'not-allowed' : 'pointer',
+                                    '&:hover': { bgcolor: newsletterLoading ? '#a3e635' : '#bef264' }
                                 }}
                             >
-                                {t('common.subscribe')}
+                                {newsletterLoading ? t('footer.form.submitting') : t('common.subscribe')}
                             </Button>
                             {newsletterMessage ? (
                                 <Typography sx={{ color: '#bbf7d0', fontSize: '0.86rem', lineHeight: 1.55 }}>

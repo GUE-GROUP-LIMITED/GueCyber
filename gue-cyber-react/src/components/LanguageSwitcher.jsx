@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Box, Menu, MenuItem, Button } from '@mui/material';
 import { useState } from 'react';
+import LanguageIcon from '@mui/icons-material/Language';
 
-export default function LanguageSwitcher({ scrolled, faunaHeroMode }) {
+export default function LanguageSwitcher({ scrolled, faunaHeroMode, compact = false, buttonSx = {} }) {
   const { i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -30,17 +31,25 @@ export default function LanguageSwitcher({ scrolled, faunaHeroMode }) {
   return (
     <Box>
       <Button
+        aria-label="Change language"
+        startIcon={<LanguageIcon sx={{ fontSize: compact ? 16 : 18 }} />}
         onClick={handleClick}
         sx={{
           color: faunaHeroMode ? '#f8fafc' : 'var(--primary)',
           fontWeight: 600,
-          fontSize: '0.85rem',
+          fontSize: compact ? '0.82rem' : '0.85rem',
           textTransform: 'uppercase',
-          padding: '8px 12px',
+          padding: compact ? '10px 14px' : '8px 12px',
+          minWidth: compact ? 112 : 'auto',
+          justifyContent: 'space-between',
+          gap: compact ? 0.5 : 0.75,
+          borderRadius: compact ? '14px' : '10px',
+          border: compact ? '1px solid var(--border)' : 'none',
           backgroundColor: faunaHeroMode ? 'transparent' : 'transparent',
           '&:hover': {
             backgroundColor: faunaHeroMode ? 'rgba(255,255,255,0.1)' : 'rgba(2,44,34,0.08)',
           },
+          ...buttonSx,
         }}
       >
         {currentLanguage?.label || 'Language'}
